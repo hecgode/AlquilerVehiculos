@@ -12,7 +12,6 @@ public class Entrega {
     private Devolucion mDevolucion;
     private Empleado mEmpleado;
     private ArrayList<Danyo> mDanyo = new ArrayList<Danyo>();
-    private int prueba = 0;
 
     public Entrega (String fecha, String seguro,int km, int combustible) {
     	this.fecha=fecha;
