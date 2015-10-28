@@ -14,7 +14,7 @@ private int km;
 private int combustible;
 
         public Devolucion(String fecha, int totalacobrar, int cobrado, int km, int combustible, Empleado mEmpleado,
-		Entrega mEntrega, ArrayList<Daño> mDaño) {
+		Entrega mEntrega, ArrayList<Danyo> mDanyo) {
 	super();
 	this.fecha = fecha;
 	this.totalacobrar = totalacobrar;
@@ -23,7 +23,7 @@ private int combustible;
 	this.combustible = combustible;
 	this.mEmpleado = mEmpleado;
 	this.mEntrega = mEntrega;
-	this.mDaño=mDaño;
+	this.mDanyo=mDanyo;
 }
 
 		private Empleado mEmpleado;
@@ -31,7 +31,7 @@ private int combustible;
     private Entrega mEntrega;
 
 
-    private ArrayList<Daño> mDaño = new ArrayList<Daño>();
+    private ArrayList<Danyo> mDanyo = new ArrayList<Danyo>();
 
 
 

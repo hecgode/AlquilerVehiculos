@@ -12,8 +12,9 @@ public class Cliente {
     private String fechaCarnet;
     private int digitos;
    private int mes;
-    private int año;
-    private int cvc;
+    private int anyo;
+
+	private int cvc;
     private String tipo;
 
 
@@ -31,7 +32,7 @@ public class Cliente {
 
 
 	public Cliente(int idendificador, String nombreyApellidos, String direccion, String poblacion, int codPostal,
-			String fechaCarnet, int digitos, int mes, int año, int cvc, String tipo) {
+			String fechaCarnet, int digitos, int mes, int anyo, int cvc, String tipo) {
 		super();
 		this.idendificador = idendificador;
 		this.nombreyApellidos = nombreyApellidos;
@@ -41,7 +42,7 @@ public class Cliente {
 		this.fechaCarnet = fechaCarnet;
 		this.digitos = digitos;
 		this.mes = mes;
-		this.año=año;
+		this.anyo =anyo;
 		this.cvc = cvc;
 		this.tipo = tipo;
 	}
@@ -80,6 +81,15 @@ public class Cliente {
 	public String getPoblacion() {
 		return poblacion;
 	}
+	   public int getAnyo() {
+			return anyo;
+		}
+
+
+		public void setAnyo(int anyo) {
+			this.anyo = anyo;
+		}
+
 
 
 	public void setPoblacion(String poblacion) {
@@ -119,14 +129,6 @@ public class Cliente {
 
 
 
-	public int getAño() {
-		return año;
-	}
-
-
-	public void setAño(int año) {
-		this.año = año;
-	}
 
 
 	public int getCvc() {

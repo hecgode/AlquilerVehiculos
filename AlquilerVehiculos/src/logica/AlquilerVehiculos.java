@@ -31,7 +31,7 @@ public class AlquilerVehiculos {
     }
 
 
-    public void AñadirCliente(Cliente cliente) {
+    public void AnyadirCliente(Cliente cliente) {
        mCliente.add(cliente);
     }
 /*

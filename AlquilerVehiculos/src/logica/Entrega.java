@@ -11,7 +11,7 @@ public class Entrega {
     private Reserva mRerserva;
     private Devolucion mDevolucion;
     private Empleado mEmpleado;
-    private ArrayList<Daño> mDaño = new ArrayList<Daño>();
+    private ArrayList<Danyo> mDanyo = new ArrayList<Danyo>();
 
     public Entrega (String fecha, String seguro,int km, int combustible) {
     	this.fecha=fecha;

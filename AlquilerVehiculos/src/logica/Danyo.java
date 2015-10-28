@@ -1,12 +1,12 @@
 package logica;
 
 
-public class Daño {
+public class Danyo {
 
 
 private String zona;
 private String descripcion;
-    public Daño (String zona,String descripcion) {
+    public Danyo (String zona,String descripcion) {
     	this.zona=zona;
     	this.descripcion=descripcion;
     }
