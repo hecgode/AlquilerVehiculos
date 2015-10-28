@@ -1,0 +1,58 @@
+package logica;
+
+
+public class Reserva {
+	private int identificador;
+    private String fechaR;
+    private String fechaD;
+    private String modalidad;
+    private Cliente mCliente;
+    private Categoria mCategoria;
+     //private Entrega mEntrega;
+    private Sucursal mDevolucion;
+    private Sucursal mRegogida;
+
+
+
+
+    public Reserva(int identificador, String fechaR, String fechaD, String modalidad, Cliente mCliente,
+			Categoria mCategoria, Sucursal mDevolucion, Sucursal mRegogida) {
+		super();
+		this.identificador = identificador;
+		this.fechaR = fechaR;
+		this.fechaD = fechaD;
+		this.modalidad = modalidad;
+		this.mCliente = mCliente;
+		this.mCategoria = mCategoria;
+		this.mDevolucion = mDevolucion;
+		this.mRegogida = mRegogida;
+	}
+
+	public String getFechaR() {
+        return fechaR;
+    }
+
+    public void setFechaR(String fechaR) {
+        this.fechaR = fechaR;
+    }
+
+    public String getFechaD() {
+        return fechaD;
+    }
+
+    public void setFechaD(String fechaD) {
+        this.fechaD = fechaD;
+    }
+
+    public String getModalidad() {
+        return modalidad;
+    }
+
+    public void setModalidad(String modalidad) {
+        this.modalidad = modalidad;
+    }
+
+
+
+}
+
