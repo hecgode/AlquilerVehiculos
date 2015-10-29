@@ -2,9 +2,8 @@ package logica;
 
 import java.util.*;
 /********Trabajo zaquiel*********************/
-
-
-
+/*azassadsadsa//
+/*/
 public class AlquilerVehiculos {
 
     private List<Cliente> mCliente = new ArrayList<Cliente>();
