@@ -1,7 +1,7 @@
 package logica;
 
 import java.util.*;
-/*****************************/
+/********Trabajo zaquiel*********************/
 
 
 
