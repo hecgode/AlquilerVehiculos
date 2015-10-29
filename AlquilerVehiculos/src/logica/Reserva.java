@@ -8,12 +8,6 @@ public class Reserva {
     private String modalidad;
     private Cliente mCliente;
 
-    // atributo de enlace
-    private Empleado refEmpleado;
-    private String num_reserva;
-    private String empleado;
-    // fin del atributo de enlace
-
     private Categoria mCategoria;
   private Entrega entrega;
 
