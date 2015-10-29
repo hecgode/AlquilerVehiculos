@@ -12,6 +12,7 @@ public class AlquilerVehiculos {
     private List<Categoria> mCategoria = new ArrayList <Categoria>();
     private List<Sucursal> mSucursal = new ArrayList <Sucursal>();
     private String hola = "Hola mundo";
+    private final int COUNT_MAX = 25;
 
     public AlquilerVehiculos(){
 
