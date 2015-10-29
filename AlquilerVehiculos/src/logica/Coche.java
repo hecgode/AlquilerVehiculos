@@ -3,11 +3,6 @@ package logica;
 
 public class Coche {
 
-	// atributo de enlace
-	private Empleado refEmpleado;
-	private String precio;
-	// fin del atributo de enlace
-
 	private int matricula;
 	private int km;
 
