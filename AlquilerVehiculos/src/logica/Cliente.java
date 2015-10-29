@@ -2,6 +2,8 @@ package logica;
 
 
 public class Cliente {
+
+
 	private int idendificador;
 
     private String nombreyApellidos;
@@ -15,7 +17,12 @@ public class Cliente {
     private int anyo;
 
 	private int cvc;
-    private String tipo;
+
+    //private String tipo;
+  //atributo de enlace
+  	private Reserva refReserva;
+  	private String tipo;
+  	////fin del atributo de enlace
 
 
 
