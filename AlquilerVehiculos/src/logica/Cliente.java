@@ -19,7 +19,10 @@ public class Cliente {
 	private int cvc;
 
     private String tipo;
+<<<<<<< HEAD
 
+=======
+>>>>>>> b69a131bea2c00d23484e4bab20127005d9eca60
 
 
 
