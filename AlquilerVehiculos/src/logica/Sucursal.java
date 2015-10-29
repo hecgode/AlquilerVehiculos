@@ -26,7 +26,7 @@ public class Sucursal {
 
     private ArrayList<Reserva> mDevolucion = new ArrayList<Reserva>();
     private ArrayList<Reserva> mReserva = new ArrayList<Reserva>();
-;
+
     public Sucursal(int identificador ,String direccion) {
     	this.direccion=direccion;
     	this.identificador=identificador;

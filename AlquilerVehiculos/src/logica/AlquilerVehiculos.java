@@ -34,20 +34,41 @@ public class AlquilerVehiculos {
     public void AnyadirCliente(Cliente cliente) {
        mCliente.add(cliente);
     }
-/*
 
-    public void creaReserva (int identificador, String fechar, String fechad  )
+
+    public void creaReserva (int identificador, String fechar, String fechad , int idSucursalr, int idSucursald,String nombreCategoria, String mAlquiler )
     {
-    	Cliente cliente;
-    	/buscar al cliente
+    	boolean sucursal1 = false;
+    	boolean sucursal2 = false;
+
+    	Cliente cliente = mCliente.get(0);
+    	Categoria categoria = mCategoria.get(0);
+    	Sucursal sucursalr = mSucursal.get(0);
+    	Sucursal sucursald = mSucursal.get(0);
     for (int i=0 ; i<mCliente.size();i++)
+    {
     	if (mCliente.get(i).getIdendificador()==identificador)
-    		cliente=mCliente.get(i);
-    mSucursal/
-
-
+    		{cliente=mCliente.get(i);break;}
     }
-*/
+    for (int i=0 ; i<mCategoria.size();i++)
+    {
+    	if (mCategoria.get(i).getNombre()==nombreCategoria)
+    		{categoria=mCategoria.get(i);break;}
+    }
+    for (int i=0 ; i<mSucursal.size();i++)
+    {
+    	if (mSucursal.get(i).getIdentificador()==idSucursalr)
+    		{sucursalr=mSucursal.get(i);sucursal1=true;}
+    	if (mSucursal.get(i).getIdentificador()==idSucursald)
+    		{sucursald=mSucursal.get(i);sucursal2=true;}
+    	if(sucursal1 ==true && sucursal2 == true){break;}
+    }
+
+
+
+	Reserva reserva = new Reserva(identificador, fechar,fechad, nombreCategoria,cliente,categoria,sucursalr,sucursald);
+    }
+
 
 
 
