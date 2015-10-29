@@ -18,12 +18,7 @@ public class Cliente {
 
 	private int cvc;
 
-    //private String tipo;
-  //atributo de enlace
-  	private Reserva refReserva;
-  	private String tipo;
-  	////fin del atributo de enlace
-
+    private String tipo;
 
 
 
