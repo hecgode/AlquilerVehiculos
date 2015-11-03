@@ -19,18 +19,20 @@ public class AlquilerVehiculos {
 
 
 
-    public AlquilerVehiculos()  throws DAOExcepcion {
-    	this.dal = DAL.dameDAL();
-    	CargarSistema1();
+    public AlquilerVehiculos() /* throws DAOExcepcion */{
+    	 CargarSistema();
+
+    	/*this.dal = DAL.dameDAL();
+    	CargarSistema1();*/
 	}
 
-
+/*
 
 private void CargarSistema1() {
 	cargaCategorias1();
 
-}
-
+}9*/
+/*
 private void cargaCategorias1() {
 
 	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
@@ -62,7 +64,7 @@ private Categoria buscarCategoria(String nombreCategoriaSuperior) {
 
 }
 
-
+*/
 
 
 
