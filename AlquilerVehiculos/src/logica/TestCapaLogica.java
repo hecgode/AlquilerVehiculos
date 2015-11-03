@@ -24,8 +24,8 @@ public class TestCapaLogica {
 			alquiler.AnyadirCliente(cli2);
 			reserva1.setEntrega(null);
 			reserva2.setEntrega(null);
-			
-			System.out.print(i);
+
+
 
 
 
