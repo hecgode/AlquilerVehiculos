@@ -1,9 +1,9 @@
 package logica;
 
 import java.util.*;
-import excepciones.*;
-import persistencia.DAL;
-import persistencia.dto.*;
+//import excepciones.*;
+//import persistencia.DAL;
+//import persistencia.dto.*;
 
 
 public class AlquilerVehiculos {
@@ -12,7 +12,7 @@ public class AlquilerVehiculos {
     private List<Reserva> mReserva= new ArrayList<Reserva>();
     private List<Categoria> mCategoria = new ArrayList <Categoria>();
     private List<Sucursal> mSucursal = new ArrayList <Sucursal>();
-	private DAL dal;
+	//private DAL dal;
 
 
 

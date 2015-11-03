@@ -1,11 +1,11 @@
 package logica;
 
-import excepciones.DAOExcepcion;
+//import excepciones.DAOExcepcion;
 
 public class TestCapaLogica {
 
 
-	public  static void main (String args) throws DAOExcepcion {
+	public  static void main (String[] args) /*throws DAOExcepcion*/ {
 		AlquilerVehiculos alquiler = new AlquilerVehiculos();
 		Cliente cli1= new Cliente(111, "Luis", "", "5678", 46018, "14/5/1989", 0, 0, 0, 0, "vISA");
 		Cliente cli2= new Cliente(1234, "Hrctpr", "", "5678", 46018, "14/5/1989", 0, 0, 0, 0, "vISA");
