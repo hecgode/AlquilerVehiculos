@@ -20,5 +20,13 @@ public class DAL {
 
 
 	}
+
+	//Patron Singleton
+		public static DAL dameDAL() throws DAOExcepcion{
+			if(dal==null)
+				dal=new DAL();
+			return dal;
+		}
+
 }
 

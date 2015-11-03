@@ -1,7 +1,9 @@
 package logica;
 
 import java.util.*;
-
+import excepciones.*;
+import persistencia.DAL;
+import persistencia.dto.*;
 
 
 public class AlquilerVehiculos {
@@ -10,10 +12,60 @@ public class AlquilerVehiculos {
     private List<Reserva> mReserva= new ArrayList<Reserva>();
     private List<Categoria> mCategoria = new ArrayList <Categoria>();
     private List<Sucursal> mSucursal = new ArrayList <Sucursal>();
+	private DAL dal;
 
-    public AlquilerVehiculos(){
 
-    }
+
+
+
+
+    public AlquilerVehiculos()  throws DAOExcepcion {
+    	this.dal = DAL.dameDAL();
+    	CargarSistema1();
+	}
+
+
+
+private void CargarSistema1() {
+	cargaCategorias1();
+
+}
+
+private void cargaCategorias1() {
+
+	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
+	// Crear y añadir todas las categorias a la colección
+	for (CategoriaDTO catDTO : listacatdto) {
+	añadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
+	catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros()));
+	}
+	// Actualizar los enlaces que representan la relación “superior”
+
+	for (CategoriaDTO catDTO : listacatdto)
+		if (catDTO.getNombreCategoriaSuperior() != null)
+		buscarCategoria(catDTO.getNombre()). setSuperior(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
+		}
+
+
+private Categoria buscarCategoria(String nombreCategoriaSuperior) {
+	Categoria cat = null;
+	boolean encontrado=false;
+	for (int i=0;i<mCategoria.size() && !encontrado;i++  )
+	{
+		if(mCategoria.get(i).getNombre().equals(nombreCategoriaSuperior)){
+			encontrado=true;
+			cat=mCategoria.get(i);
+
+		}
+	}
+	return cat;
+
+}
+
+
+
+
+
 
 
     public List<Reserva> listarReservas(String sucursal) {
@@ -32,6 +84,11 @@ public class AlquilerVehiculos {
 
     public void AnyadirCliente(Cliente cliente) {
        mCliente.add(cliente);
+    }
+
+    public void añadirCategoria(Categoria cat) {
+    	mCategoria.add(cat);
+
     }
 
 

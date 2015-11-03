@@ -4,10 +4,34 @@ import java.util.*;
 
 public class Categoria {
 	private String nombre;
-    private int precioIli;
-    private int preciokm;
+    private double precioIli;
+    private double preciokm;
     private double preciokmmodkm;
-    private double precioSeguroRiesgos;
+    public double getPrecioIli() {
+		return precioIli;
+	}
+
+
+
+	public void setPrecioIli(double precioIli) {
+		this.precioIli = precioIli;
+	}
+
+
+
+	public double getPreciokm() {
+		return preciokm;
+	}
+
+
+
+	public void setPreciokm(double preciokm) {
+		this.preciokm = preciokm;
+	}
+
+
+
+	private double precioSeguroRiesgos;
     private double precioSeguroTerceros;
 
     private Categoria catsup;
@@ -15,12 +39,12 @@ public class Categoria {
 
 
 
-    public Categoria(String nombre, int precioIli, int preciokm, double preciokmmodkm, double precioSeguroRiesgos,
+    public Categoria(String nombre, double d, double e, double preciokmmodkm, double precioSeguroRiesgos,
 			double precioSeguroTerceros) {
 		super();
 		this.nombre = nombre;
-		this.precioIli = precioIli;
-		this.preciokm = preciokm;
+		this.precioIli = d;
+		this.preciokm = e;
 		this.preciokmmodkm = preciokmmodkm;
 		this.precioSeguroRiesgos = precioSeguroRiesgos;
 		this.precioSeguroTerceros = precioSeguroTerceros;
@@ -41,10 +65,6 @@ public class Categoria {
 
 
 
-	public int getPrecioIli() {
-		return precioIli;
-	}
-
 
 
 	public void setPrecioIli(int precioIli) {
@@ -52,10 +72,6 @@ public class Categoria {
 	}
 
 
-
-	public int getPreciokm() {
-		return preciokm;
-	}
 
 
 
@@ -125,6 +141,13 @@ public class Categoria {
 
 	public void setCoches(ArrayList<Coche> coches) {
 		this.coches = coches;
+	}
+
+
+
+	public void setSuperior(Categoria buscarCategoria) {
+		// TODO Auto-generated method stub
+
 	}
 
 
