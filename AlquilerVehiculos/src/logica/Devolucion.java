@@ -32,6 +32,14 @@ private int combustible;
 
 
     private ArrayList<Danyo> mDanyo = new ArrayList<Danyo>();
+    
+    private void insertardanyo(Danyo da)
+    {
+    	mDanyo.add(da);
+    	
+    }
+    
+    
 
 
 
@@ -74,6 +82,9 @@ private int combustible;
     public void setCombustible(int combustible) {
         this.combustible = combustible;
     }
+    
+    
+    
 
 
 }

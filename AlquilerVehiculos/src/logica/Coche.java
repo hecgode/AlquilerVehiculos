@@ -4,32 +4,33 @@ package logica;
 public class Coche {
 
 
-	private int matricula;
+	private String matricula;
 	private int km;
 
-	 private Sucursal mSucursal;
+	 public String getMatricula() {
+		return matricula;
+	}
 
-	 public Coche (int matricula, int km) {
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public int getKm() {
+		return km;
+	}
+
+	public void setKm(int km) {
+		this.km = km;
+	}
+
+	private Sucursal mSucursal;
+
+	 public Coche (String matricula, int km) {
 		 this.matricula=matricula;
 		 this.km=km;
 	 }
 
 
-    public int getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
-    }
-
-    public int getKm() {
-        return km;
-    }
-
-    public void setKm(int km) {
-        this.km = km;
-    }
 
 
 

@@ -143,10 +143,29 @@ public class Categoria {
 		this.coches = coches;
 	}
 
+	public void insertarcoche( Coche coche)
+	{
+		coches.add(coche);
+
+	}
+
+	public Coche buscar(String matricula) {
+		Coche co=null,aux;
+		for (int i=0;i<coches.size();i++)
+		{
+			aux=coches.get(i);
+			if (aux.getMatricula().equals(matricula))
+				co=aux;
+
+		}
+		return co;
 
 
-	public void setSuperior(Categoria buscarCategoria) {
-		// TODO Auto-generated method stub
+
+
+	}
+
+
 
 	}
 
@@ -154,5 +173,5 @@ public class Categoria {
 
 
 
-}
+
 
