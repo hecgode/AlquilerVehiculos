@@ -36,25 +36,25 @@ private void CargarSistema1() {
 private void cargaCategorias1() {
 
 	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
-	// Crear y añadir todas las categorias a la colección
+	// Crear y aï¿½adir todas las categorias a la colecciï¿½n
 	for (CategoriaDTO catDTO : listacatdto) {
-	añadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
+	aï¿½adirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
 	catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros()));
 	}
-	// Actualizar los enlaces que representan la relación “superior”
+	// Actualizar los enlaces que representan la relaciï¿½n ï¿½superiorï¿½
 
 	for (CategoriaDTO catDTO : listacatdto)
 		if (catDTO.getNombreCategoriaSuperior() != null)
 		buscarCategoria(catDTO.getNombre()). setSuperior(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
 		}
+*/
 
-
-private Categoria buscarCategoria(String nombreCategoriaSuperior) {
+public Categoria buscarCategoria(String nombreCategoria) {
 	Categoria cat = null;
 	boolean encontrado=false;
 	for (int i=0;i<mCategoria.size() && !encontrado;i++  )
 	{
-		if(mCategoria.get(i).getNombre().equals(nombreCategoriaSuperior)){
+		if(mCategoria.get(i).getNombre().equals(nombreCategoria)){
 			encontrado=true;
 			cat=mCategoria.get(i);
 
@@ -64,7 +64,23 @@ private Categoria buscarCategoria(String nombreCategoriaSuperior) {
 
 }
 
-*/
+public Sucursal buscarSucursal(int identificador) {
+	Sucursal suc = null;
+	boolean encontrado=false;
+	for (int i=0;i<mSucursal.size() && !encontrado;i++  )
+	{
+		if(mSucursal.get(i).getIdentificador()==identificador)
+		{
+				encontrado=true;
+			suc=mSucursal.get(i);
+
+		}
+	}
+	return suc;
+
+}
+
+
 
 
 
@@ -88,10 +104,13 @@ private Categoria buscarCategoria(String nombreCategoriaSuperior) {
        mCliente.add(cliente);
     }
 
-    public void añadirCategoria(Categoria cat) {
+    public void anyadirCategoria(Categoria cat) {
     	mCategoria.add(cat);
 
     }
+    
+    
+  
 
 
     public void creaReserva (int identificador, String fechar, String fechad , int idSucursalr, int idSucursald,String nombreCategoria, String mAlquiler )
@@ -168,8 +187,8 @@ private Categoria buscarCategoria(String nombreCategoriaSuperior) {
     	Sucursal suc2 = new Sucursal (2, "Archiduque");
     	mSucursal.add(suc1);
     	mSucursal.add(suc2);
-    	Categoria cat1 = new Categoria ("sedan",45,23,0.75,55.25,43.23);
-    	Categoria cat2 = new Categoria ("economty",48,27,0.85,75.25,55.23);
+    	Categoria cat1 = new Categoria ("cat1",45,23,0.75,55.25,43.23);
+    	Categoria cat2 = new Categoria ("cat2",48,27,0.85,75.25,55.23);
     	mCategoria.add(cat1);
     	mCategoria.add(cat2);
     	cat2.setCatsup(cat1);
