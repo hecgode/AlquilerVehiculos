@@ -13,16 +13,14 @@ public class DAL {
 
 	private DAL() throws DAOExcepcion{
 		catDAO = new CategoriaDAOImp();
-		
-		
+
+
 	}
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
 	public List<CategoriaDTO> obtenerCategorias() {
 		try {
 		return catDAO.obtenerCategorias();
@@ -32,15 +30,15 @@ public class DAL {
 
 
 	}
-	
-	
+
+	/*
 	public List<ClienteDTO> obtenerClientes() {
 		try {
 			return clientedao.
 		}
-		
-		
-	}
+
+
+	}*/
 
 	//Patron Singleton
 		public static DAL dameDAL() throws DAOExcepcion{
