@@ -36,12 +36,12 @@ private void CargarSistema1() {
 private void cargaCategorias1() {
 
 	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
-	// Crear y añadir todas las categorias a la colección
+	// Crear y aï¿½adir todas las categorias a la colecciï¿½n
 	for (CategoriaDTO catDTO : listacatdto) {
-	añadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
+	anyadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
 	catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros()));
 	}
-	// Actualizar los enlaces que representan la relación “superior”
+	// Actualizar los enlaces que representan la relaciï¿½n ï¿½superiorï¿½
 
 	for (CategoriaDTO catDTO : listacatdto)
 		if (catDTO.getNombreCategoriaSuperior() != null)
@@ -88,7 +88,7 @@ private Categoria buscarCategoria(String nombreCategoriaSuperior) {
        mCliente.add(cliente);
     }
 
-    public void añadirCategoria(Categoria cat) {
+    public void anyadirCategoria(Categoria cat) {
     	mCategoria.add(cat);
 
     }
