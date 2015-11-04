@@ -17,22 +17,20 @@ public class AlquilerVehiculos {
 
 
 
+   public AlquilerVehiculos()  throws DAOExcepcion {
+    	 //CargarSistema();
 
-
-    public AlquilerVehiculos() /* throws DAOExcepcion */{
-    	 CargarSistema();
-
-    	/*this.dal = DAL.dameDAL();
-    	CargarSistema1();*/
+    	this.dal = DAL.dameDAL();
+    	CargarSistema1();
 	}
 
-/*
+
 
 private void CargarSistema1() {
 	cargaCategorias1();
 
-}9*/
-/*
+}
+
 private void cargaCategorias1() {
 
 	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
@@ -48,7 +46,7 @@ private void cargaCategorias1() {
 		buscarCategoria(catDTO.getNombre()). setSuperior(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
 		}
 
-*/
+
 public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 	Categoria cat = null;
 	boolean encontrado=false;
@@ -162,7 +160,7 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     public void setmSucursal(ArrayList<Sucursal> mSucursal) {
         this.mSucursal = mSucursal;
     }
-
+/*
     private void CargarSistema()  {
     	Sucursal suc1 = new Sucursal(1, "Camino");
     	Sucursal suc2 = new Sucursal (2, "Archiduque");
@@ -181,7 +179,7 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 
 
 }
-
+*/
 	public Sucursal buscarSucursal(int identificador) {
 		
 	
