@@ -48,8 +48,8 @@ private void cargaCategorias1() {
 		buscarCategoria(catDTO.getNombre()). setSuperior(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
 		}
 
-
-private Categoria buscarCategoria(String nombreCategoriaSuperior) {
+*/
+public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 	Categoria cat = null;
 	boolean encontrado=false;
 	for (int i=0;i<mCategoria.size() && !encontrado;i++  )
@@ -64,7 +64,7 @@ private Categoria buscarCategoria(String nombreCategoriaSuperior) {
 
 }
 
-*/
+
 
 
 
@@ -182,11 +182,33 @@ private Categoria buscarCategoria(String nombreCategoriaSuperior) {
 
 }
 
+	public Sucursal buscarSucursal(int identificador) {
+		
+	
+	Sucursal suc = null;
+	boolean encontrado=false;
+	for (int i=0;i<mSucursal.size() && !encontrado;i++  )
+	{
+		if(mSucursal.get(i).getIdentificador()==identificador)
+		{
+				encontrado=true;
+			suc=mSucursal.get(i);
 
+		}
+	}
+	return suc;
 
-
-
+}	
+	
 
 
 }
+
+
+
+
+
+
+
+
 
