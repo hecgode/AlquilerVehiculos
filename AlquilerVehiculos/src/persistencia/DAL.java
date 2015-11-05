@@ -29,14 +29,14 @@ public class DAL {
 
 	}
 
-	
+	/*
 	public List<ClienteDTO> obtenerClientes() {
 		try {
 			return clientedao.
 		}
 
 
-	}
+	}*/
 
 	//Patron Singleton
 		public static DAL dameDAL() throws DAOExcepcion{
