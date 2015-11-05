@@ -11,6 +11,17 @@ import persistencia.dto.SucursalDTO;
 public class SucursalDAOImp implements ISucursalDAO {
 	protected ConnectionManager connManager;
 
+
+	public SucursalDAOImp() throws DAOExcepcion {
+		super();
+		try{
+			connManager= new ConnectionManager("alquilervehiculosBD");
+			}
+			catch (ClassNotFoundException e){
+				throw new DAOExcepcion(e);
+				}
+		}
+
 	public List<SucursalDTO> obtenerSucursales() throws DAOExcepcion {
 		try{
 			connManager.connect();
