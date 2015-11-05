@@ -47,6 +47,14 @@ private void cargaCategorias1() {
 		}
 
 
+
+
+
+
+
+
+
+
 public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 	Categoria cat = null;
 	boolean encontrado=false;

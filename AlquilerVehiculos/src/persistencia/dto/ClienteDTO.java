@@ -16,7 +16,7 @@ public class ClienteDTO {
 	private int cvcTC;
 	private String tipoTC;
 
-
+	
 
 	public int getAnyoTC() {
 		return anyoTC;
