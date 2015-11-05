@@ -1,5 +1,5 @@
 package persistencia.dto;
-
+/*AlquilerVehiculos*/
 public class SucursalDTO {
 	private int id;
 	private String direccion;

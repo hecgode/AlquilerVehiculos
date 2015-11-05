@@ -1,5 +1,5 @@
 package persistencia.dto;
-
+/*AlquilerVehiculos*/
 public class CategoriaDTO {
 	private String nombre;
 	private double precioModIlimitada;

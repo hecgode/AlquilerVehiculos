@@ -1,5 +1,5 @@
 package persistencia.dto;
-
+/*AlquilerVehiculos*/
 public class DanyoDTO {
 	private int id;
 	private String zona;

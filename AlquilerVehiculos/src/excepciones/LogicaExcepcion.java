@@ -1,5 +1,5 @@
 package excepciones;
-
+/*AlquilerVehiculos*/
 @SuppressWarnings("serial")
 public class LogicaExcepcion extends Exception {
 

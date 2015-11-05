@@ -1,6 +1,6 @@
 
 package logica;
-
+/*AlquilerVehiculos*/
 import excepciones.DAOExcepcion;
 
 //import excepciones.DAOExcepcion;

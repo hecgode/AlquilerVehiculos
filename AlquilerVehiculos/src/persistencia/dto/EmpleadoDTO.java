@@ -1,5 +1,5 @@
 package persistencia.dto;
-
+/*AlquilerVehiculos*/
 public class EmpleadoDTO {
 	
 	private String dni;

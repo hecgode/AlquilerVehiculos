@@ -1,5 +1,5 @@
 package logica;
-
+/*AlquilerVehiculos*/
 import java.util.*;
 import excepciones.*;
 import persistencia.DAL;
@@ -26,7 +26,7 @@ public class AlquilerVehiculos {
 
 
 
-private void CargarSistema1() {
+void CargarSistema1() {
 	cargaCategorias1();
 
 }
@@ -189,8 +189,8 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 }
 */
 	public Sucursal buscarSucursal(int identificador) {
-		
-	
+
+
 	Sucursal suc = null;
 	boolean encontrado=false;
 	for (int i=0;i<mSucursal.size() && !encontrado;i++  )
@@ -204,8 +204,8 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 	}
 	return suc;
 
-}	
-	
+}
+
 
 
 }

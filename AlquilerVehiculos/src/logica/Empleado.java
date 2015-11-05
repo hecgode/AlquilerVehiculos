@@ -1,5 +1,5 @@
 package logica;
-
+/*AlquilerVehiculos*/
 public class Empleado {
 	private String nombre;
 	private String administrador;
