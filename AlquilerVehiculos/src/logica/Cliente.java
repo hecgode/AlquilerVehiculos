@@ -5,19 +5,15 @@ public class Cliente {
 
 
 	private int idendificador;
-
     private String nombreyApellidos;
     private String direccion;
-
     private String poblacion;
     private int codPostal;
     private String fechaCarnet;
     private int digitos;
-   private int mes;
+    private int mes;
     private int anyo;
-
 	private int cvc;
-
     private String tipo;
 
 

@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import excepciones.DAOExcepcion;
 import persistencia.dto.ClienteDTO;
+import java.time.LocalDateTime;
 import java.sql.Date;
 
 public class ClienteDAOImp implements IClienteDAO {
@@ -28,6 +29,8 @@ public class ClienteDAOImp implements IClienteDAO {
 				ResultSet rs=connManager.queryDB("select * from CLIENTE where DNI= '"+dni+"'");
 				connManager.close();
 			
+				LocalDateTime dateTime = LocalDateTime.of(rs.getDate("FECHACARNETCONDUCIR").toLocalDate(), rs.getTime("FECHACARNETCONDUCIR").toLocalTime());
+				
 				if (rs.next())
 					return new ClienteDTO(
 								rs.getString("DNI"),
@@ -35,7 +38,7 @@ public class ClienteDAOImp implements IClienteDAO {
 								rs.getString("DIRECCION"),
 								rs.getString("POBLACION"),
 								rs.getString("CODPOS"),
-								rs.getDate("FECHACARNETCONDUCIR"),
+								LocalDateTime.of(rs.getDate("FECHACARNETCONDUCIR").toLocalDate(), rs.getTime("FECHACARNETCONDUCIR").toLocalTime()),
 								rs.getString("DIGITOS"),
 								rs.getInt("MES"),
 								rs.getInt("ANYO"),

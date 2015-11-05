@@ -34,12 +34,12 @@ private void CargarSistema1() {
 private void cargaCategorias1() {
 
 	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
-	// Crear y a�adir todas las categorias a la colecci�n
+	// Crear y anyadir todas las categorias a la coleccion
 	for (CategoriaDTO catDTO : listacatdto) {
 	anyadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
 	catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros()));
 	}
-	// Actualizar los enlaces que representan la relaci�n �superior�
+	// Actualizar los enlaces que representan la relacion superior
 
 	for (CategoriaDTO catDTO : listacatdto)
 		if (catDTO.getNombreCategoriaSuperior() != null)
