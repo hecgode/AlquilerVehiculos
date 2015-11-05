@@ -14,7 +14,7 @@ public class DAL {
 	private DAL() throws DAOExcepcion{
 		catDAO = new CategoriaDAOImp();
 		clientedao = new ClienteDAOImp();
-
+		sucursaldao = new SucursalDAOImp();
 
 	}
 
@@ -27,16 +27,20 @@ public class DAL {
 		}
 
 
-	}
+	}/*
 
-	/*
-	public List<ClienteDTO> obtenerClientes() {
+	
+	public List<SucursalDTO> obtenerSucursales() {
 		try {
-			return clientedao.
-		}
+			return sucursaldao.obtenerSucursales();
+			
+		} catch (DAOExcepcion e) {
+			return null;
+			}*/
 
 
-	}*/
+
+	}
 
 	//Patron Singleton
 		public static DAL dameDAL() throws DAOExcepcion{

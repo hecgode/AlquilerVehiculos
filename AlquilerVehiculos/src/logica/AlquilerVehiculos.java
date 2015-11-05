@@ -14,33 +14,38 @@ public class AlquilerVehiculos {
     private List<Sucursal> mSucursal = new ArrayList <Sucursal>();
 	private DAL dal;
 
-
-
-
    public AlquilerVehiculos()  throws DAOExcepcion {
     	 //CargarSistema();
-
     	this.dal = DAL.dameDAL();
     	CargarSistema1();
 	}
 
-
-
-void CargarSistema1() {
+   void CargarSistema1() {
 	cargaCategorias1();
+//	cargaSucursales();
 
 }
+/*
+private void cargaSucursales() {
+	// TODO Auto-generated method stub
+	List<SucursalDTO> listasucdto = dal.obtenerSucursales();
+	// Crear y a�adir todas las categorias a la colecci�n
+	for (SucursalDTO sucDTO : listasucdto) {
+			anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));	
+				
+	}}*/
+
+
 
 private void cargaCategorias1() {
 
 	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
 	// Crear y a�adir todas las categorias a la colecci�n
-	for (CategoriaDTO catDTO : listacatdto) {
+	for (CategoriaDTO catDTO : listacatdto) {		
 	anyadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
 	catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros()));
 	}
 	// Actualizar los enlaces que representan la relaci�n �superior�
-
 	for (CategoriaDTO catDTO : listacatdto)
 		if (catDTO.getNombreCategoriaSuperior() != null)
 		buscarCategoria(catDTO.getNombre()). setSuperior(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
@@ -97,6 +102,10 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     public void anyadirCategoria(Categoria cat) {
     	mCategoria.add(cat);
 
+    }
+    
+    public void anyadirSucursal(Sucursal suc){
+    	mSucursal.add(suc);
     }
 
 
