@@ -20,20 +20,20 @@ public class AlquilerVehiculos {
     	CargarSistema1();
 	}
 
-   void CargarSistema1() {
-	cargaCategorias1();
-//	cargaSucursales();
+  void CargarSistema1() {
+	//cargaCategorias1();
+	cargaSucursales();
 
 }
-/*
+
 private void cargaSucursales() {
 	// TODO Auto-generated method stub
 	List<SucursalDTO> listasucdto = dal.obtenerSucursales();
 	// Crear y a�adir todas las categorias a la colecci�n
 	for (SucursalDTO sucDTO : listasucdto) {
-			anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));	
-				
-	}}*/
+			anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));
+
+	}}
 
 
 
@@ -41,7 +41,7 @@ private void cargaCategorias1() {
 
 	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
 	// Crear y a�adir todas las categorias a la colecci�n
-	for (CategoriaDTO catDTO : listacatdto) {		
+	for (CategoriaDTO catDTO : listacatdto) {
 	anyadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
 	catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros()));
 	}
@@ -103,7 +103,7 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     	mCategoria.add(cat);
 
     }
-    
+
     public void anyadirSucursal(Sucursal suc){
     	mSucursal.add(suc);
     }

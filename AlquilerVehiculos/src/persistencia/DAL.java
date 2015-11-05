@@ -11,7 +11,7 @@ public class DAL {
 	IClienteDAO clientedao;
 	ICategoriaDAO catDAO;
 
-	private DAL() throws DAOExcepcion{
+private DAL() throws DAOExcepcion{
 		catDAO = new CategoriaDAOImp();
 		clientedao = new ClienteDAOImp();
 		sucursaldao = new SucursalDAOImp();
@@ -27,16 +27,16 @@ public class DAL {
 		}
 
 
-	}/*
+	}
 
-	
+
 	public List<SucursalDTO> obtenerSucursales() {
 		try {
 			return sucursaldao.obtenerSucursales();
-			
+
 		} catch (DAOExcepcion e) {
 			return null;
-			}*/
+			}
 
 
 
