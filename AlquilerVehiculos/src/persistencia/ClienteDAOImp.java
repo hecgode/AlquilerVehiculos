@@ -2,7 +2,6 @@ package persistencia;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import excepciones.DAOExcepcion;
 import persistencia.dto.ClienteDTO;
 import java.sql.Date;
@@ -39,7 +38,7 @@ public class ClienteDAOImp implements IClienteDAO {
 								rs.getDate("FECHACARNETCONDUCIR"),
 								rs.getString("DIGITOS"),
 								rs.getInt("MES"),
-								rs.getInt("AÑO"),
+								rs.getInt("ANYO"),
 								rs.getInt("VCV"),
 								rs.getString("TIPO"));
 								
@@ -56,7 +55,7 @@ public class ClienteDAOImp implements IClienteDAO {
 		 	try {
 		 		connManager.connect();
 		 		connManager.updateDB("insert into CLIENTE (DNI,NOMBREYAPELLIDOS,DIRECCION,"
-		 				+ "				POBLACION, CODIGOPOSTAL,FECHA,DIGITOS,MES,AÑO"
+		 				+ "				POBLACION, CODIGOPOSTAL,FECHA,DIGITOS,MES,Aï¿½O"
 		 				+ "					CVC,TIPO) values('"+cliente.getDni()+","+cliente.getNombreyApellidos()+","+
 		 										cliente.getDireccion()+","+cliente.getCodPostal()+","+cliente.getFechaCanetConducir()+","+
 		 										cliente.getDigitosTC()+","+cliente.getMesTC()+","+cliente.getAnyoTC()+","+cliente.getCvcTC()+

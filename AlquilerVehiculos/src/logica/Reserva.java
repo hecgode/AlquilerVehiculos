@@ -7,17 +7,16 @@ public class Reserva {
     private String fechaD;
     private String modalidad;
     private Cliente mCliente;
-
     private Categoria mCategoria;
-  private Entrega entrega;
+    private Entrega entrega;
 
     public Entrega getEntrega() {
-	return entrega;
-}
+    	return entrega;
+    }
 
-public void setEntrega(Entrega entrega) {
-	this.entrega = entrega;
-}
+    public void setEntrega(Entrega entrega) {
+    	this.entrega = entrega;
+    }
 
 	private Sucursal mDevolucion;
     private Sucursal mRegogida;
