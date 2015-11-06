@@ -23,25 +23,25 @@ public class AlquilerVehiculos {
   void CargarSistema1() {
 	//cargaCategorias1();
 	cargaSucursales();
-	cargaReservas();
+	cargaReservasporSucursal(1);
 
 }
 
-private void cargaReservas() {
+private void cargaReservasporSucursal(int id) {
 	// TODO Auto-generated method stub
-	List<ReservaDTO> listaresdto = dal.obtenerSucursales();
-	// Crear y a�adir todas las categorias a la colecci�n
-	for (SucursalDTO sucDTO : listasucdto) {
-			anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));
-
-	}}
-	
+	List<ReservaDTO> lreserva = dal.obtenerReservas(id);
+	for (ReservaDTO reserva: lreserva)
+		anyadirReserva(new Reserva (reserva.getId(), reserva.getFechaRecogida(), reserva.getFechaDevolucion(),reserva.getModalidadAlquiler(),reserva.getDniCliente(),reserva.getNombreCategoria(),reserva.getIdSucursalRecogida(),reserva.getIdSucursalDevolucion()));
 }
 
-private void cargaSucursales() {
-	// TODO Auto-generated method stub
+
+
+
+private void cargaSucursales()
+{
+
 	List<SucursalDTO> listasucdto = dal.obtenerSucursales();
-	// Crear y a�adir todas las categorias a la colecci�n
+
 	for (SucursalDTO sucDTO : listasucdto) {
 			anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));
 
@@ -120,8 +120,13 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     	mSucursal.add(suc);
     }
 
+    public void anyadirReserva (Reserva res) {
+    	mReserva.add(res);
+    }
 
-    public void creaReserva (int identificador, String fechar, String fechad , int idSucursalr, int idSucursald,String nombreCategoria, String mAlquiler )
+
+
+    public void creaReserva (String identificador, String fechar, String fechad , int idSucursalr, int idSucursald,String nombreCategoria, String mAlquiler )
     {
     	boolean sucursal1 = false;
     	boolean sucursal2 = false;
@@ -132,7 +137,7 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     	Sucursal sucursald = mSucursal.get(0);
     for (int i=0 ; i<mCliente.size();i++)
     {
-    	if (mCliente.get(i).getIdendificador()==identificador)
+    	if (mCliente.get(i).getIdendificador()==identificador);
     		{cliente=mCliente.get(i);break;}
     }
     for (int i=0 ; i<mCategoria.size();i++)

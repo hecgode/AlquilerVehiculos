@@ -43,7 +43,7 @@ private DAL() throws DAOExcepcion{
 
 	}
 
-	public List<ReservaDTO> ObtenerReservas(int id)	{
+	public List<ReservaDTO> obtenerReservas(int id)	{
 	try {
 		return reservadao.obtenerReservasPorSucursalOrigen(id);
 	} catch (DAOExcepcion e) {

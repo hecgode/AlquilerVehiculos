@@ -29,8 +29,7 @@ public class ClienteDAOImp implements IClienteDAO {
 				connManager.connect();
 				ResultSet rs=connManager.queryDB("select * from CLIENTE where DNI= '"+dni+"'");
 				connManager.close();
-				LocalDateTime dateTime = LocalDateTime.of(rs.getDate("FECHACARNETCONDUCIR").toLocalDate(), rs.getTime("FECHACARNETCONDUCIR").toLocalTime());
-
+				LocalDateTime dateTime;
 
 
 				if (rs.next())
