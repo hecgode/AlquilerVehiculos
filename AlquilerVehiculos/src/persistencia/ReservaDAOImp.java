@@ -66,7 +66,11 @@ public class ReservaDAOImp implements IReservaDAO{
 	}
 
 	public void crearReserva(ReservaDTO reserva) throws DAOExcepcion {
-		// TODO Auto-generated method stub
+		try{
+			connManager.connect();
+			ResultSet rs=connManager.updateDB("insert into  
+			connManager.close();
+
 
 	}
 }
