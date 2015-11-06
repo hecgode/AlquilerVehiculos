@@ -1,6 +1,6 @@
 //ICategoriaDAO
 package persistencia;
-/*AlquilerVehiculos*/
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
 import java.util.List;
 import persistencia.dto.CategoriaDTO;
 import excepciones.*;

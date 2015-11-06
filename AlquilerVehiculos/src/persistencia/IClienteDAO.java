@@ -1,6 +1,6 @@
 //IClienteDAO
 package persistencia;
-/*AlquilerVehiculos*/
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
 import persistencia.dto.ClienteDTO;
 import excepciones.*;
 

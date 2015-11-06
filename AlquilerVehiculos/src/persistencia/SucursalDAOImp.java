@@ -1,5 +1,5 @@
 package persistencia;
-/*AlquilerVehiculos*/
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

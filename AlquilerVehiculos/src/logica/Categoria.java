@@ -1,5 +1,5 @@
 package logica;
-/*AlquilerVehiculos*/
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
 import java.util.*;
 
 public class Categoria {

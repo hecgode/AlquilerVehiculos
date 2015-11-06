@@ -1,5 +1,7 @@
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
+
 package logica;
-/*AlquilerVehiculos*/
+
 import java.util.*;
 
 public class Entrega {

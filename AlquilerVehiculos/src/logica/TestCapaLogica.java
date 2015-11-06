@@ -1,8 +1,7 @@
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
 
 package logica;
-/*AlquilerVehiculos*/
 import excepciones.DAOExcepcion;
-
 //import excepciones.DAOExcepcion;
 
 public class TestCapaLogica {
@@ -12,8 +11,6 @@ public class TestCapaLogica {
 		AlquilerVehiculos alquiler = new AlquilerVehiculos();
 		Cliente cli1= new Cliente(111, "Luis", "", "5678", 46018, "14/5/1989", 0, 0, 0, 0, "vISA");
 		Cliente cli2= new Cliente(1234, "Hrctpr", "", "5678", 46018, "14/5/1989", 0, 0, 0, 0, "vISA");
-
-
 		Categoria cat1 ;
 		Categoria cat2 ;
 		Sucursal suc1 ;

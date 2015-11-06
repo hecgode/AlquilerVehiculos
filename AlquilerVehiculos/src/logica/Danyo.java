@@ -1,5 +1,6 @@
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
+
 package logica;
-/*AlquilerVehiculos*/
 
 public class Danyo {
 

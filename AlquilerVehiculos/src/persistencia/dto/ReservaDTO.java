@@ -1,5 +1,5 @@
 package persistencia.dto;
-/*AlquilerVehiculos*/
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
 import java.time.LocalDateTime;
 
 public class ReservaDTO {
@@ -11,7 +11,7 @@ public class ReservaDTO {
 	private String nombreCategoria;
 	private int idSucursalRecogida;
 	private int idSucursalDevolucion;
-	
+
 	public ReservaDTO(int id, LocalDateTime fechaRecogida,
 			LocalDateTime fechaDevolucion, int modalidadAlquiler,
 			String dniCliente, String nombreCategoria, int idSucursalRecogida,
@@ -90,6 +90,6 @@ public class ReservaDTO {
 	public void setIdSucursalDevolucion(int idSucursalDevolucion) {
 		this.idSucursalDevolucion = idSucursalDevolucion;
 	}
-		
-	
+
+
 }

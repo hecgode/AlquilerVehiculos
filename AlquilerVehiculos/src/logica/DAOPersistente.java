@@ -1,5 +1,6 @@
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
+
 package logica;
-/*AlquilerVehiculos*/
 import excepciones.DAOExcepcion;
 
 public class DAOPersistente {

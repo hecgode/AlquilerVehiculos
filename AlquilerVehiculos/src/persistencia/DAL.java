@@ -3,7 +3,7 @@ import java.util.List;
 
 import excepciones.*;
 import persistencia.dto.*;
-/*AlquilerVehiculos*/
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
 public class DAL {
 	private static DAL dal;
 	ISucursalDAO sucursaldao;

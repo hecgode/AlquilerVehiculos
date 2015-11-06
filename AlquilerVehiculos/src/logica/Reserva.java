@@ -1,6 +1,7 @@
+/*AlquilerVehiculos ultima modificacion 06/10/15*/
+
 package logica;
 
-/*AlquilerVehiculos*/
 public class Reserva {
 	private int identificador;
     private String fechaR;
