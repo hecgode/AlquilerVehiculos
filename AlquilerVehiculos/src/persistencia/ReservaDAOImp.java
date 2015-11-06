@@ -16,6 +16,18 @@ public class ReservaDAOImp implements IReservaDAO{
 
 	protected ConnectionManager connManager;
 
+
+	public ReservaDAOImp() throws DAOExcepcion {
+		super();
+		try{
+		connManager= new ConnectionManager("alquilervehiculosBD");
+		}
+		catch (ClassNotFoundException e){
+			throw new DAOExcepcion(e);
+			}
+	}
+
+
 	public ReservaDTO buscarReserva(int identificador) throws DAOExcepcion {
 		// TODO Auto-generated method stub
 		return null;
@@ -25,7 +37,7 @@ public class ReservaDAOImp implements IReservaDAO{
 		// TODO Auto-generated method stub
 		try{
 			connManager.connect();
-			ResultSet rs=connManager.queryDB("select * from RESERVA where idSucursal="+idSucursal);
+			ResultSet rs=connManager.queryDB("select * from RESERVA where ID="+idSucursal);
 			connManager.close();
 
 			List<ReservaDTO> listaresDTO = new ArrayList<ReservaDTO>();
