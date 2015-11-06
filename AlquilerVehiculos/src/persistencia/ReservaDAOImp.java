@@ -35,6 +35,7 @@ public class ReservaDAOImp implements IReservaDAO{
 	}
 
 	public List<ReservaDTO> obtenerReservasPorSucursalOrigen(int idSucursal) throws DAOExcepcion {
+
 		// TODO Auto-generated method stub
 		try{
 			connManager.connect();
@@ -65,12 +66,14 @@ public class ReservaDAOImp implements IReservaDAO{
 		catch (DAOExcepcion e){		throw e;}
 	}
 
-	public void crearReserva(ReservaDTO reserva) throws DAOExcepcion {
-		try{
-			connManager.connect();
-			ResultSet rs=connManager.updateDB("insert into  
-			connManager.close();
 
+
+	public void crearReserva(ReservaDTO reserva) throws DAOExcepcion {
+		// TODO Auto-generated method stub
 
 	}
+
+
+
+
 }
