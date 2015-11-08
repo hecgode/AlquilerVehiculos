@@ -23,9 +23,9 @@ public class AlquilerVehiculos {
 	}
 
   void CargarSistema1() {
-	//cargaCategorias1();
-	//cargaSucursales();
-	  cargaReservas();
+	cargaCategorias1();
+	cargaSucursales();
+	//  cargaReservas();
 
 }
 
@@ -58,13 +58,17 @@ private void cargaCategorias1() {
 
 
 private void cargaReservas() {
+	/*
 	// TODO Auto-generated method stub
 	List<ReservaDTO> listaresdto = dal.obtenerReservas(1);
 	// Crear y a�adir todas las categorias a la colecci�n
 	for (ReservaDTO sucDTO : listaresdto) {
 			anyadirReserva(new Reserva(0, null, null, null, null, null, null, null));
 
-	}}
+	}
+	
+	*/
+	}
 
 
 
