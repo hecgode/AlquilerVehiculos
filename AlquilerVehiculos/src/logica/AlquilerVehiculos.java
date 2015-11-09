@@ -66,9 +66,20 @@ private void cargaReservas() {
 			anyadirReserva(new Reserva(0, null, null, null, null, null, null, null));
 
 	}
-	
+
 	*/
 	}
+
+
+public void crearCliente(Cliente cliente) {
+
+	ClienteDTO clienteDTO = new ClienteDTO(cliente.getIdendificador(), cliente.getNombreyApellidos(),
+			cliente.getDireccion(), cliente.getPoblacion(), cliente.getCodPostal(),
+			cliente.getFechaCarnet(), cliente.getDigitos(), cliente.getMes(),
+			cliente.getAnyo(), cliente.getCvc(), cliente.getTipo());
+
+
+}
 
 
 
@@ -139,7 +150,7 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     	Sucursal sucursald = mSucursal.get(0);
     for (int i=0 ; i<mCliente.size();i++)
     {
-    	if (mCliente.get(i).getIdendificador()==identificador)
+    	if (mCliente.get(i).getIdendificador().equals(identificador))
     		{cliente=mCliente.get(i);break;}
     }
     for (int i=0 ; i<mCategoria.size();i++)
@@ -234,8 +245,14 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 
 }
 
-	public List<Sucursal> listarSucursales() { 
-		return new ArrayList<>(sucursales.values()); }
+	public List<Sucursal> listarSucursales()  throws LogicaExcepcion
+	{
+
+			List<SucursalDTO> lista=DAL.dameDAL().obtenerSucursales();
+
+
+
+		return new ArrayList<>(lista.values()); }
 
 }
 

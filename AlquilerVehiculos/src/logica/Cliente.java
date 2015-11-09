@@ -1,18 +1,16 @@
 package logica;
 /*AlquilerVehiculos ultima modificacion 06/10/15*/
+import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class Cliente {
-
-
-	private int idendificador;
-
-    private String nombreyApellidos;
+	private String nombreyApellidos;
     private String direccion;
 
     private String poblacion;
-    private int codPostal;
-    private String fechaCarnet;
-    private int digitos;
+    private String codPostal;
+    private LocalDateTime fechaCarnet;
+    private String digitos;
    private int mes;
     private int anyo;
 
@@ -21,19 +19,10 @@ public class Cliente {
     private String tipo;
 
 
+	private String idendificador;
 
-	public int getIdendificador() {
-		return idendificador;
-	}
-
-
-	public void setIdendificador(int idendificador) {
-		this.idendificador = idendificador;
-	}
-
-
-	public Cliente(int idendificador, String nombreyApellidos, String direccion, String poblacion, int codPostal,
-			String fechaCarnet, int digitos, int mes, int anyo, int cvc, String tipo) {
+    public Cliente(String idendificador, String nombreyApellidos, String direccion, String poblacion, String codPostal,
+			LocalDateTime fechaCarnet, String digitos, int mes, int anyo, int cvc, String tipo) {
 		super();
 		this.idendificador = idendificador;
 		this.nombreyApellidos = nombreyApellidos;
@@ -43,119 +32,108 @@ public class Cliente {
 		this.fechaCarnet = fechaCarnet;
 		this.digitos = digitos;
 		this.mes = mes;
-		this.anyo =anyo;
+		this.anyo = anyo;
 		this.cvc = cvc;
 		this.tipo = tipo;
+    }
+
+
+	public String getIdendificador() {
+		return idendificador;
 	}
 
-
-	public String getDireccion() {
-		return direccion;
+	public void setIdendificador(String idendificador) {
+		this.idendificador = idendificador;
 	}
-
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
 
 	public String getNombreyApellidos() {
 		return nombreyApellidos;
 	}
 
-
 	public void setNombreyApellidos(String nombreyApellidos) {
 		this.nombreyApellidos = nombreyApellidos;
 	}
 
-
-	public int getCodPostal() {
-		return codPostal;
+	public String getDireccion() {
+		return direccion;
 	}
 
-
-	public void setCodPostal(int codPostal) {
-		this.codPostal = codPostal;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
-
 
 	public String getPoblacion() {
 		return poblacion;
 	}
-	   public int getAnyo() {
-			return anyo;
-		}
-
-
-		public void setAnyo(int anyo) {
-			this.anyo = anyo;
-		}
-
-
 
 	public void setPoblacion(String poblacion) {
 		this.poblacion = poblacion;
 	}
 
+	public String getCodPostal() {
+		return codPostal;
+	}
 
-	public String getFechaCarnet() {
+	public void setCodPostal(String codPostal) {
+		this.codPostal = codPostal;
+	}
+
+	public LocalDateTime getFechaCarnet() {
 		return fechaCarnet;
 	}
 
-
-	public void setFechaCarnet(String fechaCarnet) {
+	public void setFechaCarnet(LocalDateTime fechaCarnet) {
 		this.fechaCarnet = fechaCarnet;
 	}
 
-
-	public int getDigitos() {
+	public String getDigitos() {
 		return digitos;
 	}
 
-
-	public void setDigitos(int digitos) {
+	public void setDigitos(String digitos) {
 		this.digitos = digitos;
 	}
-
 
 	public int getMes() {
 		return mes;
 	}
 
-
 	public void setMes(int mes) {
 		this.mes = mes;
 	}
 
+	public int getAnyo() {
+		return anyo;
+	}
 
-
-
-
+	public void setAnyo(int anyo) {
+		this.anyo = anyo;
+	}
 
 	public int getCvc() {
 		return cvc;
 	}
 
-
 	public void setCvc(int cvc) {
 		this.cvc = cvc;
 	}
-
 
 	public String getTipo() {
 		return tipo;
 	}
 
-
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
-
-
-
-
+	
+	
+	
 }
+
+	
+
+
+
 
 
 

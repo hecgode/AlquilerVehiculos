@@ -63,7 +63,7 @@ public class ClienteDAOImp implements IClienteDAO {
 		 				+ "				POBLACION, CODIGOPOSTAL,FECHA,DIGITOS,MES,Aï¿½O"
 		 				+ "					CVC,TIPO) values('"+cliente.getDni()+","+cliente.getNombreyApellidos()+","+
 		 										cliente.getDireccion()+","+cliente.getCodPostal()+","+cliente.getFechaCanetConducir()+","+
-		 										cliente.getDigitosTC()+","+cliente.getMesTC()+","+cliente.getAnyoTC()+","+cliente.getCvcTC()+
+		 										cliente.getDigitosTC()+","+cliente.getMesTC()+","+cliente.getAñoTC()+","+cliente.getCvcTC()+
 		 										","+cliente.getTipoTC()+")");
 		 		connManager.close();
 			 	}

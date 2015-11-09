@@ -1,5 +1,5 @@
 package persistencia.dto;
-/*AlquilerVehiculos*/
+
 import java.sql.Date;
 import java.time.LocalDateTime;
 
@@ -12,20 +12,14 @@ public class ClienteDTO {
 	private LocalDateTime fechaCanetConducir;
 	private String digitosTC;
 	private int mesTC;
-	private int anyoTC;
+	private int añoTC;
 	private int cvcTC;
 	private String tipoTC;
-
 	
-
-	public int getAnyoTC() {
-		return anyoTC;
-	}
-	public void setAnyoTC(int anyoTC) {
-		this.anyoTC = anyoTC;
-	}
-	public ClienteDTO(String dni, String nombreyApellidos, String direccion, String poblacion, String codPostal,
-			LocalDateTime fechaCanetConducir, String digitosTC, int mesTC, int anyoTC, int cvcTC, String tipoTC) {
+	public ClienteDTO(String dni, String nombreyApellidos,
+			String direccion, String poblacion, String codPostal,
+			LocalDateTime fechaCanetConducir, String digitosTC, int mesTC,
+			int añoTC, int cvcTC, String tipoTC) {
 		super();
 		this.dni = dni;
 		this.nombreyApellidos = nombreyApellidos;
@@ -35,10 +29,11 @@ public class ClienteDTO {
 		this.fechaCanetConducir = fechaCanetConducir;
 		this.digitosTC = digitosTC;
 		this.mesTC = mesTC;
-		this.anyoTC = anyoTC;
+		this.añoTC = añoTC;
 		this.cvcTC = cvcTC;
 		this.tipoTC = tipoTC;
 	}
+	
 	public String getDni() {
 		return dni;
 	}
@@ -81,7 +76,12 @@ public class ClienteDTO {
 	public void setMesTC(int mesTC) {
 		this.mesTC = mesTC;
 	}
-
+	public int getAñoTC() {
+		return añoTC;
+	}
+	public void setAñoTC(int añoTC) {
+		this.añoTC = añoTC;
+	}
 	public int getCvcTC() {
 		return cvcTC;
 	}
@@ -106,5 +106,5 @@ public class ClienteDTO {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-
+	
 }
