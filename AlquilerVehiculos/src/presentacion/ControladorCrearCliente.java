@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.logging.Logger;
+import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -13,8 +14,7 @@ import javafx.stage.StageStyle;
 import logica.Cliente;
 
 public class ControladorCrearCliente extends ControladorCasoDeUso {
-	 private static final Logger LOG =
-	Logger.getLogger(ControladorCrearCliente.class.getName());
+	 private static final Logger LOG =	Logger.getLogger(ControladorCrearCliente.class.getName());
 	 @FXML
 	 private TextField dni;
 	 @FXML
@@ -43,10 +43,14 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 private Button cancelar;
 	 private Cliente nuevoCliente;
 	 @Override
-	 public void initialize(URL location, ResourceBundle resources) {
-	 stage = new Stage(StageStyle.DECORATED);
+	 public void initialize(URL location, ResourceBundle resources)
+	 {
+	 
+		 stage = new Stage(StageStyle.DECORATED);
 	 stage.setTitle("CREAR CLIENTE");
-	 cancelar.setOnAction(event -> dialog.close());
+	 cancelar.setOnAction(ActionEvent -> 
+		 stage.close() );
+	
 	 aceptar.setOnAction(event -> {
 	 nuevoCliente = new Cliente(dni.getText(), nombreApellidos.getText(),
 	direccion.getText(),

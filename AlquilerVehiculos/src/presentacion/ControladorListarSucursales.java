@@ -1,10 +1,14 @@
 package presentacion;
 
 import java.awt.Button;
+import java.net.URI;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import logica.Sucursal;
 
 public class ControladorListarSucursales extends ControladorCasoDeUso {
@@ -17,7 +21,8 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 	 @FXML
 	 private Button aceptar;
 	 @Override
-	 public void initialize(URL location, ResourceBundle resources) {
+	 public void initialize(URI location, ResourceBundle resources)
+	 {
 	 stage = new Stage(StageStyle.DECORATED);
 	 stage.setTitle("LISTADO DE SUCURSALES");
 	 aceptar.setOnAction(event -> dialog.close());
