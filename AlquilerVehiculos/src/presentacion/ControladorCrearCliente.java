@@ -4,13 +4,16 @@ import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.sun.javafx.logging.Logger;
+
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import logica.Cliente;
 
 public class ControladorCrearCliente extends ControladorCasoDeUso {
-	 private static final Logger LOG = 
+	 private static final Logger LOG =
 	Logger.getLogger(ControladorCrearCliente.class.getName());
 	 @FXML
 	 private TextField dni;

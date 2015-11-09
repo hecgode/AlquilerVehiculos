@@ -3,6 +3,7 @@ package presentacion;
 import java.awt.event.ActionEvent;
 
 import excepciones.LogicaExcepcion;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
@@ -10,7 +11,7 @@ public class ControladorPrincipal {
 	 private static final String CREAR_CLIENTE = "../vista/crear-cliente.fxml";
 	 private static final String LISTAR_RESERVAS_SUCURSAL = "../vista/listarreservas-sucursal.fxml";
 	 private static final String LISTAR_SUCURSALES = "../vista/listarsucursales.fxml";
-	
+
 	 private Stage primaryStage;
 	 @FXML
 	 void listarSucursales(ActionEvent event) throws LogicaExcepcion {

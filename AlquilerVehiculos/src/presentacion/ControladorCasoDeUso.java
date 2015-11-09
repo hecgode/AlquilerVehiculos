@@ -1,5 +1,7 @@
 package presentacion;
 
+import java.io.IOException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -29,14 +31,24 @@ public abstract class ControladorCasoDeUso implements Initializable {
 	FXMLLoader(ControladorCasoDeUso.class.getResource(urlVista));
 	 T controlador = null;
 	 try {
+		 try {
+
+
 	 Parent parent = fxmlLoader.load();
 	 controlador = fxmlLoader.getController();
 	 controlador.stage.setScene(new Scene(parent));
 	 controlador.stage.initOwner(owner);
 	 controlador.setControladorPrincipal(controladorPrincipal);
-	 } catch (NullPointerException | IOException e) {
+	 }
+	 catch (NullPointerException e) {
 	 e.printStackTrace();
 	 }
+	 }
+	 catch (IOException e) {
+	 e.printStackTrace();
+	 }
+
+
 	 return controlador;
 	 }
 	}

@@ -13,7 +13,7 @@ public class AlquilerVehiculos {
     private List<Cliente> mCliente = new ArrayList<Cliente>();
     private List<Reserva> mReserva= new ArrayList<Reserva>();
     private List<Categoria> mCategoria = new ArrayList <Categoria>();
-    private List<Sucursal> mSucursal = new ArrayList <Sucursal>();
+    private ArrayList<Sucursal> mSucursal = new ArrayList <Sucursal>();
 	private DAL dal;
 
    public AlquilerVehiculos()  throws DAOExcepcion {
@@ -234,7 +234,8 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 
 }
 
-
+	public List<Sucursal> listarSucursales() { 
+		return new ArrayList<>(sucursales.values()); }
 
 }
 

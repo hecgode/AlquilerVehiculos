@@ -50,10 +50,22 @@ private DAL() throws DAOExcepcion{
 		} catch (DAOExcepcion e) {
 			return null;
 			}
+	}
 
+public void crearCliente(ClienteDTO cl)
+	{
+		try {
+			clientedao.crearCliente(cl);
+		} catch (DAOExcepcion e) {
+
+			}
 
 
 	}
+
+
+
+
 
 	//Patron Singleton
 		public static DAL dameDAL() throws DAOExcepcion{
