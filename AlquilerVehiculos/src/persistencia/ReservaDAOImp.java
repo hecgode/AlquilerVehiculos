@@ -70,9 +70,21 @@ public class ReservaDAOImp implements IReservaDAO{
 
 	public void crearReserva(ReservaDTO reserva) throws DAOExcepcion {
 		// TODO Auto-generated method stub
+		try {
+			connManager.connect();
+			connManager.updateDB("insert into RESERVA  (ID, FECHARECOGIDA, FECHADEVOLUCION, MODALIDADALQUILER, CATEGORIA, CLIENTEREALIZA, SUCURSALRECOGIDA, SUCURSALDEVOLUCION) values"
+			+"('"+reserva.getId()+"','"+reserva.getFechaRecogida()+"','"
+					+reserva.getFechaDevolucion()+"','"+reserva.getModalidadAlquiler()
+					+"','"+reserva.getNombreCategoria()+"','"+reserva.getDniCliente()
+					+"','"+reserva.getIdSucursalRecogida()+"','"
+					+reserva.getFechaDevolucion());
+			connManager.close();
 
+		}
+		catch(Exception e) {
+			throw new DAOExcepcion(e);
+		}
 	}
-
 
 
 
