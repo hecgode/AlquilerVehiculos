@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<fx:root type="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="presentacion.controlador.ControladorCrearCliente">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <TextField layoutX="199.0" layoutY="49.0" />
+            <TextField layoutX="199.0" layoutY="102.0" />
+            <TextField layoutX="199.0" layoutY="152.0" />
+            <TextField layoutX="189.0" layoutY="220.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</fx:root>
