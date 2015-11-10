@@ -29,10 +29,32 @@ public class ReservaDAOImp implements IReservaDAO{
 	}
 
 
-	public ReservaDTO buscarReserva(int identificador) throws DAOExcepcion {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		public ReservaDTO buscarReserva(int identificador) throws DAOExcepcion {
+			// TODO Auto-generated method stub
+			try {
+				connManager.connect();
+				ResultSet rs = connManager.queryDB("SELECT * FROM RESERVA WHERE ID="+identificador);
+				connManager.close();
+
+				if(rs.next()) {
+					return new ReservaDTO(
+							rs.getInt("ID"),
+							LocalDateTime.of(rs.getDate("FECHARECOGIDA").toLocalDate(), rs.getTime("FECHARECOGIDA").toLocalTime()),
+							LocalDateTime.of(rs.getDate("FECHADEVOLUCION").toLocalDate(), rs.getTime("FECHADEVOLUCION").toLocalTime()),
+							rs.getInt("MODALIDADALQUILER"),
+							rs.getString("CLIENTEREALIZA"),
+							rs.getString("CATEGORIA"),
+							rs.getInt("SUCURSALRECOGIDA"),
+							rs.getInt("SUCURSALDEVOLUCION"));
+
+				}
+				else
+					return null;
+			} catch(SQLException e) {
+				throw new DAOExcepcion(e);
+			}
+		}
+
 
 	public List<ReservaDTO> obtenerReservasPorSucursalOrigen(int idSucursal) throws DAOExcepcion {
 
