@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.controlador;
 
 import java.awt.event.ActionEvent;
 

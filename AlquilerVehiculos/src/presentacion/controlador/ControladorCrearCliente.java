@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.controlador;
 
 import java.awt.*;
 import java.net.URL;
@@ -22,7 +22,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 @FXML
 	 private TextField direccion;
 	 @FXML
-	 private TextField añoTC;
+	 private TextField aï¿½oTC;
 	 @FXML
 	 private TextField mesTC;
 	 @FXML
@@ -57,7 +57,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 poblacion.getText(), codigoPostal.getText(),
 	fechaCarnet.getValue(), digitosTC.getText(),
 	 Integer.parseInt(mesTC.getText()),
-	Integer.parseInt(añoTC.getText()),
+	Integer.parseInt(anyoTC.getText()),
 	 Integer.parseInt(cvc.getText()), tipoTarjeta.getText());
 	 if (nuevoCliente != null) {
 	 //Invocamos el servicio encargado de Crear un nuevo cliente

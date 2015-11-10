@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.controlador;
 
 import java.awt.Button;
 import java.net.URI;
@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import logica.AlquilerVehiculos;
 import logica.Sucursal;
 
 public class ControladorListarSucursales extends ControladorCasoDeUso {
@@ -31,7 +32,6 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 	 direccion.setCellValueFactory(param -> new
 	ReadOnlyObjectWrapper<>(param.getValue().getDireccion()));
 
-	this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquilerVehiculos().lista
-	rSucursales());
+	this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquilerVehiculos().listarsucursales());
 	 }
 	}
