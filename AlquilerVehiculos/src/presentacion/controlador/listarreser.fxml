@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="presentacion.controlador.ControladorListarSucursales">
+   <children>
+      <Pane layoutX="-274.0" layoutY="-320.0" prefHeight="776.0" prefWidth="900.0">
+         <children>
+            <TableView fx:id="sucursales" layoutX="393.0" layoutY="337.0" prefHeight="325.0" prefWidth="380.0">
+              <columns>
+                <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="direccion" prefWidth="304.0" text="Sucursales" />
+              </columns>
+            </TableView>
+            <Button fx:id="aceptar" layoutX="780.0" layoutY="708.0" mnemonicParsing="false" text="Button" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

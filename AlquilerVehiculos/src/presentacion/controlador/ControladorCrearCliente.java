@@ -22,7 +22,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 @FXML
 	 private TextField direccion;
 	 @FXML
-	 private TextField a�oTC;
+	 private TextField anyoTC;
 	 @FXML
 	 private TextField mesTC;
 	 @FXML
@@ -45,12 +45,12 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 @Override
 	 public void initialize(URL location, ResourceBundle resources)
 	 {
-	 
+
 		 stage = new Stage(StageStyle.DECORATED);
 	 stage.setTitle("CREAR CLIENTE");
-	 cancelar.setOnAction(ActionEvent -> 
+	 cancelar.setOnAction(ActionEvent ->
 		 stage.close() );
-	
+
 	 aceptar.setOnAction(event -> {
 	 nuevoCliente = new Cliente(dni.getText(), nombreApellidos.getText(),
 	direccion.getText(),
