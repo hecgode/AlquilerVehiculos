@@ -95,12 +95,10 @@ public class ReservaDAOImp implements IReservaDAO{
 		// TODO Auto-generated method stub
 		try {
 			connManager.connect();
-			connManager.updateDB("insert into RESERVA  (ID, FECHARECOGIDA, FECHADEVOLUCION, MODALIDADALQUILER, CATEGORIA, CLIENTEREALIZA, SUCURSALRECOGIDA, SUCURSALDEVOLUCION) values"
-			+"('"+reserva.getId()+"','"+reserva.getFechaRecogida()+"','"
-					+reserva.getFechaDevolucion()+"','"+reserva.getModalidadAlquiler()
-					+"','"+reserva.getNombreCategoria()+"','"+reserva.getDniCliente()
-					+"','"+reserva.getIdSucursalRecogida()+"','"
-					+reserva.getFechaDevolucion());
+			connManager.updateDB("insert into RESERVA  (ID, FECHARECOGIDA, FECHADEVOLUCION, MODALIDADALQUILER, CATEGORIA, CLIENTEREALIZA, SUCURSALRECOGIDA, SUCURSALDEVOLUCION) values('"+reserva.getId()+","+reserva.getFechaRecogida()+","
+					+reserva.getFechaDevolucion()+","+reserva.getModalidadAlquiler()
+					+","+reserva.getNombreCategoria()+","+reserva.getDniCliente()
+					+","+reserva.getIdSucursalRecogida()+","+reserva.getFechaDevolucion()+")");
 			connManager.close();
 
 		}
@@ -108,8 +106,8 @@ public class ReservaDAOImp implements IReservaDAO{
 			throw new DAOExcepcion(e);
 		}
 	}
-	
-	
+
+
 	public  static void main (String[] args) throws DAOExcepcion /*throws DAOExcepcion*/ {
 
 		ReservaDAOImp alquiler = new ReservaDAOImp();
@@ -121,9 +119,9 @@ public class ReservaDAOImp implements IReservaDAO{
 		String nombreCategoria = "NO";
 		int idSucursalRecogida  = 03;
 		int idSucursalDevolucion =4;
-		
+
 		ReservaDTO reserva = new ReservaDTO(id,fechaRecogida,fechaDevolucion,modalidadAlquiler,
-				dniCliente,nombreCategoria,idSucursalRecogida,idSucursalDevolucion); 
+				dniCliente,nombreCategoria,idSucursalRecogida,idSucursalDevolucion);
 		alquiler.crearReserva(reserva);
 
 
