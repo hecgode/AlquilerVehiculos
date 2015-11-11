@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import excepciones.DAOExcepcion;
+import logica.AlquilerVehiculos;
 import persistencia.dto.ReservaDTO;
 
 import java.time.LocalDateTime;
@@ -107,6 +108,31 @@ public class ReservaDAOImp implements IReservaDAO{
 			throw new DAOExcepcion(e);
 		}
 	}
+	
+	
+	public  static void main (String[] args) throws DAOExcepcion /*throws DAOExcepcion*/ {
+
+		ReservaDAOImp alquiler = new ReservaDAOImp();
+		int id = 2;
+		LocalDateTime fechaRecogida = null;
+		LocalDateTime fechaDevolucion = null;
+		int modalidadAlquiler = 4;
+		String dniCliente ="1AA";
+		String nombreCategoria = "NO";
+		int idSucursalRecogida  = 03;
+		int idSucursalDevolucion =4;
+		
+		ReservaDTO reserva = new ReservaDTO(id,fechaRecogida,fechaDevolucion,modalidadAlquiler,
+				dniCliente,nombreCategoria,idSucursalRecogida,idSucursalDevolucion); 
+		alquiler.crearReserva(reserva);
+
+
+
+
+
+
+	}
+
 
 
 

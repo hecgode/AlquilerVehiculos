@@ -25,10 +25,7 @@ private DAL() throws DAOExcepcion{
 		return catDAO.obtenerCategorias();
 		} catch (DAOExcepcion e) {
 		return null;
-		}
-
-
-	}
+		}	}
 
 
 	public List<SucursalDTO> obtenerSucursales() {
@@ -36,12 +33,7 @@ private DAL() throws DAOExcepcion{
 			return sucursaldao.obtenerSucursales();
 
 		} catch (DAOExcepcion e) {
-			return null;
-			}
-
-
-
-	}
+			return null;			}	}
 
 	public List<ReservaDTO> obtenerReservas(int iden) {
 		try {
@@ -49,8 +41,7 @@ private DAL() throws DAOExcepcion{
 
 		} catch (DAOExcepcion e) {
 			return null;
-			}
-	}
+			}	}
 
 public void crearCliente(ClienteDTO cl)
 	{
@@ -59,12 +50,19 @@ public void crearCliente(ClienteDTO cl)
 		} catch (DAOExcepcion e) {
 
 			}
-
-
 	}
 
+public void CrearReserva (ReservaDTO res)
+
+{
+	try {
+		reservadao.crearReserva(res);
+	} catch (DAOExcepcion e) {
+
+		}
 
 
+}
 
 
 	//Patron Singleton

@@ -15,8 +15,7 @@ public class AlquilerVehiculos {
     private List<Categoria> mCategoria = new ArrayList <Categoria>();
     private ArrayList<Sucursal> mSucursal = new ArrayList <Sucursal>();
 	private DAL dal;
-
-   public AlquilerVehiculos()  throws DAOExcepcion {
+	public AlquilerVehiculos()  throws DAOExcepcion {
     	 //CargarSistema();
     	this.dal = DAL.dameDAL();
     	CargarSistema1();
@@ -58,7 +57,7 @@ private void cargaCategorias1() {
 
 
 private void cargaReservas() {
-	/*
+
 	// TODO Auto-generated method stub
 	List<ReservaDTO> listaresdto = dal.obtenerReservas(1);
 	// Crear y a�adir todas las categorias a la colecci�n
@@ -67,7 +66,6 @@ private void cargaReservas() {
 
 	}
 
-	*/
 	}
 
 
@@ -84,11 +82,6 @@ public void crearCliente(Cliente cliente) {
 
 
 
-
-private void anyadirReserva(Reserva reserva) {
-	mReserva.add(reserva);
-
-}
 
 public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 	Categoria cat = null;
@@ -138,8 +131,85 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     	mSucursal.add(suc);
     }
 
+    public Sucursal consultar_Sucursal1(int id){
+		for(Sucursal sucursal: mSucursal)
+			if(sucursal.getIdentificador()==id)
+				return sucursal;
+		return null;
+	}
 
-    public void creaReserva (int identificador, String fechar, String fechad , int idSucursalr, int idSucursald,String nombreCategoria, String mAlquiler )
+
+	public boolean eliminar_Sucursal(int id){
+		return mSucursal.remove(consultar_Sucursal1(id));
+	}
+
+
+private void anyadirReserva(Reserva reserva) {
+	mReserva.add(reserva);
+
+}
+
+
+	public boolean eliminar_Categoria(String id){
+		return mCategoria.remove(buscarCategoria(id));
+				}
+
+
+
+	public boolean añadir_Reserva(Reserva reserva){
+		return mReserva.add(reserva);
+	}
+
+	public boolean eliminar_Reserva(int id){
+		return mReserva.remove(consultar_Reservas(id));
+	}
+
+
+	public Reserva consultar_Reservas(int id) {
+		Reserva cat = null;
+		boolean encontrado=false;
+		for (int i=0;i<mReserva.size() && !encontrado;i++  )
+		{
+			if(mReserva.get(i).getIdentificador()==id)
+				encontrado=true;
+				cat=mReserva.get(i);
+
+			}	return cat;
+
+
+		}
+
+
+
+
+	public Cliente consultar_Cliente(String id){
+		for(Cliente cliente: mCliente	)
+			if(cliente.getIdendificador().equals(id))
+				return cliente;
+		return null;
+	}
+
+	public boolean añadir_Cliente(Cliente cliente){
+		return mCliente.add(cliente);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void creaReserva (int identificador, String fechar, String fechad , int idSucursalr, int idSucursald,String nombreCategoria, String mAlquiler )
     {
     	boolean sucursal1 = false;
     	boolean sucursal2 = false;
@@ -168,11 +238,38 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     }
 
 
-
-	Reserva reserva = new Reserva(identificador, fechar,fechad, nombreCategoria,cliente,categoria,sucursalr,sucursald);
+	Reserva reserva = new Reserva(identificador, fechar,fechad,
+			nombreCategoria,cliente,categoria,sucursalr,sucursald);
     }
 
 
+    public Sucursal buscarSucursal(int identificador) {
+
+
+    	Sucursal suc = null;
+    	boolean encontrado=false;
+    	for (int i=0;i<mSucursal.size() && !encontrado;i++  )
+    	{
+    		if(mSucursal.get(i).getIdentificador()==identificador)
+    		{
+    				encontrado=true;
+    			suc=mSucursal.get(i);
+
+    		}
+    	}
+    	return suc;
+
+    }
+/*
+    	public List<Sucursal> listarSucursales()  throws LogicaExcepcion
+    	{
+
+    			List<SucursalDTO> lista=DAL.dameDAL().obtenerSucursales();
+
+
+    		return new ArrayList<>(lista.values()); }
+
+*/
 
 
 
@@ -180,15 +277,25 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
         return mCliente;
     }
 
-    public void setmCliente(ArrayList<Cliente> mCliente) {
-        this.mCliente = mCliente;
-    }
+
 
     public List<Reserva> getmReserva() {
-        return mReserva;
-    }
+		return mReserva;
+	}
 
-    public void setmReserva(ArrayList<Reserva> mReserva) {
+	public void setmReserva(List<Reserva> mReserva) {
+		this.mReserva = mReserva;
+	}
+
+	public void setmCliente(List<Cliente> mCliente) {
+		this.mCliente = mCliente;
+	}
+
+	public void setmCategoria(List<Categoria> mCategoria) {
+		this.mCategoria = mCategoria;
+	}
+
+	public void setmReserva(ArrayList<Reserva> mReserva) {
         this.mReserva = mReserva;
     }
 
@@ -207,58 +314,12 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     public void setmSucursal(ArrayList<Sucursal> mSucursal) {
         this.mSucursal = mSucursal;
     }
-/*
-    private void CargarSistema()  {
-    	Sucursal suc1 = new Sucursal(1, "Camino");
-    	Sucursal suc2 = new Sucursal (2, "Archiduque");
-    	mSucursal.add(suc1);
-    	mSucursal.add(suc2);
-    	Categoria cat1 = new Categoria ("sedan",45,23,0.75,55.25,43.23);
-    	Categoria cat2 = new Categoria ("economty",48,27,0.85,75.25,55.23);
-    	mCategoria.add(cat1);
-    	mCategoria.add(cat2);
-    	cat2.setCatsup(cat1);
-    	cat1.setCatsup(null);
-    	cat1.setCoches(null);
-    	cat2.setCoches(null);
-    	mCategoria.add(cat1);
-    	mCategoria.add(cat2);
 
-
-}
-*/
-	public Sucursal buscarSucursal(int identificador) {
-
-
-	Sucursal suc = null;
-	boolean encontrado=false;
-	for (int i=0;i<mSucursal.size() && !encontrado;i++  )
-	{
-		if(mSucursal.get(i).getIdentificador()==identificador)
-		{
-				encontrado=true;
-			suc=mSucursal.get(i);
-
-		}
-	}
-	return suc;
-
-}
-
-	public List<Sucursal> listarSucursales()  throws LogicaExcepcion
-	{
-
-			List<SucursalDTO> lista=DAL.dameDAL().obtenerSucursales();
-
-
-
-		return new ArrayList<>(lista.values()); }
-
-}
 
 
 
 
+}
 
 
 
