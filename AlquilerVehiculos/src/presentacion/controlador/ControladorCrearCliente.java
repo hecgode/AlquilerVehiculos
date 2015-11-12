@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.logging.Logger;
+
+import excepciones.DAOExcepcion;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
@@ -15,7 +17,7 @@ import logica.AlquilerVehiculos;
 import logica.Cliente;
 
 public class ControladorCrearCliente extends ControladorCasoDeUso {
-	 private static final Logger LOG =	Logger.getLogger(ControladorCrearCliente.class.getName());
+	// private static final Logger LOG =	Logger.getLogger(ControladorCrearCliente.class.getName());
 	 @FXML
 	 private TextField dni;
 	 @FXML
@@ -45,8 +47,8 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 private Cliente nuevoCliente;
 
 	 @FXML
-	 public void aceptar (ActionEvent eve)
-	 
+	 public void aceptar (ActionEvent eve) throws DAOExcepcion
+
 	 {
 		 nuevoCliente = new Cliente(dni.getText(), nombreApellidos.getText(),
 					direccion.getText(),
@@ -62,20 +64,20 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 					//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
 
 }
-	 } 
-	 
-	 
-	 
+	 }
+
+
+
 	 @FXML
 	 public void cancelar (ActionEvent eve)
-	 
+
 	 {
 		 stage.close();
 
-	 } 
+	 }
 	 @Override
-	 
-	 
+
+
 	 public void initialize(URL location, ResourceBundle resources)
 	 {
 

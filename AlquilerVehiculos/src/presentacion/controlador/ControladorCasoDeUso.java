@@ -1,6 +1,8 @@
 package presentacion.controlador;
 
 import java.io.IOException;
+import java.net.URI;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -51,4 +53,8 @@ public abstract class ControladorCasoDeUso implements Initializable {
 
 	 return controlador;
 	 }
+	public void initialize(URI location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+
+	}
 	}
