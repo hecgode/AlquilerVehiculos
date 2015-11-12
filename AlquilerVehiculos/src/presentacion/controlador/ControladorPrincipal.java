@@ -8,9 +8,9 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 public class ControladorPrincipal {
-	 private static final String CREAR_CLIENTE = "../vista/crear-cliente.fxml";
-	 private static final String LISTAR_RESERVAS_SUCURSAL = "../vista/listarreservas-sucursal.fxml";
-	 private static final String LISTAR_SUCURSALES = "../vista/listarsucursales.fxml";
+	 private static final String CREAR_CLIENTE = "presentacion/controlador/crear-cliente.fxml";
+	// private static final String LISTAR_RESERVAS_SUCURSAL = "presentacion/controlador/listarreservas-sucursal.fxml";
+	 private static final String LISTAR_SUCURSALES = "presentacion/controlador/listarsucursales.fxml";
 
 	 private Stage primaryStage;
 	 @FXML
