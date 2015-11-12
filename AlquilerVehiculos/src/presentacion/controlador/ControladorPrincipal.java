@@ -1,6 +1,7 @@
 package presentacion.controlador;
 
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
+import javafx.event.*;
 
 import excepciones.LogicaExcepcion;
 import javafx.application.Platform;
