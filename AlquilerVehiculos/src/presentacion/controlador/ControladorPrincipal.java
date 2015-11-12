@@ -42,4 +42,13 @@ public class ControladorPrincipal {
 	 return ControladorCasoDeUso.initCasoDeUso(urlVista, controlClass,
 	primaryStage, ControladorPrincipal.this);
 	 }
+	 
+	 
+	 public static void main(String[] args) {    
+         launch(args);
+
+}
+	 
+	 
+	 
 	}
