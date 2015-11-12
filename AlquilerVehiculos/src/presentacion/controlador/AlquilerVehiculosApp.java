@@ -26,7 +26,7 @@ public void initRootLayout() {
 try {
 // Load root layout from fxml file.
 FXMLLoader loader = new FXMLLoader();
-loader.setLocation(AlquilerVehiculosApp.class.getResource("presentacion/controlador/principal.fxml"));
+loader.setLocation(AlquilerVehiculosApp.class.getResource("principal.fxml"));
 rootLayout = (BorderPane) loader.load();
 // Show the scene containing the root layout.
 Scene scene = new Scene(rootLayout);
