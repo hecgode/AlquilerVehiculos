@@ -156,7 +156,7 @@ private void anyadirReserva(Reserva reserva) {
 
 
 
-	public boolean añadir_Reserva(Reserva reserva){
+	public boolean anyadir_Reserva(Reserva reserva){
 		return mReserva.add(reserva);
 	}
 
@@ -189,7 +189,7 @@ private void anyadirReserva(Reserva reserva) {
 		return null;
 	}
 
-	public boolean añadir_Cliente(Cliente cliente){
+	public boolean anyadir_Cliente(Cliente cliente){
 		return mCliente.add(cliente);
 	}
 

@@ -5,19 +5,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="presentacion.controlador.ControladorListarSucursales">
+<AnchorPane prefHeight="366.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controlador.ControladorListarSucursales">
    <children>
-      <Pane layoutX="-274.0" layoutY="-320.0" prefHeight="776.0" prefWidth="900.0">
-         <children>
-            <TableView fx:id="sucursales" layoutX="393.0" layoutY="337.0" prefHeight="325.0" prefWidth="380.0">
-              <columns>
-                <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="direccion" prefWidth="304.0" text="Sucursales" />
-              </columns>
-            </TableView>
-            <Button fx:id="aceptar" layoutX="780.0" layoutY="708.0" mnemonicParsing="false" text="Button" />
-         </children>
-      </Pane>
+      <BorderPane layoutX="-132.0" layoutY="-112.0" onKeyPressed="#aceptar" prefHeight="366.0" prefWidth="319.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <Button mnemonicParsing="false" onAction="#aceptar" text="Button" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+      <TableView fx:id="sucursales" layoutX="53.0" layoutY="20.0" prefHeight="277.0" prefWidth="270.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="138.0" text="C1" />
+          <TableColumn fx:id="direccion" prefWidth="143.0" text="C2" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

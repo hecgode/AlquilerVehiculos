@@ -1,12 +1,6 @@
 package presentacion.controlador;
 
-import java.awt.Button;
-import java.net.URI;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import excepciones.DAOExcepcion;
-import excepciones.LogicaExcepcion;
+import javafx.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +8,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.awt.Button;
+import java.net.URI;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import excepciones.DAOExcepcion;
+import excepciones.LogicaExcepcion;
 import logica.AlquilerVehiculos;
 import logica.Cliente;
 import logica.Sucursal;
@@ -38,7 +40,7 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 					ReadOnlyObjectWrapper<>(param.getValue().getDireccion()));
 					 AlquilerVehiculos al = new AlquilerVehiculos();
 					this.sucursales.getItems().addAll(al.listarSucursales());
-
+					
 
 					//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
 

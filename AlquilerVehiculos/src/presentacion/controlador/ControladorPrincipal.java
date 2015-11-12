@@ -23,6 +23,7 @@ public class ControladorPrincipal {
 	 void crearCliente(ActionEvent event) throws LogicaExcepcion {
 	 initCasoDeUso(CREAR_CLIENTE, ControladorCrearCliente.class).show();
 	 }
+	 /*
 	 @FXML
 	 void crearReserva(ActionEvent event) {
 	 // TODO implementar el manejador del C.U. Crear Reserva
@@ -30,7 +31,7 @@ public class ControladorPrincipal {
 	 @FXML
 	 void listarReservasSucursal(ActionEvent event) throws LogicaExcepcion {
 	 //TODO implementar el manejador del C.U. Listar reservas de una sucursal
-	 }
+	 }*/
 	 @FXML
 	 void salir(ActionEvent event) {
 	 Platform.exit();
