@@ -16,8 +16,7 @@ public class ControladorPrincipal {
 	 private Stage primaryStage;
 	 @FXML
 	 void listarSucursales(ActionEvent event) throws LogicaExcepcion {
-	 initCasoDeUso(LISTAR_SUCURSALES,
-	ControladorListarSucursales.class).show();
+	 initCasoDeUso(LISTAR_SUCURSALES, ControladorListarSucursales.class).show();
 	 }
 	 @FXML
 	 void crearCliente(ActionEvent event) throws LogicaExcepcion {
