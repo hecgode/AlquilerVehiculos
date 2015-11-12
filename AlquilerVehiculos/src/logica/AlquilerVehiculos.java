@@ -45,12 +45,12 @@ private void cargaCategorias1() {
 	// Crear y a�adir todas las categorias a la colecci�n
 	for (CategoriaDTO catDTO : listacatdto) {
 	anyadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
-	catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros()));
+	catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros(),catDTO.getNombreCategoriaSuperior()));
 	}
 	// Actualizar los enlaces que representan la relaci�n �superior�
 	for (CategoriaDTO catDTO : listacatdto)
 		if (catDTO.getNombreCategoriaSuperior() != null)
-		buscarCategoria(catDTO.getNombre()). setSuperior(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
+		buscarCategoria(catDTO.getNombre()).setCatsup2(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
 		}
 
 
@@ -260,16 +260,15 @@ private void anyadirReserva(Reserva reserva) {
     	return suc;
 
     }
-/*
+
     	public List<Sucursal> listarSucursales()  throws LogicaExcepcion
     	{
 
-    			List<SucursalDTO> lista=DAL.dameDAL().obtenerSucursales();
 
 
-    		return new ArrayList<>(lista.values()); }
+    		return new ArrayList<>(mSucursal); }
 
-*/
+
 
 
 

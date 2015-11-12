@@ -2,8 +2,11 @@ package presentacion.controlador;
 
 import java.awt.Button;
 import java.net.URI;
+import java.net.URL;
 import java.util.ResourceBundle;
 
+import excepciones.DAOExcepcion;
+import excepciones.LogicaExcepcion;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,15 +29,15 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 	 private Button aceptar;
 
 	 @FXML
-	 public void aceptar (ActionEvent eve)
+	 public void aceptar (ActionEvent eve) throws LogicaExcepcion, DAOExcepcion
 
 	 {
 		 id.setCellValueFactory(param -> new
-					ReadOnlyObjectWrapper<>(param.getValue().getId()));
+					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
 					 direccion.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getDireccion()));
 					 AlquilerVehiculos al = new AlquilerVehiculos();
-					this.sucursales.getItems().addAll(al.listarsucursales());
+					this.sucursales.getItems().addAll(al.listarSucursales());
 
 
 					//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
@@ -58,12 +61,15 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 
 
 
-	 @Override
-	 public void initialize(URI location, ResourceBundle resources)
-	 {
-	 stage = new Stage(StageStyle.DECORATED);
-	 stage.setTitle("LISTADO DE SUCURSALES");
 
-	}
+
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		 stage = new Stage(StageStyle.DECORATED);
+		 stage.setTitle("LISTADO DE SUCURSALES");
+
+		}
+
 
 }
