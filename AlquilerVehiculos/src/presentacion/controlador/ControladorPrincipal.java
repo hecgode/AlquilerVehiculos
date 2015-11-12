@@ -1,11 +1,12 @@
 package presentacion.controlador;
 
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
 
 import excepciones.LogicaExcepcion;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
 public class ControladorPrincipal {
 	 private static final String CREAR_CLIENTE = "presentacion/controlador/crear-cliente.fxml";
@@ -23,16 +24,17 @@ public class ControladorPrincipal {
 	 initCasoDeUso(CREAR_CLIENTE, ControladorCrearCliente.class).show();
 	 }
 	 @FXML
-	 void crearReserva(ActionEvent event) {
+	 public void crearReserva(ActionEvent event) {
 	 // TODO implementar el manejador del C.U. Crear Reserva
 	 }
 	 @FXML
-	 void listarReservasSucursal(ActionEvent event) throws LogicaExcepcion {
+	 public void listarReservasSucursal(ActionEvent event) throws LogicaExcepcion {
 	 //TODO implementar el manejador del C.U. Listar reservas de una sucursal
 	 }
 	 @FXML
-	 void salir(ActionEvent event) {
-	 Platform.exit();
+	 public void salir(ActionEvent event) {
+		 Object source = event.getSource();
+		 Platform.exit();
 	 }
 	 public void setPrimaryStage(Stage primaryStage) {
 	 this.primaryStage = primaryStage;
