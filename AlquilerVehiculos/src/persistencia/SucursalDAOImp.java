@@ -50,7 +50,7 @@ public class SucursalDAOImp implements ISucursalDAO {
 	 {
 		 	try {
 		 		connManager.connect();
-		 		connManager.updateDB("insert into SUCURSAL (ID,DIRECCION) values("+suc.getId()+",'"+suc.getDireccion()+"')");
+		 		connManager.updateDB("insert into SUCURSAL values('"+suc.getId()+",'"+suc.getDireccion()+")");
 		 		connManager.close();
 			 	}
 		 	catch (Exception e){	throw new DAOExcepcion(e);}
