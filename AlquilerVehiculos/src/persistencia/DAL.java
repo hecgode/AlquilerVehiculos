@@ -26,6 +26,14 @@ private DAL() throws DAOExcepcion{
 		} catch (DAOExcepcion e) {
 		return null;
 		}	}
+	
+	public List<ClienteDTO> obtenerClientes() {
+		try {
+		return clientedao.obtenerClientes();
+		} catch (DAOExcepcion e) {
+		return null;
+		}	}
+
 
 
 	public List<SucursalDTO> obtenerSucursales() {
