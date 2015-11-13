@@ -10,10 +10,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
+
 public class ControladorPrincipal {
 	 private static final String CREAR_CLIENTE = "crear-cliente.fxml";
 	 private static final String Crear_Reserva = "Crear-reserva.fxml";
 	 private static final String LISTAR_SUCURSALES = "listarsucursales.fxml";
+	 private static final String Crear_Sucursal = "CrearSucursal.fxml";
 
 	 private Stage primaryStage;
 
@@ -36,7 +38,11 @@ public class ControladorPrincipal {
 	 void listarReservasSucursal(ActionEvent event) throws LogicaExcepcion {
 	 //TODO implementar el manejador del C.U. Listar reservas de una sucursal
 	 }
+	 @FXML
+	 void CrearSuc(ActionEvent event) throws LogicaExcepcion {
+		  initCasoDeUso(Crear_Sucursal, ControladorCrearSucursal.class).show();
 
+	 }
 	 @FXML
 	 void salir(ActionEvent event) {
 		 Platform.exit();
@@ -47,10 +53,10 @@ public class ControladorPrincipal {
 		 	Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("ABOUT");
 			alert.setHeaderText(null);
-			alert.setContentText("Autores de la aplicaciÃ³n:\n"
-					+ "HÃ©ctor GÃ³mez\n"
+			alert.setContentText("Autores de la aplicación:\n"
+					+ "Héctor Gómez\n"
 					+ "Luis Adelantado\n"
-					+ "Zaquiel RodrÃ­guez\n"
+					+ "Zaquiel Rodríguez\n"
 					+ "Pablo\n");
 			alert.showAndWait();
 	 }
