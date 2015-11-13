@@ -118,6 +118,9 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
     }
 
 
+
+
+
     public void AnyadirCliente(Cliente cliente) {
        mCliente.add(cliente);
     }
@@ -267,6 +270,14 @@ private void anyadirReserva(Reserva reserva) {
 
 
     		return new ArrayList<>(mSucursal); }
+
+
+    	public List<Cliente> listarClientes()  throws LogicaExcepcion
+    	{
+
+
+
+    		return new ArrayList<>(mCliente); }
 
 
 
