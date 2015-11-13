@@ -4,9 +4,13 @@ import java.sql.ResultSet;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import excepciones.DAOExcepcion;
 import persistencia.dto.ClienteDTO;
+import persistencia.dto.SucursalDTO;
+
 import java.sql.Date;
 public class ClienteDAOImp implements IClienteDAO {
 
@@ -73,4 +77,42 @@ public class ClienteDAOImp implements IClienteDAO {
 
 
 	 }
+
+
+		public List<ClienteDTO> obtenerClientes() throws DAOExcepcion {
+			try{
+				connManager.connect();
+				ResultSet rs=connManager.queryDB("select * from Cliente");
+				connManager.close();
+
+				List<ClienteDTO> listacliDTO = new ArrayList<ClienteDTO>();
+
+				try{
+					while (rs.next()){
+
+						ClienteDTO cliDTO = new ClienteDTO(
+																rs.getString("DNI"),
+								rs.getString("NOMBREYAPELLIDOS"),
+								rs.getString("DIRECCION"),
+								rs.getString("POBLACION"),
+								rs.getString("CODPOS"),
+								LocalDateTime.of(rs.getDate("FECHACARNETCONDUCIR").toLocalDate(), rs.getTime("FECHACARNETCONDUCIR").toLocalTime()),
+								rs.getString("DIGITOS"),
+								rs.getInt("MES"),
+								rs.getInt("ANYO"),
+								rs.getInt("VCV"),
+								rs.getString("TIPO"));
+
+
+
+					listacliDTO.add(cliDTO);
+					}
+					return listacliDTO;
+				}
+				catch (Exception e){	throw new DAOExcepcion(e);}
+			}
+			catch (SQLException e){	throw new DAOExcepcion(e);}
+			catch (DAOExcepcion e){		throw e;}
+
+		}
 }

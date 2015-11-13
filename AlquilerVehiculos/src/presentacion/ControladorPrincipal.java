@@ -14,6 +14,8 @@ public class ControladorPrincipal {
 	 private static final String CREAR_CLIENTE = "crear-cliente.fxml";
 	// private static final String LISTAR_RESERVAS_SUCURSAL = "listarreservas-sucursal.fxml";
 	 private static final String LISTAR_SUCURSALES = "listarsucursales.fxml";
+	 private static final String LISTAR_CLIENTES = "listarclientes.fxml";
+
 
 	 private Stage primaryStage;
 
@@ -25,6 +27,11 @@ public class ControladorPrincipal {
 	 @FXML
 	 void crearCliente(ActionEvent event) throws LogicaExcepcion {
 		 initCasoDeUso(CREAR_CLIENTE, ControladorCrearCliente.class).show();
+	 }
+
+	 @FXML
+	 void listarClientes(ActionEvent event) throws LogicaExcepcion {
+		 initCasoDeUso(LISTAR_CLIENTES, ControladorListarClientes.class).show();
 	 }
 
 	 /*
