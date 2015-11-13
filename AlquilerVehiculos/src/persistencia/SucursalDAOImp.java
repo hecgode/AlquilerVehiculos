@@ -46,6 +46,20 @@ public class SucursalDAOImp implements ISucursalDAO {
 		catch (DAOExcepcion e){		throw e;}
 
 	}
+	 public void crearSucursal(SucursalDTO suc) throws DAOExcepcion
+	 {
+		 	try {
+		 		connManager.connect();
+		 		connManager.updateDB("insert into SUCURSAL (ID,DIRECCION) values("+suc.getId()+","+suc.getDireccion()+")");
+		 		connManager.close();
+			 	}
+		 	catch (Exception e){	throw new DAOExcepcion(e);}
+
+
+
+
+	 }
+
 
 
 

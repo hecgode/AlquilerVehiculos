@@ -64,6 +64,18 @@ public void CrearReserva (ReservaDTO res)
 
 }
 
+public void CrearSucursal (SucursalDTO suc)
+
+{
+	try {
+		sucursaldao.crearSucursal(suc);
+	} catch (DAOExcepcion e) {
+
+		}
+
+
+}
+
 
 	//Patron Singleton
 		public static DAL dameDAL() throws DAOExcepcion{

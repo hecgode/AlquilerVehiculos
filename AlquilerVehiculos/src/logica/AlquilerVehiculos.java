@@ -76,8 +76,22 @@ public void crearCliente(Cliente cliente) {
 			cliente.getFechaCarnet(), cliente.getDigitos(), cliente.getMes(),
 			cliente.getAnyo(), cliente.getCvc(), cliente.getTipo());
 
+	AnyadirCliente(cliente);
+	dal.crearCliente(clienteDTO);
+}
+
+
+
+
+public void crearSucursal(Sucursal suc) {
+
+	SucursalDTO sucdto= new SucursalDTO(suc.getIdentificador(),suc.getDireccion());
+	anyadirSucursal(suc);
+	dal.CrearSucursal(sucdto);
+
 
 }
+
 
 
 public void crearReserva(Reserva res) {

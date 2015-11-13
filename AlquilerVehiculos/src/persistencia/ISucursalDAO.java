@@ -8,4 +8,5 @@ import excepciones.*;
 
 public interface ISucursalDAO {
  public List <SucursalDTO> obtenerSucursales() throws DAOExcepcion;
+ public void crearSucursal(SucursalDTO suc) throws DAOExcepcion ;
 }
