@@ -1,4 +1,4 @@
-package presentacion.controlador;
+package presentacion;
 
 
 import java.net.URL;
@@ -82,16 +82,14 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 }
 
 	 @FXML
-	 public void cancelar (ActionEvent eve)
-	 {
+	 public void cancelar (ActionEvent eve) {
 		 stage.close();
 
 	 }
 	 @Override
 
 
-	 public void initialize(URL location, ResourceBundle resources)
-	 {
+	 public void initialize(URL location, ResourceBundle resources) {
 
 		 stage = new Stage(StageStyle.DECORATED);
 		 stage.setTitle("CREAR CLIENTE");

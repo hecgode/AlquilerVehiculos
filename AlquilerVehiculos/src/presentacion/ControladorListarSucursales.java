@@ -1,4 +1,4 @@
-package presentacion.controlador;
+package presentacion;
 
 import javafx.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;

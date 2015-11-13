@@ -11,8 +11,6 @@ public class Sucursal {
 		return identificador;
 	}
 
-
-
 	public void setIdentificador(int identificador) {
 		this.identificador = identificador;
 	}

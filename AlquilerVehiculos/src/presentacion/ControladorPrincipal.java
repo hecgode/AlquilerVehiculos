@@ -1,4 +1,4 @@
-package presentacion.controlador;
+package presentacion;
 
 //import java.awt.event.ActionEvent;
 import javafx.event.*;
@@ -6,6 +6,8 @@ import javafx.event.*;
 import excepciones.LogicaExcepcion;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class ControladorPrincipal {
@@ -38,6 +40,19 @@ public class ControladorPrincipal {
 	 @FXML
 	 void salir(ActionEvent event) {
 		 Platform.exit();
+	 }
+
+	 @FXML
+	 void about(ActionEvent event) {
+		 	Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("ABOUT");
+			alert.setHeaderText(null);
+			alert.setContentText("Autores de la aplicación:\n"
+					+ "Héctor Gómez\n"
+					+ "Luis Adelantado\n"
+					+ "Zaquiel Rodríguez\n"
+					+ "Pablo\n");
+			alert.showAndWait();
 	 }
 
 	 public void setPrimaryStage(Stage primaryStage) {
