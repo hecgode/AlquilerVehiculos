@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="366.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controlador.ControladorListarSucursales">
-   <children>
-      <BorderPane layoutX="-132.0" layoutY="-112.0" onKeyPressed="#aceptar" prefHeight="366.0" prefWidth="319.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <bottom>
-            <Button mnemonicParsing="false" onAction="#aceptar" text="Button" BorderPane.alignment="CENTER" />
-         </bottom>
-      </BorderPane>
-      <TableView fx:id="sucursales" layoutX="53.0" layoutY="20.0" prefHeight="277.0" prefWidth="270.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="0.0">
-        <columns>
-          <TableColumn fx:id="id" prefWidth="138.0" text="C1" />
-          <TableColumn fx:id="direccion" prefWidth="143.0" text="C2" />
-        </columns>
-      </TableView>
-   </children>
+<AnchorPane prefHeight="366.0" prefWidth="319.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.controlador.ControladorListarSucursales">
+  <children>
+    <BorderPane onKeyPressed="#aceptar" prefHeight="366.0" prefWidth="319.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <Button mnemonicParsing="false" onAction="#aceptar" prefWidth="129.0" text="Aceptar" />
+      </bottom>
+    </BorderPane>
+    <TableView fx:id="sucursales" prefHeight="277.0" prefWidth="270.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="0.0">
+      <columns>
+        <TableColumn prefWidth="138.0" text="C1" fx:id="id" />
+        <TableColumn prefWidth="143.0" text="C2" fx:id="direccion" />
+      </columns>
+    </TableView>
+  </children>
 </AnchorPane>

@@ -10,8 +10,11 @@ import excepciones.DAOExcepcion;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -49,30 +52,38 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 private Cliente nuevoCliente;
 
 	 @FXML
+	 private Label label;
+
+	 @FXML
 	 public void aceptar (ActionEvent eve) throws DAOExcepcion
-
 	 {
-		 nuevoCliente = new Cliente(dni.getText(), nombreApellidos.getText(),
-					direccion.getText(),
-					 poblacion.getText(), codigoPostal.getText(),
-					null, digitosTC.getText(),
-					 Integer.parseInt(mesTC.getText()),
-					Integer.parseInt(anyoTC.getText()),
-					 Integer.parseInt(cvc.getText()), tipoTarjeta.getText());
-					 if (nuevoCliente != null) {
-					 //Invocamos el servicio encargado de Crear un nuevo cliente
-						 AlquilerVehiculos al = new AlquilerVehiculos();
-						 al.crearCliente(nuevoCliente);
-					//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
-
-}
+		 try {
+			 nuevoCliente = new Cliente(dni.getText(), nombreApellidos.getText(),
+						direccion.getText(),
+						 poblacion.getText(), codigoPostal.getText(),
+						null, digitosTC.getText(),
+						 Integer.parseInt(mesTC.getText()),
+						Integer.parseInt(anyoTC.getText()),
+						 Integer.parseInt(cvc.getText()), tipoTarjeta.getText());
+						 if (nuevoCliente != null) {
+						 //Invocamos el servicio encargado de Crear un nuevo cliente
+							 AlquilerVehiculos al = new AlquilerVehiculos();
+							 al.crearCliente(nuevoCliente);
+						//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
+						 }
+		 }
+		 catch(Exception e) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("ERROR");
+			alert.setHeaderText(null);
+			alert.setContentText("¡No se han introducido datos!");
+			alert.showAndWait();
+		 }
 	 }
-
 
 
 	 @FXML
 	 public void cancelar (ActionEvent eve)
-
 	 {
 		 stage.close();
 
@@ -84,7 +95,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 {
 
 		 stage = new Stage(StageStyle.DECORATED);
-	 stage.setTitle("CREAR CLIENTE");
+		 stage.setTitle("CREAR CLIENTE");
 
 
 	 }

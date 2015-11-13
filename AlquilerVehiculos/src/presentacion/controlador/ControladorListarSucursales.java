@@ -31,47 +31,36 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 	 private Button aceptar;
 
 	 @FXML
-	 public void aceptar (ActionEvent eve) throws LogicaExcepcion, DAOExcepcion
-
+	 public void aceptar (ActionEvent eve) 
 	 {
+		 stage.close();
+	 }
+
+	 public void boot() throws DAOExcepcion, LogicaExcepcion {
 		 id.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
 					 direccion.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getDireccion()));
 					 AlquilerVehiculos al = new AlquilerVehiculos();
 					this.sucursales.getItems().addAll(al.listarSucursales());
-					
-
-					//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
-
-}
-
-
-
-
-	 @FXML
-	 public void cancelar (ActionEvent eve)
-
-	 {
-		 stage.close();
 
 	 }
-
-
-
-
-
-
-
-
 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		 stage = new Stage(StageStyle.DECORATED);
 		 stage.setTitle("LISTADO DE SUCURSALES");
-
+		 try {
+			boot();
+		} catch (DAOExcepcion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (LogicaExcepcion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	}
 
 
 }

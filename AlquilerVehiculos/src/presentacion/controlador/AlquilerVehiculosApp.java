@@ -18,9 +18,9 @@ public static void main(String[] args) {
 launch(args);
 }
 public void start(Stage primaryStage) {
-this.primaryStage = primaryStage;
-this.primaryStage.setTitle("ALQUILER DE VEHICULOS");
-initRootLayout();
+	this.primaryStage = primaryStage;
+	this.primaryStage.setTitle("ALQUILER DE VEHICULOS");
+	initRootLayout();
 }
 public void initRootLayout() {
 try {
