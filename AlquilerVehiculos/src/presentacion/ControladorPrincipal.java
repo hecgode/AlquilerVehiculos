@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class ControladorPrincipal {
 	 private static final String CREAR_CLIENTE = "crear-cliente.fxml";
-	// private static final String LISTAR_RESERVAS_SUCURSAL = "listarreservas-sucursal.fxml";
+	 private static final String Crear_Reserva = "Crear-reserva.fxml";
 	 private static final String LISTAR_SUCURSALES = "listarsucursales.fxml";
 
 	 private Stage primaryStage;
@@ -27,15 +27,15 @@ public class ControladorPrincipal {
 		 initCasoDeUso(CREAR_CLIENTE, ControladorCrearCliente.class).show();
 	 }
 
-	 /*
+
 	 @FXML
 	 void crearReserva(ActionEvent event) {
-	 // TODO implementar el manejador del C.U. Crear Reserva
+	  initCasoDeUso(Crear_Reserva, ControladorCrearReserva.class).show();
 	 }
 	 @FXML
 	 void listarReservasSucursal(ActionEvent event) throws LogicaExcepcion {
 	 //TODO implementar el manejador del C.U. Listar reservas de una sucursal
-	 }*/
+	 }
 
 	 @FXML
 	 void salir(ActionEvent event) {

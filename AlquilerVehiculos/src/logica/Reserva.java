@@ -2,107 +2,100 @@
 
 package logica;
 
+import java.time.LocalDateTime;
+
 public class Reserva {
-	private int identificador;
-    private String fechaR;
-    private String fechaD;
-    private String modalidad;
-
-
-	private Sucursal mDevolucion;
-    private Sucursal mRegogida;
-
-
-
-
-    public Reserva(int identificador, String fechaR, String fechaD, String modalidad, Cliente mCliente,
-			Categoria mCategoria, Sucursal mDevolucion, Sucursal mRegogida) {
+	private int id;
+	public Reserva(int id, LocalDateTime fechaRecogida, LocalDateTime fechaDevolucion, int modalidadAlquiler,
+			String dniCliente, String nombreCategoria, int idSucursalRecogida, int idSucursalDevolucion) {
 		super();
-		this.identificador = identificador;
-		this.fechaR = fechaR;
-		this.fechaD = fechaD;
-		this.modalidad = modalidad;
-		this.mCliente = mCliente;
-		this.mCategoria = mCategoria;
-		this.mDevolucion = mDevolucion;
-		this.mRegogida = mRegogida;
+		this.id = id;
+		this.fechaRecogida = fechaRecogida;
+		this.fechaDevolucion = fechaDevolucion;
+		this.modalidadAlquiler = modalidadAlquiler;
+		this.dniCliente = dniCliente;
+		this.nombreCategoria = nombreCategoria;
+		this.idSucursalRecogida = idSucursalRecogida;
+		this.idSucursalDevolucion = idSucursalDevolucion;
 	}
 
-	public String getFechaR() {
-        return fechaR;
-    }
+	private LocalDateTime fechaRecogida;
+	private LocalDateTime fechaDevolucion;
+	private int modalidadAlquiler;
+	private String dniCliente;
+	private String nombreCategoria;
+	private int idSucursalRecogida;
+	private int idSucursalDevolucion;
 
-    public void setFechaR(String fechaR) {
-        this.fechaR = fechaR;
-    }
 
-    public String getFechaD() {
-        return fechaD;
-    }
 
-    public void setFechaD(String fechaD) {
-        this.fechaD = fechaD;
-    }
 
-    public String getModalidad() {
-        return modalidad;
-    }
 
-    public void setModalidad(String modalidad) {
-        this.modalidad = modalidad;
-    }
-    public int getIdentificador() {
-  		return identificador;
-  	}
 
-  	public void setIdentificador(int identificador) {
-  		this.identificador = identificador;
-  	}
+	public int getId() {
+		return id;
+	}
 
-  	public Cliente getmCliente() {
-  		return mCliente;
-  	}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-  	public void setmCliente(Cliente mCliente) {
-  		this.mCliente = mCliente;
-  	}
+	public LocalDateTime getFechaRecogida() {
+		return fechaRecogida;
+	}
 
-  	public Categoria getmCategoria() {
-  		return mCategoria;
-  	}
+	public void setFechaRecogida(LocalDateTime fechaRecogida) {
+		this.fechaRecogida = fechaRecogida;
+	}
 
-  	public void setmCategoria(Categoria mCategoria) {
-  		this.mCategoria = mCategoria;
-  	}
+	public LocalDateTime getFechaDevolucion() {
+		return fechaDevolucion;
+	}
 
-  	public Sucursal getmDevolucion() {
-  		return mDevolucion;
-  	}
+	public void setFechaDevolucion(LocalDateTime fechaDevolucion) {
+		this.fechaDevolucion = fechaDevolucion;
+	}
 
-  	public void setmDevolucion(Sucursal mDevolucion) {
-  		this.mDevolucion = mDevolucion;
-  	}
+	public int getModalidadAlquiler() {
+		return modalidadAlquiler;
+	}
 
-  	public Sucursal getmRegogida() {
-  		return mRegogida;
-  	}
+	public void setModalidadAlquiler(int modalidadAlquiler) {
+		this.modalidadAlquiler = modalidadAlquiler;
+	}
 
-  	public void setmRegogida(Sucursal mRegogida) {
-  		this.mRegogida = mRegogida;
-  	}
+	public String getDniCliente() {
+		return dniCliente;
+	}
 
-  	private Cliente mCliente;
+	public void setDniCliente(String dniCliente) {
+		this.dniCliente = dniCliente;
+	}
 
-      private Categoria mCategoria;
-    private Entrega entrega;
+	public String getNombreCategoria() {
+		return nombreCategoria;
+	}
 
-      public Entrega getEntrega() {
-  	return entrega;
-  }
+	public void setNombreCategoria(String nombreCategoria) {
+		this.nombreCategoria = nombreCategoria;
+	}
 
-  public void setEntrega(Entrega entrega) {
-  	this.entrega = entrega;
-  }
+	public int getIdSucursalRecogida() {
+		return idSucursalRecogida;
+	}
+
+	public void setIdSucursalRecogida(int idSucursalRecogida) {
+		this.idSucursalRecogida = idSucursalRecogida;
+	}
+
+	public int getIdSucursalDevolucion() {
+		return idSucursalDevolucion;
+	}
+
+	public void setIdSucursalDevolucion(int idSucursalDevolucion) {
+		this.idSucursalDevolucion = idSucursalDevolucion;
+	}
+
 
 
 

@@ -54,7 +54,7 @@ private void cargaCategorias1() {
 		}
 
 
-
+/*
 
 private void cargaReservas() {
 
@@ -67,7 +67,7 @@ private void cargaReservas() {
 	}
 
 	}
-
+*/
 
 public void crearCliente(Cliente cliente) {
 
@@ -79,6 +79,14 @@ public void crearCliente(Cliente cliente) {
 
 }
 
+
+public void crearReserva(Reserva res) {
+
+	ReservaDTO resvaDTO = new ReservaDTO(res.getId(),res.getFechaDevolucion(),res.getFechaDevolucion(),res.getModalidadAlquiler(),
+			res.getDniCliente(),res.getNombreCategoria(),res.getIdSucursalDevolucion(),res.getIdSucursalRecogida());
+
+
+}
 
 
 
@@ -170,7 +178,7 @@ private void anyadirReserva(Reserva reserva) {
 		boolean encontrado=false;
 		for (int i=0;i<mReserva.size() && !encontrado;i++  )
 		{
-			if(mReserva.get(i).getIdentificador()==id)
+			if(mReserva.get(i).getId()==id)
 				encontrado=true;
 				cat=mReserva.get(i);
 
@@ -207,7 +215,7 @@ private void anyadirReserva(Reserva reserva) {
 
 
 
-
+/*
 
 	public void creaReserva (int identificador, String fechar, String fechad , int idSucursalr, int idSucursald,String nombreCategoria, String mAlquiler )
     {
@@ -242,7 +250,7 @@ private void anyadirReserva(Reserva reserva) {
 			nombreCategoria,cliente,categoria,sucursalr,sucursald);
     }
 
-
+*/
     public Sucursal buscarSucursal(int identificador) {
 
 

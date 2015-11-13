@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorCrearReserva">
+   <children>
+      <AnchorPane layoutX="-80.0" layoutY="-43.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="-80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="-43.0">
+         <children>
+            <TextField fx:id="dnic" layoutX="432.0" layoutY="143.0" prefHeight="17.0" prefWidth="141.0" />
+            <TextField fx:id="nombreApellidos" layoutX="432.0" layoutY="192.0" prefHeight="17.0" prefWidth="141.0" />
+            <TextField fx:id="codigoPostal" layoutX="432.0" layoutY="279.0" prefHeight="17.0" prefWidth="141.0" />
+            <TextField fx:id="moda" layoutX="432.0" layoutY="230.0" prefHeight="17.0" prefWidth="141.0" />
+            <TextField fx:id="poblacion" layoutX="432.0" layoutY="325.0" prefHeight="17.0" prefWidth="141.0" />
+            <Label layoutX="356.0" layoutY="147.0" text="DNI" />
+            <Label layoutX="353.0" layoutY="192.0" text="Nombre" />
+            <Label layoutX="361.0" layoutY="234.0" text="Direcciom" />
+            <Label layoutX="347.0" layoutY="283.0" text="Codugi Postal" />
+            <Label layoutX="342.0" layoutY="329.0" text="Poblacion" />
+            <DatePicker fx:id="ud1" layoutX="422.0" layoutY="379.0" />
+            <Label layoutX="347.0" layoutY="383.0" text="Fecha" />
+            <Label layoutX="586.0" layoutY="139.0" text="Numero" />
+            <TextField layoutX="361.0" layoutY="516.0" />
+         </children>
+      </AnchorPane>
+      <DatePicker fx:id="ud2" layoutX="432.0" layoutY="389.0" />
+   </children>
+</AnchorPane>

@@ -5,26 +5,28 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="439.0" prefWidth="544.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorCrearCliente">
+<AnchorPane prefHeight="439.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorCrearCliente">
   <children>
-    <AnchorPane layoutX="-322.0" layoutY="-105.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+    <AnchorPane layoutX="-322.0" layoutY="-105.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="544.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <TextField fx:id="dni" layoutX="432.0" layoutY="143.0" prefHeight="17.0" prefWidth="141.0" />
-        <TextField fx:id="nombreApellidos" layoutX="432.0" layoutY="192.0" prefHeight="17.0" prefWidth="141.0" />
-        <TextField fx:id="codigoPostal" layoutX="432.0" layoutY="279.0" prefHeight="17.0" prefWidth="141.0" />
-        <TextField fx:id="direccion" layoutX="432.0" layoutY="230.0" prefHeight="17.0" prefWidth="141.0" />
-        <TextField fx:id="poblacion" layoutX="432.0" layoutY="325.0" prefHeight="17.0" prefWidth="141.0" />
+        <TextField fx:id="dni" layoutX="99.0" layoutY="38.0" prefHeight="17.0" prefWidth="141.0" />
+        <TextField fx:id="nombreApellidos" layoutX="88.0" layoutY="142.0" prefHeight="17.0" prefWidth="141.0" />
+        <TextField fx:id="codigoPostal" layoutX="75.0" layoutY="298.0" prefHeight="17.0" prefWidth="141.0" />
+        <TextField fx:id="direccion" layoutX="362.0" layoutY="130.0" prefHeight="17.0" prefWidth="141.0" />
+        <TextField fx:id="poblacion" layoutX="118.0" layoutY="367.0" prefHeight="17.0" prefWidth="141.0" />
         <Label layoutX="356.0" layoutY="147.0" text="DNI" />
         <Label layoutX="353.0" layoutY="192.0" text="Nombre" />
         <Label layoutX="361.0" layoutY="234.0" text="Direcciom" />
         <Label layoutX="347.0" layoutY="283.0" text="Codugi Postal" />
         <Label layoutX="342.0" layoutY="329.0" text="Poblacion" />
-        <DatePicker fx:id="fechaCarnet" layoutX="422.0" layoutY="379.0" />
+        <DatePicker fx:id="fechaCarnet" layoutX="275.0" layoutY="311.0" />
         <Label layoutX="347.0" layoutY="383.0" text="Fecha" />
         <Label layoutX="586.0" layoutY="139.0" text="Numero" />
+          <TextField fx:id="cvc" layoutX="65.0" layoutY="180.0" prefHeight="17.0" prefWidth="141.0" />
+          <TextField fx:id="mesTC" layoutX="88.0" layoutY="91.0" prefHeight="17.0" prefWidth="141.0" />
+          <TextField fx:id="tipoTarjeta" layoutX="97.0" layoutY="234.0" prefHeight="17.0" prefWidth="141.0" />
       </children>
     </AnchorPane>
-    <TextField fx:id="cvc" layoutX="361.0" layoutY="133.0" prefHeight="17.0" prefWidth="141.0" />
     <TextField fx:id="anyoTC" layoutX="361.0" layoutY="83.0" prefHeight="17.0" prefWidth="141.0" />
     <Button fx:id="aceptar" layoutX="335.0" layoutY="392.0" mnemonicParsing="false" onAction="#aceptar" text="Aceptar" />
     <Button fx:id="cancelar" layoutX="451.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
@@ -33,7 +35,5 @@
     <Label layoutX="270.0" layoutY="137.0" text="CVC" />
     <Label layoutX="282.0" layoutY="246.0" text="Tipo" />
     <Label layoutX="296.0" layoutY="196.0" text="Mes" />
-    <TextField fx:id="mesTC" layoutX="373.0" layoutY="192.0" prefHeight="17.0" prefWidth="141.0" />
-    <TextField fx:id="tipoTarjeta" layoutX="373.0" layoutY="242.0" prefHeight="17.0" prefWidth="141.0" />
   </children>
 </AnchorPane>
