@@ -13,48 +13,43 @@ import javafx.stage.Stage;
 public abstract class ControladorCasoDeUso implements Initializable {
 	 protected Stage stage;
 	 protected ControladorPrincipal controladorPrincipal;
-	 public void setControladorPrincipal(ControladorPrincipal
-	controladorPrincipal) {
-	 this.controladorPrincipal = controladorPrincipal;
+
+	 public void setControladorPrincipal(ControladorPrincipal controladorPrincipal) {
+		 this.controladorPrincipal = controladorPrincipal;
 	 }
+
 	 public Stage getStage() {
-	 return stage;
+		 return stage;
 	 }
 
 	 public void show() {
 	 stage.show();
 	 }
 
-	 public static <T extends ControladorCasoDeUso> T initCasoDeUso(String
-	urlVista, Class<T> controlClass, Stage owner,
-
-	ControladorPrincipal controladorPrincipal) {
-	 FXMLLoader fxmlLoader = new
-	FXMLLoader(ControladorCasoDeUso.class.getResource(urlVista));
-	 T controlador = null;
-	 try {
+	 public static <T extends ControladorCasoDeUso> T initCasoDeUso(String urlVista, Class<T> controlClass, Stage owner, ControladorPrincipal controladorPrincipal) {
+		 FXMLLoader fxmlLoader = new FXMLLoader(ControladorCasoDeUso.class.getResource(urlVista));
+		 T controlador = null;
 		 try {
-
-
-	 Parent parent = fxmlLoader.load();
-	 controlador = fxmlLoader.getController();
-	 controlador.stage.setScene(new Scene(parent));
-	 controlador.stage.initOwner(owner);
-	 controlador.setControladorPrincipal(controladorPrincipal);
-	 }
-	 catch (NullPointerException e) {
-	 e.printStackTrace();
-	 }
+			 try {
+				 Parent parent = fxmlLoader.load();
+				 controlador = fxmlLoader.getController();
+				 controlador.stage.setScene(new Scene(parent));
+				 controlador.stage.initOwner(owner);
+				 controlador.setControladorPrincipal(controladorPrincipal);
+			 }
+			 catch (NullPointerException e) {
+				 e.printStackTrace();
+			 }
 	 }
 	 catch (IOException e) {
-	 e.printStackTrace();
+		 e.printStackTrace();
 	 }
-
 
 	 return controlador;
-	 }
+}
+
 	public void initialize(URI location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 
 	}
-	}
+}

@@ -31,8 +31,7 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 	 private Button aceptar;
 
 	 @FXML
-	 public void aceptar (ActionEvent eve) 
-	 {
+	 public void aceptar (ActionEvent eve) {
 		 stage.close();
 	 }
 
@@ -61,6 +60,4 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 			e.printStackTrace();
 		}
 	}
-
-
 }

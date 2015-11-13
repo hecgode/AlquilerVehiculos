@@ -81,7 +81,6 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 		 }
 	 }
 
-
 	 @FXML
 	 public void cancelar (ActionEvent eve)
 	 {
