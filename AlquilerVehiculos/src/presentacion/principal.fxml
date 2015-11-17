@@ -19,6 +19,7 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Cliente">
           <items>
+                  <MenuItem mnemonicParsing="false" onAction="#listarClientes" text="Listar Clientes" />
             <MenuItem mnemonicParsing="false" onAction="#crearCliente" text="Crear Cliente" />
             <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="Sucursales" />
           </items>

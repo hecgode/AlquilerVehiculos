@@ -17,7 +17,7 @@
             <TableColumn fx:id="fecha" prefWidth="75.0" text="FECHA" />
             <TableColumn fx:id="digitos" prefWidth="75.0" text="DIGITOS" />
             <TableColumn fx:id="mes" prefWidth="75.0" text="MES" />
-            <TableColumn fx:id="año" prefWidth="75.0" text="AÑO" />
+            <TableColumn fx:id="anyo" prefWidth="75.0" text="AÑO" />
             <TableColumn fx:id="cvc" prefWidth="75.0" text="CVC" />
             <TableColumn fx:id="tipo" prefWidth="75.0" text="TIPO" />
         </columns>

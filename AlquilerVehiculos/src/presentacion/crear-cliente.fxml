@@ -6,34 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="439.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorCrearCliente">
-  <children>
-    <AnchorPane layoutX="-322.0" layoutY="-105.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="544.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <children>
-        <TextField fx:id="dni" layoutX="99.0" layoutY="38.0" prefHeight="439.0" prefWidth="544.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <TextField fx:id="nombreApellidos" layoutX="88.0" layoutY="142.0" prefHeight="17.0" prefWidth="141.0" />
-        <TextField fx:id="codigoPostal" layoutX="75.0" layoutY="298.0" prefHeight="17.0" prefWidth="141.0" />
-        <TextField fx:id="direccion" layoutX="362.0" layoutY="130.0" prefHeight="17.0" prefWidth="141.0" />
-        <TextField fx:id="poblacion" layoutX="118.0" layoutY="367.0" prefHeight="17.0" prefWidth="141.0" />
-        <Label layoutX="356.0" layoutY="147.0" text="DNI" />
-        <Label layoutX="353.0" layoutY="192.0" text="Nombre" />
-        <Label layoutX="361.0" layoutY="234.0" text="Direcciom" />
-        <Label layoutX="347.0" layoutY="283.0" text="Codugi Postal" />
-        <Label layoutX="342.0" layoutY="329.0" text="Poblacion" />
-        <DatePicker fx:id="fechaCarnet" layoutX="275.0" layoutY="311.0" />
-        <Label layoutX="347.0" layoutY="383.0" text="Fecha" />
-        <Label layoutX="586.0" layoutY="139.0" text="Numero" />
-          <TextField fx:id="cvc" layoutX="65.0" layoutY="180.0" prefHeight="17.0" prefWidth="141.0" />
-          <TextField fx:id="mesTC" layoutX="88.0" layoutY="91.0" prefHeight="17.0" prefWidth="141.0" />
-          <TextField fx:id="tipoTarjeta" layoutX="97.0" layoutY="234.0" prefHeight="17.0" prefWidth="141.0" />
-      </children>
-    </AnchorPane>
-    <TextField fx:id="anyoTC" layoutX="361.0" layoutY="83.0" />
-    <Button fx:id="aceptar" layoutX="335.0" layoutY="392.0" mnemonicParsing="false" onAction="#aceptar" text="Aceptar" />
-    <Button fx:id="cancelar" layoutX="451.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-    <TextField fx:id="digitosTC" layoutX="354.0" layoutY="37.0" prefHeight="17.0" prefWidth="141.0" />
-    <Label layoutX="284.0" layoutY="87.0" text="Año" />
-    <Label layoutX="270.0" layoutY="137.0" text="CVC" />
-    <Label layoutX="282.0" layoutY="246.0" text="Tipo" />
-    <Label layoutX="296.0" layoutY="196.0" text="Mes" />
-  </children>
+   <children>
+      <TextField fx:id="nombreApellidos" layoutX="222.0" layoutY="95.0" />
+      <TextField fx:id="direccion" layoutX="222.0" layoutY="160.0" />
+      <TextField fx:id="anyoTC" layoutX="222.0" layoutY="195.0" />
+      <TextField fx:id="dni" layoutX="222.0" layoutY="51.0" />
+      <TextField fx:id="codigoPostal" layoutX="222.0" layoutY="271.0" />
+      <DatePicker fx:id="fechaCarnet" layoutX="210.0" layoutY="354.0" />
+      <TextField fx:id="digitosTC" layoutX="395.0" layoutY="95.0" />
+      <TextField fx:id="mesTC" layoutX="222.0" layoutY="231.0" />
+      <TextField fx:id="poblacion" layoutX="222.0" layoutY="312.0" />
+      <TextField fx:id="tipoTarjeta" layoutX="384.0" layoutY="51.0" />
+   </children>
 </AnchorPane>
