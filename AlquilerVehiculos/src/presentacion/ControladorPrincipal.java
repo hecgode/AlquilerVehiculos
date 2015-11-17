@@ -54,10 +54,10 @@ public class ControladorPrincipal {
 		 	Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("ABOUT");
 			alert.setHeaderText(null);
-			alert.setContentText("Autores de la aplicaci�n:\n"
-					+ "H�ctor G�mez\n"
+			alert.setContentText("Autores de la aplicación:\n"
+					+ "Héctor Gómez\n"
 					+ "Luis Adelantado\n"
-					+ "Zaquiel Rodr�guez\n"
+					+ "Zaquiel Rodríguez\n"
 					+ "Pablo\n");
 			alert.showAndWait();
 	 }
