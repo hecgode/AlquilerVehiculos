@@ -54,11 +54,11 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 		 try {
 			 Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()), null,null,Integer.parseInt(moda.getText()),dnic.getText(),
 					 nombre.getText(),Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
-			 
+
 												 if (nuevaReserva != null) {
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 							 AlquilerVehiculos al = new AlquilerVehiculos();
-							
+
 							 al.crearReserva(nuevaReserva);//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
 						 }
 		 }
@@ -82,7 +82,7 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 public void initialize(URL location, ResourceBundle resources) {
 
 		 stage = new Stage(StageStyle.DECORATED);
-		 stage.setTitle("CREAR CLIENTE");
+		 stage.setTitle("CREAR RESERVA");
 
 
 	 }

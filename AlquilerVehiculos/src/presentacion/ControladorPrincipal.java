@@ -43,6 +43,7 @@ public class ControladorPrincipal {
 		  initCasoDeUso(Crear_Sucursal, ControladorCrearSucursal.class).show();
 
 	 }
+
 	 @FXML
 	 void salir(ActionEvent event) {
 		 Platform.exit();
@@ -53,10 +54,10 @@ public class ControladorPrincipal {
 		 	Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("ABOUT");
 			alert.setHeaderText(null);
-			alert.setContentText("Autores de la aplicación:\n"
-					+ "Héctor Gómez\n"
+			alert.setContentText("Autores de la aplicaciï¿½n:\n"
+					+ "Hï¿½ctor Gï¿½mez\n"
 					+ "Luis Adelantado\n"
-					+ "Zaquiel Rodríguez\n"
+					+ "Zaquiel Rodrï¿½guez\n"
 					+ "Pablo\n");
 			alert.showAndWait();
 	 }
