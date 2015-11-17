@@ -38,6 +38,7 @@ public class ControladorPrincipal {
 	 void listarReservasSucursal(ActionEvent event) throws LogicaExcepcion {
 	 //TODO implementar el manejador del C.U. Listar reservas de una sucursal
 	 }
+	 
 	 @FXML
 	 void CrearSuc(ActionEvent event) throws LogicaExcepcion {
 		  initCasoDeUso(Crear_Sucursal, ControladorCrearSucursal.class).show();
