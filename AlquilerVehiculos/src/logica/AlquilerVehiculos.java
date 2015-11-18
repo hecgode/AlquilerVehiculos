@@ -119,6 +119,11 @@ private void cargaCategorias() {
 		}
 
 
+public List<Categoria> listarCategoria()  throws LogicaExcepcion
+{
+
+	return new ArrayList<>(mCategoria); }
+
 
 public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 	Categoria cat = null;

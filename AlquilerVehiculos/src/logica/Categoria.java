@@ -13,6 +13,18 @@ public class Categoria {
     private String catsup;
 
 
+	public String getCatsup() {
+		return catsup;
+	}
+
+
+
+
+
+
+	public void setCatsup(String catsup) {
+		this.catsup = catsup;
+	}
 	public Categoria catsup2;
     private ArrayList<Coche> coches = new ArrayList<Coche>();
 
