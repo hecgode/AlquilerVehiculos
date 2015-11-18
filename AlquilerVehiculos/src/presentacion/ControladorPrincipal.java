@@ -15,6 +15,7 @@ public class ControladorPrincipal {
 	 private static final String CREAR_CLIENTE = "crear-cliente.fxml";
 	 private static final String Crear_Reserva = "Crear-reserva.fxml";
 	 private static final String LISTAR_SUCURSALES = "listarsucursales.fxml";
+	 private static final String LISTAR_CATEGORIAS = "listarcategorias.fxml";
 	 private static final String Crear_Sucursal = "CrearSucursal.fxml";
 	 private static final String LISTAR_CLIENTES = "listarclientes.fxml";
 
@@ -24,15 +25,19 @@ public class ControladorPrincipal {
 	 void listarSucursales(ActionEvent event) throws LogicaExcepcion {
 		 initCasoDeUso(LISTAR_SUCURSALES, ControladorListarSucursales.class).show();
 	 }
-	 
-	 
+
+	 @FXML
+	 void listarcategorias(ActionEvent event) throws LogicaExcepcion {
+		 initCasoDeUso(LISTAR_CATEGORIAS, ControladorListarCategorias.class).show();
+	 }
+
 	 @FXML
 	 void listarClientes(ActionEvent event) throws LogicaExcepcion {
 		 initCasoDeUso(LISTAR_CLIENTES, ControladorListarClientes.class).show();
 	 }
 
-	 
-	 
+
+
 
 	 @FXML
 	 void crearCliente(ActionEvent event) throws LogicaExcepcion {
@@ -48,7 +53,7 @@ public class ControladorPrincipal {
 	 void listarReservasSucursal(ActionEvent event) throws LogicaExcepcion {
 	 //TODO implementar el manejador del C.U. Listar reservas de una sucursal
 	 }
-	 
+
 	 @FXML
 	 void CrearSuc(ActionEvent event) throws LogicaExcepcion {
 		  initCasoDeUso(Crear_Sucursal, ControladorCrearSucursal.class).show();

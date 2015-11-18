@@ -28,7 +28,7 @@
         <Menu mnemonicParsing="false" text="Empleado">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#crearReserva" text="ListarReservasSucursal" />
-            <MenuItem mnemonicParsing="false" text="ListarCategorias " />
+            <MenuItem mnemonicParsing="false" onAction="#listarcategorias" text="ListarCategorias " />
             <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="ListarSucursales" />
           </items>
         </Menu>

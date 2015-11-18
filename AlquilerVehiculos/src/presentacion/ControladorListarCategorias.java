@@ -4,8 +4,10 @@ import javafx.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -18,6 +20,7 @@ import excepciones.DAOExcepcion;
 import excepciones.LogicaExcepcion;
 import logica.AlquilerVehiculos;
 import logica.Cliente;
+import logica.Sucursal;
 import logica.Categoria;
 
 public class ControladorListarCategorias  extends ControladorCasoDeUso {
@@ -42,6 +45,9 @@ public class ControladorListarCategorias  extends ControladorCasoDeUso {
 	 @FXML
 	 private Button aceptar;
 
+	 private Categoria nuevaCategoria;
+
+
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
 		 nombre.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getNombre()));
@@ -58,14 +64,15 @@ public class ControladorListarCategorias  extends ControladorCasoDeUso {
 		 catsup.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getCatsup()));
 
-		 			this.categorias.getItems().addAll( AlquilerVehiculos.dameAlquiler().listarCategoria());
+		 			AlquilerVehiculos al = new AlquilerVehiculos();
+		 			this.categorias.getItems().addAll(al.listarCategoria());
 
 	 }
 
 	 @Override
 		public void initialize(URL location, ResourceBundle resources) {
 			 stage = new Stage(StageStyle.DECORATED);
-			 stage.setTitle("LISTADO DE SUCURSALES");
+			 stage.setTitle("LISTADO DE CATEGORIAS");
 			 try {
 				boot();
 			} catch (DAOExcepcion e) {
