@@ -2,36 +2,41 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorPrincipal">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorPrincipal">
   <top>
     <MenuBar BorderPane.alignment="CENTER">
       <menus>
         <Menu mnemonicParsing="false" text="Archivo">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir" />
+            <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir">
+              <accelerator>
+                <KeyCodeCombination alt="ANY" code="F8" control="UP" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Cliente">
           <items>
-                  <MenuItem mnemonicParsing="false" onAction="#crearReserva" text="Crear Reserva" />
+            <MenuItem mnemonicParsing="false" onAction="#crearReserva" text="Crear Reserva" />
             <MenuItem mnemonicParsing="false" onAction="#crearCliente" text="Crear Cliente" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Empleado">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#crearReserva" text="ListarReservasSucursal" />
-                  <MenuItem mnemonicParsing="false" text="ListarCategorias " />
-                  <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="ListarSucursales" />
+            <MenuItem mnemonicParsing="false" text="ListarCategorias " />
+            <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="ListarSucursales" />
           </items>
         </Menu>
-            <Menu mnemonicParsing="false" text="Sucursales">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#CrearSuc" text="Crear Sucursal" />
-              </items>
-            </Menu>
+        <Menu mnemonicParsing="false" text="Sucursales">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#CrearSuc" text="Crear Sucursal" />
+          </items>
+        </Menu>
         <Menu mnemonicParsing="false" onAction="#about" text="About">
           <items>
             <MenuItem mnemonicParsing="false" text="Sobre la app" />
