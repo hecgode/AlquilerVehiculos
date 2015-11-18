@@ -22,24 +22,89 @@ public class AlquilerVehiculos {
 	}
 
   void CargarSistema1() {
-	cargaCategorias1();
+	cargaCategorias();
 	cargaSucursales();
 	//  cargaReservas();
 
 }
+  /*****************METODOS DE RESERVAS*******************************************************************************************
+   * **************************************************************************************/
 
-private void cargaSucursales() {
-	// TODO Auto-generated method stub
-	List<SucursalDTO> listasucdto = dal.obtenerSucursales();
-	// Crear y a�adir todas las categorias a la colecci�n
-	for (SucursalDTO sucDTO : listasucdto) {
-			anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));
+  private void cargaReservasporSUCURSAL() {
 
-	}}
+		// TODO Auto-generated method stub
+		List<ReservaDTO> listaresdto = dal.obtenerReservasPORSUCURSAL(1);
+		// Crear y a�adir todas las categorias a la colecci�n
+		for (ReservaDTO sucDTO : listaresdto) {
+				//anyadirReserva(new Reserva(0, null, null, null, null, null, null, null));
+
+		}
+
+		}
 
 
 
-private void cargaCategorias1() {
+  public void crearReserva(Reserva res) {
+
+		ReservaDTO resvaDTO = new ReservaDTO(res.getId(),res.getFechaDevolucion(),res.getFechaDevolucion(),res.getModalidadAlquiler(),
+				res.getDniCliente(),res.getNombreCategoria(),res.getIdSucursalDevolucion(),res.getIdSucursalRecogida());
+
+		anyadirReserva(res);
+		dal.CrearReserva(resvaDTO);
+
+
+	}
+
+
+  public List<Reserva> listarReservas(String sucursal) {
+      Sucursal suc = null;
+      List<Reserva> lista = null;
+      for (int i=0 ; i<mSucursal.size();i++)
+          if ( mSucursal.get(i).getDireccion().equals(sucursal))
+              suc = mSucursal.get(i);
+
+      if (suc != null)
+          lista = suc.listarReserva();
+      	return lista;
+
+  }
+
+
+
+private void anyadirReserva(Reserva reserva) {
+	mReserva.add(reserva);
+
+}
+
+
+public boolean eliminar_Reserva(int id){
+	return mReserva.remove(consultar_Reservas(id));
+}
+
+
+public Reserva consultar_Reservas(int id) {
+	Reserva cat = null;
+	boolean encontrado=false;
+	for (int i=0;i<mReserva.size() && !encontrado;i++  )
+	{
+		if(mReserva.get(i).getId()==id)
+			encontrado=true;
+			cat=mReserva.get(i);
+
+		}	return cat;
+
+
+	}
+
+
+
+
+
+/*****************METODOS DE CATEGORIAS*******************************************************************************************
+ * **************************************************************************************/
+
+
+private void cargaCategorias() {
 
 	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
 	// Crear y a�adir todas las categorias a la colecci�n
@@ -52,56 +117,6 @@ private void cargaCategorias1() {
 		if (catDTO.getNombreCategoriaSuperior() != null)
 		buscarCategoria(catDTO.getNombre()).setCatsup2(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
 		}
-
-
-/*
-
-private void cargaReservas() {
-
-	// TODO Auto-generated method stub
-	List<ReservaDTO> listaresdto = dal.obtenerReservas(1);
-	// Crear y a�adir todas las categorias a la colecci�n
-	for (ReservaDTO sucDTO : listaresdto) {
-			anyadirReserva(new Reserva(0, null, null, null, null, null, null, null));
-
-	}
-
-	}
-*/
-
-public void crearCliente(Cliente cliente) {
-
-	ClienteDTO clienteDTO = new ClienteDTO(cliente.getIdendificador(), cliente.getNombreyApellidos(),
-			cliente.getDireccion(), cliente.getPoblacion(), cliente.getCodPostal(),
-			cliente.getFechaCarnet(), cliente.getDigitos(), cliente.getMes(),
-			cliente.getAnyo(), cliente.getCvc(), cliente.getTipo());
-
-	AnyadirCliente(cliente);
-	dal.crearCliente(clienteDTO);
-}
-
-
-
-
-public void crearSucursal(Sucursal suc) {
-
-	SucursalDTO sucdto= new SucursalDTO(suc.getIdentificador(),suc.getDireccion());
-	anyadirSucursal(suc);
-	dal.CrearSucursal(sucdto);
-
-
-}
-
-
-
-public void crearReserva(Reserva res) {
-
-	ReservaDTO resvaDTO = new ReservaDTO(res.getId(),res.getFechaDevolucion(),res.getFechaDevolucion(),res.getModalidadAlquiler(),
-			res.getDniCliente(),res.getNombreCategoria(),res.getIdSucursalDevolucion(),res.getIdSucursalRecogida());
-
-
-}
-
 
 
 
@@ -121,190 +136,136 @@ public Categoria buscarCategoria(String nombreCategoriaSuperior) {
 }
 
 
-
-
-
-
-
-    public List<Reserva> listarReservas(String sucursal) {
-        Sucursal suc = null;
-        List<Reserva> lista = null;
-        for (int i=0 ; i<mSucursal.size();i++)
-            if ( mSucursal.get(i).getDireccion().equals(sucursal))
-                suc = mSucursal.get(i);
-
-        if (suc != null)
-            lista = suc.listarReserva();
-        	return lista;
-
-    }
-
-
-
-
-
-    public void AnyadirCliente(Cliente cliente) {
-       mCliente.add(cliente);
-    }
-
-    public void anyadirCategoria(Categoria cat) {
-    	mCategoria.add(cat);
-
-    }
-
-    public void anyadirSucursal(Sucursal suc){
-    	mSucursal.add(suc);
-    }
-
-    public Sucursal consultar_Sucursal1(int id){
-		for(Sucursal sucursal: mSucursal)
-			if(sucursal.getIdentificador()==id)
-				return sucursal;
-		return null;
-	}
-
-
-	public boolean eliminar_Sucursal(int id){
-		return mSucursal.remove(consultar_Sucursal1(id));
-	}
-
-
-private void anyadirReserva(Reserva reserva) {
-	mReserva.add(reserva);
+public void anyadirCategoria(Categoria cat) {
+	mCategoria.add(cat);
 
 }
 
 
-	public boolean eliminar_Categoria(String id){
-		return mCategoria.remove(buscarCategoria(id));
-				}
+
+public boolean eliminar_Categoria(String id){
+	return mCategoria.remove(buscarCategoria(id));
+			}
 
 
 
-	public boolean anyadir_Reserva(Reserva reserva){
-		return mReserva.add(reserva);
-	}
-
-	public boolean eliminar_Reserva(int id){
-		return mReserva.remove(consultar_Reservas(id));
-	}
 
 
-	public Reserva consultar_Reservas(int id) {
-		Reserva cat = null;
-		boolean encontrado=false;
-		for (int i=0;i<mReserva.size() && !encontrado;i++  )
+  /*****************METODOS DE SUCURSALES*******************************************************************************************
+   * **************************************************************************************/
+
+private void cargaSucursales() {
+	// TODO Auto-generated method stub
+	List<SucursalDTO> listasucdto = dal.obtenerSucursales();
+	// Crear y a�adir todas las categorias a la colecci�n
+	for (SucursalDTO sucDTO : listasucdto) {
+			anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));
+
+	}}
+
+
+
+
+public void crearSucursal(Sucursal suc) {
+
+	SucursalDTO sucdto= new SucursalDTO(suc.getIdentificador(),suc.getDireccion());
+	anyadirSucursal(suc);
+	dal.CrearSucursal(sucdto);
+
+
+}
+
+
+public void anyadirSucursal(Sucursal suc){
+	mSucursal.add(suc);
+}
+
+
+public Sucursal consultar_Sucursal1(int id){
+	for(Sucursal sucursal: mSucursal)
+		if(sucursal.getIdentificador()==id)
+			return sucursal;
+	return null;
+}
+
+
+public boolean eliminar_Sucursal(int id){
+	return mSucursal.remove(consultar_Sucursal1(id));
+}
+
+public Sucursal buscarSucursal(int identificador) {
+
+
+	Sucursal suc = null;
+	boolean encontrado=false;
+	for (int i=0;i<mSucursal.size() && !encontrado;i++  )
+	{
+		if(mSucursal.get(i).getIdentificador()==identificador)
 		{
-			if(mReserva.get(i).getId()==id)
 				encontrado=true;
-				cat=mReserva.get(i);
-
-			}	return cat;
-
+			suc=mSucursal.get(i);
 
 		}
+	}
+	return suc;
+
+}
 
 
 
+public List<Sucursal> listarSucursales()  throws LogicaExcepcion
+{
 
-	public Cliente consultar_Cliente(String id){
-		for(Cliente cliente: mCliente	)
-			if(cliente.getIdendificador().equals(id))
-				return cliente;
-		return null;
+	return new ArrayList<>(mSucursal); }
+
+
+/*****************METODOS DE CLIENTES*******************************************************************************************
+ * **************************************************************************************/
+
+
+public void crearCliente(Cliente cliente) {
+
+	ClienteDTO clienteDTO = new ClienteDTO(cliente.getIdendificador(), cliente.getNombreyApellidos(),
+			cliente.getDireccion(), cliente.getPoblacion(), cliente.getCodPostal(),
+			cliente.getFechaCarnet(), cliente.getDigitos(), cliente.getMes(),
+			cliente.getAnyo(), cliente.getCvc(), cliente.getTipo());
+
+	AnyadirCliente(cliente);
+	dal.crearCliente(clienteDTO);
+}
+
+public void AnyadirCliente(Cliente cliente) {
+   mCliente.add(cliente);
+
+
+}
+
+public boolean anyadir_Cliente(Cliente cliente){
+	return mCliente.add(cliente);
+}
+
+
+
+public Cliente consultar_Cliente(String id){
+	for(Cliente cliente: mCliente	)
+		if(cliente.getIdendificador().equals(id))
+			return cliente;
+	return null;
+}
+
+public List<Cliente> listarClientes()  throws LogicaExcepcion
+{
+
+	return new ArrayList<>(mCliente);
 	}
 
-	public boolean anyadir_Cliente(Cliente cliente){
-		return mCliente.add(cliente);
-	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-	public void creaReserva (int identificador, String fechar, String fechad , int idSucursalr, int idSucursald,String nombreCategoria, String mAlquiler )
-    {
-    	boolean sucursal1 = false;
-    	boolean sucursal2 = false;
-
-    	Cliente cliente = mCliente.get(0);
-    	Categoria categoria = mCategoria.get(0);
-    	Sucursal sucursalr = mSucursal.get(0);
-    	Sucursal sucursald = mSucursal.get(0);
-    for (int i=0 ; i<mCliente.size();i++)
-    {
-    	if (mCliente.get(i).getIdendificador().equals(identificador))
-    		{cliente=mCliente.get(i);break;}
-    }
-    for (int i=0 ; i<mCategoria.size();i++)
-    {
-    	if (mCategoria.get(i).getNombre()==nombreCategoria)
-    		{categoria=mCategoria.get(i);break;}
-    }
-    for (int i=0 ; i<mSucursal.size();i++)
-    {
-    	if (mSucursal.get(i).getIdentificador()==idSucursalr)
-    		{sucursalr=mSucursal.get(i);sucursal1=true;}
-    	if (mSucursal.get(i).getIdentificador()==idSucursald)
-    		{sucursald=mSucursal.get(i);sucursal2=true;}
-    	if(sucursal1 ==true && sucursal2 == true){break;}
-    }
-
-
-	Reserva reserva = new Reserva(identificador, fechar,fechad,
-			nombreCategoria,cliente,categoria,sucursalr,sucursald);
-    }
-
-*/
-    public Sucursal buscarSucursal(int identificador) {
-
-
-    	Sucursal suc = null;
-    	boolean encontrado=false;
-    	for (int i=0;i<mSucursal.size() && !encontrado;i++  )
-    	{
-    		if(mSucursal.get(i).getIdentificador()==identificador)
-    		{
-    				encontrado=true;
-    			suc=mSucursal.get(i);
-
-    		}
-    	}
-    	return suc;
-
-    }
-
-    	public List<Sucursal> listarSucursales()  throws LogicaExcepcion
-    	{
-
-    		return new ArrayList<>(mSucursal); }
-
-    	public List<Cliente> listarClientes()  throws LogicaExcepcion
-    	{
-
-    		return new ArrayList<>(mCliente);
-    		}
-
-
-
-
+/************************************************************************************************************
+ * **************************************************************************************/
 
     public List<Cliente> getmCliente() {
         return mCliente;
     }
-
 
 
     public List<Reserva> getmReserva() {
@@ -342,7 +303,6 @@ private void anyadirReserva(Reserva reserva) {
     public void setmSucursal(ArrayList<Sucursal> mSucursal) {
         this.mSucursal = mSucursal;
     }
-
 
 
 

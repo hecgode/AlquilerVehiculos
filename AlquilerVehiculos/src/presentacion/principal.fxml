@@ -19,14 +19,15 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Cliente">
           <items>
-                  <MenuItem mnemonicParsing="false" onAction="#listarClientes" text="Listar Clientes" />
+                  <MenuItem mnemonicParsing="false" onAction="#crearReserva" text="Crear Reserva" />
             <MenuItem mnemonicParsing="false" onAction="#crearCliente" text="Crear Cliente" />
-            <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="Sucursales" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Reserva">
+        <Menu mnemonicParsing="false" text="Empleado">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#crearReserva" text="crear Reserva" />
+            <MenuItem mnemonicParsing="false" onAction="#crearReserva" text="ListarReservasSucursal" />
+                  <MenuItem mnemonicParsing="false" text="ListarCategorias " />
+                  <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="ListarSucursales" />
           </items>
         </Menu>
             <Menu mnemonicParsing="false" text="Sucursales">

@@ -58,7 +58,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 												 if (nuevaReserva != null) {
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 							 AlquilerVehiculos al = new AlquilerVehiculos();
-
 							 al.crearReserva(nuevaReserva);//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
 						 }
 		 }
