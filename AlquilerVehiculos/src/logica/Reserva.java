@@ -1,4 +1,4 @@
-/*AlquilerVehiculos ultima modificacion 06/10/15*/
+/*AlquilerVehiculos ultima modificacion 24/10/15*/
 
 package logica;
 

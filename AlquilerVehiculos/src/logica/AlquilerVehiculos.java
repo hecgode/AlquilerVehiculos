@@ -15,6 +15,7 @@ public class AlquilerVehiculos {
     private List<Categoria> mCategoria = new ArrayList <Categoria>();
     private ArrayList<Sucursal> mSucursal = new ArrayList <Sucursal>();
 	private DAL dal;
+	private static AlquilerVehiculos Alquiler;
 	public AlquilerVehiculos()  throws DAOExcepcion {
     	 //CargarSistema();
     	this.dal = DAL.dameDAL();
@@ -36,7 +37,7 @@ public class AlquilerVehiculos {
 		List<ReservaDTO> listaresdto = dal.obtenerReservasPORSUCURSAL(1);
 		// Crear y a�adir todas las categorias a la colecci�n
 		for (ReservaDTO sucDTO : listaresdto) {
-				//anyadirReserva(new Reserva(0, null, null, null, null, null, null, null));
+			//	anyadirReserva(new Reserva(0, null, null, null, null, null, null, null));
 
 		}
 
@@ -174,6 +175,7 @@ private void cargaSucursales() {
 public void crearSucursal(Sucursal suc) {
 
 	SucursalDTO sucdto= new SucursalDTO(suc.getIdentificador(),suc.getDireccion());
+
 	anyadirSucursal(suc);
 	dal.CrearSucursal(sucdto);
 
@@ -319,6 +321,13 @@ public List<Cliente> listarClientes()  throws LogicaExcepcion
     public void setmSucursal(ArrayList<Sucursal> mSucursal) {
         this.mSucursal = mSucursal;
     }
+
+  //Patron Singleton
+  		public static AlquilerVehiculos dameAlquiler() throws DAOExcepcion{
+  			if(Alquiler==null)
+  				Alquiler=new AlquilerVehiculos();
+  			return Alquiler;
+  		}
 
 
 

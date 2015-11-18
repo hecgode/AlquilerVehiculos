@@ -6,6 +6,7 @@ import persistencia.dto.*;
 /*AlquilerVehiculos ultima modificacion 06/10/15*/
 public class DAL {
 	private static DAL dal;
+
 	ISucursalDAO sucursaldao;
 	IReservaDAO reservadao;
 	IClienteDAO clientedao;

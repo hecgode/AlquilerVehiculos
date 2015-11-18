@@ -60,9 +60,10 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 												 if (nuevaReserva != null) {
 
 
-													 if(al.buscar_cliente(dnic.toString())==true)
+													 if( (AlquilerVehiculos.dameAlquiler().buscar_cliente(dnic.toString()))==true)
 
-														 al.crearReserva(nuevaReserva);//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
+														 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
+
 													 else
 													 {	Alert alert = new Alert(AlertType.ERROR);
 														alert.setTitle("ERROR");
@@ -73,7 +74,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 												 }
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 
-							 al.crearReserva(nuevaReserva);//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
 
 		 }
 		 catch(Exception e) {

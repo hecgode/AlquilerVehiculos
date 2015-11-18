@@ -39,9 +39,9 @@ public class ControladorCrearSucursal extends ControladorCasoDeUso {
 
 						 if (nuevaSucursal != null) {
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
-							 AlquilerVehiculos al = new AlquilerVehiculos();
-							 
-							 al.crearSucursal(nuevaSucursal);
+
+							 AlquilerVehiculos.dameAlquiler().crearSucursal(nuevaSucursal);
+
 						//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
 						 }
 		 }

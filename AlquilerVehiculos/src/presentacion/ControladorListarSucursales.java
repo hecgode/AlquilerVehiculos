@@ -40,8 +40,9 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
 					 direccion.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getDireccion()));
-					 AlquilerVehiculos al = new AlquilerVehiculos();
-					this.sucursales.getItems().addAll(al.listarSucursales());
+
+
+					this.sucursales.getItems().addAll( AlquilerVehiculos.dameAlquiler().listarSucursales());
 
 	 }
 

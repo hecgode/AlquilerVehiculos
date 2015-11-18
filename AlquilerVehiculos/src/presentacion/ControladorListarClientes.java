@@ -63,8 +63,8 @@ public class ControladorListarClientes extends ControladorCasoDeUso {
 			 anyo.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getAnyo()));
 			 cvc.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getCvc()));
 			 tipo.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getTipo()));
-			 AlquilerVehiculos al = new AlquilerVehiculos();
-				this.clientes.getItems().addAll(al.listarClientes());
+
+							this.clientes.getItems().addAll(AlquilerVehiculos.dameAlquiler().listarClientes());
 	 }
 
 
