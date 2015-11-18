@@ -19,13 +19,13 @@ public class AlquilerVehiculos {
 	public AlquilerVehiculos()  throws DAOExcepcion {
     	 //CargarSistema();
     	this.dal = DAL.dameDAL();
-    	CargarSistema1();
+    	CargarSistema();
 	}
 
-  void CargarSistema1() {
+  void CargarSistema() throws DAOExcepcion {
 	cargaCategorias();
 	cargaSucursales();
-	//  cargaReservas();
+  cargarReservas();
 
 }
   /*****************METODOS DE RESERVAS*******************************************************************************************
@@ -35,7 +35,7 @@ public class AlquilerVehiculos {
 
 		// TODO Auto-generated method stub
 		List<ReservaDTO> listaresdto = dal.obtenerReservasPORSUCURSAL(1);
-		// Crear y a�adir todas las categorias a la colecci�n
+		// Crear y aï¿½adir todas las categorias a la colecciï¿½n
 		for (ReservaDTO sucDTO : listaresdto) {
 			//	anyadirReserva(new Reserva(0, null, null, null, null, null, null, null));
 
@@ -43,6 +43,13 @@ public class AlquilerVehiculos {
 
 		}
 
+  public void cargarReservas() throws DAOExcepcion {
+	  List<ReservaDTO> listaresdto = dal.obtenerReservas();
+		// Crear y a�adir todas las categorias a la colecci�n
+		for (ReservaDTO sucDTO : listaresdto) {
+				anyadirReserva(new Reserva(sucDTO.getId(),sucDTO.getFechaRecogida(),sucDTO.getFechaDevolucion(),sucDTO.getModalidadAlquiler(),sucDTO.getDniCliente(),sucDTO.getNombreCategoria(),sucDTO.getIdSucursalRecogida(),sucDTO.getIdSucursalDevolucion()));
+		}
+  }
 
 
   public void crearReserva(Reserva res) {
@@ -57,11 +64,11 @@ public class AlquilerVehiculos {
 	}
 
 
-  public List<Reserva> listarReservas(String sucursal) {
+  public List<Reserva> listarReservas(int identificador) {
       Sucursal suc = null;
       List<Reserva> lista = null;
       for (int i=0 ; i<mSucursal.size();i++)
-          if ( mSucursal.get(i).getDireccion().equals(sucursal))
+          if ( mSucursal.get(i).getIdentificador()==identificador)
               suc = mSucursal.get(i);
 
       if (suc != null)
@@ -108,12 +115,12 @@ public Reserva consultar_Reservas(int id) {
 private void cargaCategorias() {
 
 	List<CategoriaDTO> listacatdto = dal.obtenerCategorias();
-	// Crear y a�adir todas las categorias a la colecci�n
+	// Crear y aï¿½adir todas las categorias a la colecciï¿½n
 	for (CategoriaDTO catDTO : listacatdto) {
 	anyadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
 	catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros(),catDTO.getNombreCategoriaSuperior()));
 	}
-	// Actualizar los enlaces que representan la relaci�n �superior�
+	// Actualizar los enlaces que representan la relaciï¿½n ï¿½superiorï¿½
 	for (CategoriaDTO catDTO : listacatdto)
 		if (catDTO.getNombreCategoriaSuperior() != null)
 		buscarCategoria(catDTO.getNombre()).setCatsup2(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
@@ -163,7 +170,7 @@ public boolean eliminar_Categoria(String id){
 private void cargaSucursales() {
 	// TODO Auto-generated method stub
 	List<SucursalDTO> listasucdto = dal.obtenerSucursales();
-	// Crear y a�adir todas las categorias a la colecci�n
+	// Crear y aï¿½adir todas las categorias a la colecciï¿½n
 	for (SucursalDTO sucDTO : listasucdto) {
 			anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));
 

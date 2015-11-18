@@ -12,4 +12,6 @@ public interface IReservaDAO {
  public List <ReservaDTO> obtenerReservasPorSucursalOrigen(int idSucursal) throws DAOExcepcion;
 
  public void crearReserva(ReservaDTO reserva) throws DAOExcepcion;
+ public List<ReservaDTO> obtenerReservas() throws DAOExcepcion;
+
 }

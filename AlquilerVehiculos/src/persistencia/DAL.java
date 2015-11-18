@@ -20,6 +20,13 @@ private DAL() throws DAOExcepcion{
 
 	}
 
+public List<ReservaDTO> obtenerReservas() throws DAOExcepcion {
+	try {
+		return reservadao.obtenerReservas();
+		} catch (DAOExcepcion e) {
+			return null;
+		}
+}
 
 	public List<CategoriaDTO> obtenerCategorias() {
 		try {

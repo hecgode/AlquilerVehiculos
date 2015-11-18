@@ -2,6 +2,7 @@ package presentacion;
 
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.logging.Logger;
@@ -51,31 +52,17 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 @FXML
 	 public void aceptar (ActionEvent eve) throws DAOExcepcion
 	 {
-		 AlquilerVehiculos al = new AlquilerVehiculos();
-
+	
 		 try {
-			 Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()), null,null,Integer.parseInt(moda.getText()),dnic.getText(),
+			 Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(), null),LocalDateTime.of(devol.getValue(), null),Integer.parseInt(moda.getText()),dnic.getText(),
 					 nombre.getText(),Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
 
-												 if (nuevaReserva != null) {
-
-
-													 if( (AlquilerVehiculos.dameAlquiler().buscar_cliente(dnic.toString()))==true)
-
-														 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
-
-													 else
-													 {	Alert alert = new Alert(AlertType.ERROR);
-														alert.setTitle("ERROR");
-														alert.setHeaderText(null);
-														alert.setContentText("¡No se cliente!");
-														alert.showAndWait();
-													 }
+												 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
 												 }
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 
 
-		 }
+		
 		 catch(Exception e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("ERROR");

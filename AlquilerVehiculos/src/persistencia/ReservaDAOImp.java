@@ -108,6 +108,41 @@ public class ReservaDAOImp implements IReservaDAO{
 	}
 
 
+
+	public List<ReservaDTO> obtenerReservas() throws DAOExcepcion {
+		// TODO Auto-generated method stub
+				try{
+					connManager.connect();
+					ResultSet rs=connManager.queryDB("select * from RESERVA");
+					connManager.close();
+
+					List<ReservaDTO> listaresDTO = new ArrayList<ReservaDTO>();
+
+					try{
+						while (rs.next()){
+
+							ReservaDTO resDTO = new ReservaDTO(
+									rs.getInt("ID"),
+									LocalDateTime.of(rs.getDate("FECHARECOGIDA").toLocalDate(),rs.getTime("FECHARECOGIDA").toLocalTime()),
+									LocalDateTime.of(rs.getDate("FECHADEVOLUCION").toLocalDate(),rs.getTime("FECHADEVOLUCION").toLocalTime()),
+									rs.getInt("MODALIDADALQUILER"),
+									rs.getString("CATEGORIA"),
+									rs.getString("CLIENTEREALIZA"),
+									rs.getInt("SUCURSALRECOGIDA"),
+									rs.getInt("SUCURSALDEVOLUCION"));
+						listaresDTO.add(resDTO);
+						}
+						return listaresDTO;
+					}
+					catch (Exception e){	throw new DAOExcepcion(e);}
+				}
+				catch (SQLException e){	throw new DAOExcepcion(e);}
+				catch (DAOExcepcion e){		throw e;}
+	}
+
+
+
+
 	public  static void main (String[] args) throws DAOExcepcion /*throws DAOExcepcion*/ {
 
 		ReservaDAOImp alquiler = new ReservaDAOImp();
