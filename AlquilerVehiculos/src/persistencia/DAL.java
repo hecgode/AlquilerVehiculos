@@ -76,6 +76,20 @@ public void CrearSucursal (SucursalDTO suc)
 
 }
 
+public ClienteDTO buscarCliente(String dni)
+{
+	ClienteDTO cl = null;
+	try {
+		cl = clientedao.buscarCliente(dni);
+		} catch (DAOExcepcion e) {
+
+		}
+	return cl;
+
+
+}
+
+
 
 	//Patron Singleton
 		public static DAL dameDAL() throws DAOExcepcion{

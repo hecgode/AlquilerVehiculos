@@ -51,15 +51,30 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 @FXML
 	 public void aceptar (ActionEvent eve) throws DAOExcepcion
 	 {
+		 AlquilerVehiculos al = new AlquilerVehiculos();
+
 		 try {
 			 Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()), null,null,Integer.parseInt(moda.getText()),dnic.getText(),
 					 nombre.getText(),Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
 
 												 if (nuevaReserva != null) {
+
+
+													 if(al.buscar_cliente(dnic.toString())==true)
+
+														 al.crearReserva(nuevaReserva);//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
+													 else
+													 {	Alert alert = new Alert(AlertType.ERROR);
+														alert.setTitle("ERROR");
+														alert.setHeaderText(null);
+														alert.setContentText("¡No se cliente!");
+														alert.showAndWait();
+													 }
+												 }
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
-							 AlquilerVehiculos al = new AlquilerVehiculos();
+
 							 al.crearReserva(nuevaReserva);//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
-						 }
+
 		 }
 		 catch(Exception e) {
 			Alert alert = new Alert(AlertType.ERROR);

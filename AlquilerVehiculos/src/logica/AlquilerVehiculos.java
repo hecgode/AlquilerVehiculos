@@ -234,6 +234,17 @@ public void crearCliente(Cliente cliente) {
 	dal.crearCliente(clienteDTO);
 }
 
+
+public boolean buscar_cliente (String dni)
+{
+	ClienteDTO c = dal.buscarCliente(dni);
+	if (c==null)
+		return false;
+	else return true;
+
+}
+
+
 public void AnyadirCliente(Cliente cliente) {
    mCliente.add(cliente);
 
