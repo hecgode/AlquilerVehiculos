@@ -2,7 +2,10 @@ package presentacion;
 
 
 import java.net.URL;
+import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.logging.Logger;
@@ -54,14 +57,18 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 {
 	
 		 try {
-			 Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(), null),LocalDateTime.of(devol.getValue(), null),Integer.parseInt(moda.getText()),dnic.getText(),
+			LocalTime local = null ;
+			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),Integer.parseInt(moda.getText()),dnic.getText(),
 					 nombre.getText(),Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
+			
+			 //if (nuevaReserva != null) {
 
 												 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
-												 }
+												// }
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 
-
+		 }
+		 
 		
 		 catch(Exception e) {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -86,5 +93,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 		 stage.setTitle("CREAR RESERVA");
 
 
+	 
 	 }
 	}

@@ -2,7 +2,9 @@ package presentacion;
 
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.logging.Logger;
@@ -54,28 +56,30 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 
 	 @FXML
 	 private Label label;
-
 	 @FXML
 	 public void aceptar (ActionEvent eve) throws DAOExcepcion
 	 {
+		
 		 try {
+			 LocalTime local = null;
+
 			 nuevoCliente = new Cliente(
 					 dni.getText(),
 					 nombreApellidos.getText(),
+					 
 						direccion.getText(),
 						 poblacion.getText(),
 						 codigoPostal.getText(),
-
-						 LocalDateTime.of(fechaCarnet.getValue(), null),
-						 digitosTC.getText(), Integer.parseInt(mesTC.getText()),
+						 LocalDateTime.of(fechaCarnet.getValue(),local.MIDNIGHT),
+					 digitosTC.getText(), Integer.parseInt(mesTC.getText()),
 						Integer.parseInt(anyoTC.getText()),
 						 Integer.parseInt(cvc.getText()), tipoTarjeta.getText());
 
-						 if (nuevoCliente != null) {
+						// if (nuevoCliente != null) {
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 							 AlquilerVehiculos.dameAlquiler().crearCliente(nuevoCliente);
 
-													 }
+													
 		 }
 		 catch(Exception e) {
 			Alert alert = new Alert(AlertType.ERROR);
