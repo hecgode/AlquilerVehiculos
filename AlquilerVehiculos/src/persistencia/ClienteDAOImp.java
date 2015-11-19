@@ -59,12 +59,11 @@ public class ClienteDAOImp implements IClienteDAO {
 	 {
 		 	try {
 		 		connManager.connect();
-		 		connManager.updateDB("insert into CLIENTE (DNI,NOMBREYAPELLIDOS,DIRECCION,"
-		 				+ "				POBLACION, CODIGOPOSTAL,FECHA,DIGITOS,MES,A�O"
-		 				+ "					CVC,TIPO) values('"+cliente.getDni()+","+cliente.getNombreyApellidos()+","+
-		 										cliente.getDireccion()+","+cliente.getCodPostal()+","+cliente.getFechaCanetConducir()+","+
+		 		connManager.updateDB("insert into CLIENTE (DNI,NOMBREAPELLIDOS,DIRECCION,POBLACION,CODPOSTAL,FECHACARNETCONDUCIR,DIGITOSTC,MESTC,AÑOTC,CVCTC,TIPOTC) values('"+
+		 		cliente.getDni()+",'"+cliente.getNombreyApellidos()+",'"+
+		 										cliente.getDireccion()+",'"+cliente.getPoblacion()+",'"+cliente.getCodPostal()+",'"+cliente.getFechaCanetConducir()+",'"+
 		 										cliente.getDigitosTC()+","+cliente.getMesTC()+","+cliente.getAnyoTC()+","+cliente.getCvcTC()+
-		 										","+cliente.getTipoTC()+")");
+		 										",'"+cliente.getTipoTC()+")");
 		 		connManager.close();
 			 	}
 		 	catch (Exception e){	throw new DAOExcepcion(e);}

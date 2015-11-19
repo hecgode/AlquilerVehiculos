@@ -30,6 +30,7 @@
             <MenuItem mnemonicParsing="false" onAction="#listarReservaSucursal" text="ListarReservasSucursal" />
             <MenuItem mnemonicParsing="false" onAction="#listarcategorias" text="ListarCategorias " />
             <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="ListarSucursales" />
+            <MenuItem mnemonicParsing="false" onAction="#listarClientes" text="ListarSucursales" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Sucursales">
