@@ -4,10 +4,10 @@ package logica;
 
 public class Danyo {
 
+	private String zona;
+	private String descripcion;
 
-private String zona;
-private String descripcion;
-    public Danyo (String zona,String descripcion) {
+	public Danyo (String zona,String descripcion) {
     	this.zona=zona;
     	this.descripcion=descripcion;
     }

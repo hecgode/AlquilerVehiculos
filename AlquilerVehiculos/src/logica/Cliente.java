@@ -1,5 +1,5 @@
 package logica;
-/*AlquilerVehiculos ultima modificacion 06/10/15*/
+
 import java.sql.Date;
 import java.time.LocalDateTime;
 
@@ -11,14 +11,12 @@ public class Cliente {
     private String codPostal;
     private LocalDateTime fechaCarnet;
     private String digitos;
-   private int mes;
+    private int mes;
     private int anyo;
 
 	private int cvc;
 
     private String tipo;
-
-
 	private String idendificador;
 
     public Cliente(String idendificador, String nombreyApellidos, String direccion, String poblacion, String codPostal,
@@ -125,11 +123,6 @@ public class Cliente {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
-
-
-
-
 
 }
 

@@ -1,18 +1,17 @@
-/*AlquilerVehiculos ultima modificacion 06/10/15*/
 package logica;
+
 public class Coche {
 
 
 	private int matricula;
 	private int km;
 
-	 private Sucursal mSucursal;
+	private Sucursal mSucursal;
 
-	 public Coche (int matricula, int km) {
-		 this.matricula=matricula;
-		 this.km=km;
-	 }
-
+	public Coche (int matricula, int km) {
+		this.matricula=matricula;
+		this.km=km;
+	}
 
     public int getMatricula() {
         return matricula;
@@ -29,8 +28,5 @@ public class Coche {
     public void setKm(int km) {
         this.km = km;
     }
-
-
-
 }
 

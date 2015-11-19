@@ -1,13 +1,21 @@
-/*AlquilerVehiculos ultima modificacion 24/10/15*/
-
 package logica;
 
 import java.time.LocalDateTime;
 
 public class Reserva {
+
 	private int id;
+	private LocalDateTime fechaRecogida;
+	private LocalDateTime fechaDevolucion;
+	private int modalidadAlquiler;
+	private String dniCliente;
+	private String nombreCategoria;
+	private int idSucursalRecogida;
+	private int idSucursalDevolucion;
+
 	public Reserva(int id, LocalDateTime fechaRecogida, LocalDateTime fechaDevolucion, int modalidadAlquiler,
 			String dniCliente, String nombreCategoria, int idSucursalRecogida, int idSucursalDevolucion) {
+
 		super();
 		this.id = id;
 		this.fechaRecogida = fechaRecogida;
@@ -18,19 +26,6 @@ public class Reserva {
 		this.idSucursalRecogida = idSucursalRecogida;
 		this.idSucursalDevolucion = idSucursalDevolucion;
 	}
-
-	private LocalDateTime fechaRecogida;
-	private LocalDateTime fechaDevolucion;
-	private int modalidadAlquiler;
-	private String dniCliente;
-	private String nombreCategoria;
-	private int idSucursalRecogida;
-	private int idSucursalDevolucion;
-
-
-
-
-
 
 	public int getId() {
 		return id;
@@ -95,9 +90,5 @@ public class Reserva {
 	public void setIdSucursalDevolucion(int idSucursalDevolucion) {
 		this.idSucursalDevolucion = idSucursalDevolucion;
 	}
-
-
-
-
 }
 

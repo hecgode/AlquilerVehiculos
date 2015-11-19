@@ -1,10 +1,9 @@
-/*AlquilerVehiculos ultima modificacion 06/10/15*/
-
 package logica;
 
 import java.util.*;
 
 public class Entrega {
+
     private String fecha;
     private String seguro;
     private int km;
@@ -21,7 +20,6 @@ public class Entrega {
     	this.km=km;
     	this.combustible=combustible;
     }
-
 
     public String getFecha() {
         return fecha;
@@ -54,9 +52,6 @@ public class Entrega {
     public void setCombustible(int combustible) {
         this.combustible = combustible;
     }
-
-
-
 
 }
 
