@@ -59,11 +59,10 @@ public class ClienteDAOImp implements IClienteDAO {
 	 {
 		 	try {
 		 		connManager.connect();
-		 		connManager.updateDB("insert into CLIENTE (DNI,NOMBREAPELLIDOS,DIRECCION,POBLACION,CODPOSTAL,FECHACARNETCONDUCIR,DIGITOSTC,MESTC,AÃ‘OTC,CVCTC,TIPOTC) values('"+
-		 		cliente.getDni()+",'"+cliente.getNombreyApellidos()+",'"+
-		 										cliente.getDireccion()+",'"+cliente.getPoblacion()+",'"+cliente.getCodPostal()+",'"+cliente.getFechaCanetConducir()+",'"+
-		 										cliente.getDigitosTC()+","+cliente.getMesTC()+","+cliente.getAnyoTC()+","+cliente.getCvcTC()+
-		 										",'"+cliente.getTipoTC()+")");
+		 		connManager.updateDB("insert into CLIENTE (DNI,NOMBREAPELLIDOS,DIRECCION,POBLACION,CODPOSTAL,FECHACARNETCONDUCIR,DIGITOSTC,MESTC,AÑOTC,CVCTC,TIPOTC) values "+""
+		 				+ "('"+cliente.getDni()+"','"+cliente.getNombreyApellidos()+"','"+
+		 										cliente.getDireccion()+"','"+cliente.getPoblacion()+"','"+cliente.getCodPostal()+"','"+cliente.getFechaCanetConducir()+"','"+
+		 										cliente.getDigitosTC()+"',"+cliente.getMesTC()+","+cliente.getAnyoTC()+","+cliente.getCvcTC()+",'"+cliente.getTipoTC()+"')");
 		 		connManager.close();
 			 	}
 		 	catch (Exception e){	throw new DAOExcepcion(e);}
