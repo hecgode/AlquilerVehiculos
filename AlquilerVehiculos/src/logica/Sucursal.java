@@ -22,8 +22,9 @@ public class Sucursal {
 	}
 
     public Sucursal(int identificador ,String direccion) {
-    	this.direccion=direccion;
     	this.identificador=identificador;
+    	this.direccion=direccion;
+
     }
 
 	public String getDireccion() {

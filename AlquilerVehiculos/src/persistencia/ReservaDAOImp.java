@@ -95,10 +95,10 @@ public class ReservaDAOImp implements IReservaDAO{
 		// TODO Auto-generated method stub
 		try {
 			connManager.connect();
-			connManager.updateDB("insert into RESERVA  (ID, FECHARECOGIDA, FECHADEVOLUCION, MODALIDADALQUILER, CATEGORIA, CLIENTEREALIZA, SUCURSALRECOGIDA, SUCURSALDEVOLUCION) values('"+reserva.getId()+","+reserva.getFechaRecogida()+","
-					+reserva.getFechaDevolucion()+","+reserva.getModalidadAlquiler()
-					+","+reserva.getNombreCategoria()+","+reserva.getDniCliente()
-					+","+reserva.getIdSucursalRecogida()+","+reserva.getFechaDevolucion()+")");
+			connManager.updateDB("insert into RESERVA  (ID, FECHARECOGIDA, FECHADEVOLUCION, MODALIDADALQUILER, CATEGORIA, CLIENTEREALIZA, SUCURSALRECOGIDA, SUCURSALDEVOLUCION) values "+"("+reserva.getId()+",'"+reserva.getFechaRecogida()+"','"
+					+reserva.getFechaDevolucion()+"','"+reserva.getModalidadAlquiler()
+					+"','"+reserva.getNombreCategoria()+"','"+reserva.getDniCliente()
+					+"',"+reserva.getIdSucursalRecogida()+","+reserva.getFechaDevolucion()+")");
 			connManager.close();
 
 		}
@@ -143,29 +143,7 @@ public class ReservaDAOImp implements IReservaDAO{
 
 
 
-	public  static void main (String[] args) throws DAOExcepcion /*throws DAOExcepcion*/ {
-
-		ReservaDAOImp alquiler = new ReservaDAOImp();
-		int id = 2;
-		LocalDateTime fechaRecogida = null;
-		LocalDateTime fechaDevolucion = null;
-		int modalidadAlquiler = 4;
-		String dniCliente ="1AA";
-		String nombreCategoria = "NO";
-		int idSucursalRecogida  = 03;
-		int idSucursalDevolucion =4;
-
-		ReservaDTO reserva = new ReservaDTO(id,fechaRecogida,fechaDevolucion,modalidadAlquiler,
-				dniCliente,nombreCategoria,idSucursalRecogida,idSucursalDevolucion);
-		alquiler.crearReserva(reserva);
-
-
-
-
-
-
-	}
-
+	
 
 
 
