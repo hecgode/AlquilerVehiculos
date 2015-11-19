@@ -61,10 +61,10 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),Integer.parseInt(moda.getText()),dnic.getText(),
 					 nombre.getText(),Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
 			
-			 //if (nuevaReserva != null) {
+			 if (nuevaReserva != null) {
 
 												 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
-												// }
+												 }
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 
 		 }
