@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import excepciones.DAOExcepcion;
 import persistencia.dto.ClienteDTO;
@@ -55,20 +56,17 @@ public class ClienteDAOImp implements IClienteDAO {
 
 
 
-	 public void crearCliente(ClienteDTO cliente) throws DAOExcepcion
-	 {
-		 	try {
-		 		connManager.connect();
-		 		connManager.updateDB("insert into CLIENTE (DNI,NOMBREAPELLIDOS,DIRECCION,POBLACION,CODPOSTAL,FECHACARNETCONDUCIR,DIGITOSTC,MESTC,AÑOTC,CVCTC,TIPOTC) values "+""
-		 				+ "('"+cliente.getDni()+"','"+cliente.getNombreyApellidos()+"','"+
-		 										cliente.getDireccion()+"','"+cliente.getPoblacion()+"','"+cliente.getCodPostal()+"','"+cliente.getFechaCanetConducir()+"','"+
-		 										cliente.getDigitosTC()+"',"+cliente.getMesTC()+","+cliente.getAnyoTC()+","+cliente.getCvcTC()+",'"+cliente.getTipoTC()+"')");
-		 		connManager.close();
-			 	}
-		 	catch (Exception e){	throw new DAOExcepcion(e);}
 
-
-
-
-	 }
+public void crearCliente(ClienteDTO cliDTO) throws DAOExcepcion {
+                        try{
+                                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                                LocalDateTime dateTime = cliDTO.getFechaCanetConducir();
+                                String formattedDateTime=dateTime.format(formatter);
+                                connManager.connect();
+                                String str = "insert into CLIENTE (DNI,NOMBREAPELLIDOS, DIRECCION, POBLACION, CODPOSTAL,FECHACARNETCONDUCIR,DIGITOSTC, MESTC, \"añoTC\", CVCTC, TIPOTC) values ('"+cliDTO.getDni()+"','"+cliDTO.getNombreyApellidos()+"','"+cliDTO.getDireccion()+"','"+cliDTO.getPoblacion()+"','"+cliDTO.getCodPostal()+"','"+formattedDateTime+"','"+cliDTO.getDigitosTC()+"',"+cliDTO.getMesTC()+","+cliDTO.getAnyoTC()+","+cliDTO.getCvcTC()+",'"+cliDTO.getTipoTC()+"')";
+                                connManager.updateDB(str);
+                                connManager.close();
+                        }
+                        catch (Exception e){        throw new DAOExcepcion(e);}
+                }
 }
