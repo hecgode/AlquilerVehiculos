@@ -102,12 +102,12 @@ public class AlquilerVehiculos {
 	  // Crear y anyadir todas las categorias a la coleccion
 	  for (CategoriaDTO catDTO : listacatdto) {
 		  anyadirCategoria(new Categoria(catDTO.getNombre(), catDTO.getPrecioModIlimitada(), catDTO.getPrecioModKms(),
-				  catDTO.getPrecioKMModKms(), catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros(),catDTO.getNombreCategoriaSuperior()));
+				  catDTO.getPrecioSeguroTRiesgo(), catDTO.getPrecioSeguroTerceros(),catDTO.getNombreCategoriaSuperior(), catDTO.getPrecioKMModKms()));
 	  }
 	  // Actualizar los enlaces que representan la relacion ¿superior?
 	  for (CategoriaDTO catDTO : listacatdto)
-		  if (catDTO.getNombreCategoriaSuperior() != null)
-			  buscarCategoria(catDTO.getNombre()).setCatsup2(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
+		  if (catDTO.getNombreCategoriaSuperior() != null);
+			//  buscarCategoria(catDTO.getNombre()).setNombreCategoriaSuperior(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
   }
 
 
@@ -117,7 +117,7 @@ public class AlquilerVehiculos {
   }
 
 
-  public Categoria buscarCategoria(String nombreCategoriaSuperior) {
+  public String buscarCategoria(String nombreCategoriaSuperior) {
 	  Categoria cat = null;
 	  boolean encontrado=false;
 	  for (int i=0;i<mCategoria.size() && !encontrado;i++  )
@@ -128,7 +128,7 @@ public class AlquilerVehiculos {
 
 		  }
 	  }
-	  return cat;
+	  return cat.toString();
   }
 
 

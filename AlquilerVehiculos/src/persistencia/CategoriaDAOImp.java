@@ -32,10 +32,12 @@ public class CategoriaDAOImp implements ICategoriaDAO {
 							rs.getString("NOMBRE"),
 							rs.getDouble("PRECIOMODILIMITADA"),
 							rs.getDouble("PRECIOMODKMS"),
-							rs.getDouble("PRECIOKMMODKMS"),
 							rs.getDouble("PRECIOSEGUROTRIESGO"),
 							rs.getDouble("PRECIOSEGUROTERCEROS"),
-							rs.getString("CATEGORIASUPERIOR"));
+							rs.getString("CATEGORIASUPERIOR"),
+			rs.getDouble("PRECIOKMMODKMS"));
+
+
 			else
 				return null;
 		}
@@ -58,10 +60,11 @@ public class CategoriaDAOImp implements ICategoriaDAO {
 							rs.getString("NOMBRE"),
 							rs.getDouble("PRECIOMODILIMITADA"),
 							rs.getDouble("PRECIOMODKMS"),
-							rs.getDouble("PRECIOKMMODKMS"),
 							rs.getDouble("PRECIOSEGUROTRIESGO"),
 							rs.getDouble("PRECIOSEGUROTERCEROS"),
-							rs.getString("CATEGORIASUPERIOR"));
+							rs.getString("CATEGORIASUPERIOR"),
+							rs.getDouble("PRECIOKMMODKMS"));
+
 					listaCategoriaDTO.add(catDTO);
 				}
 				return listaCategoriaDTO;

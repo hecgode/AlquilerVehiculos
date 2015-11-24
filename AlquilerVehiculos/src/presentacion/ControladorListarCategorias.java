@@ -35,13 +35,13 @@ public class ControladorListarCategorias  extends ControladorCasoDeUso {
 	 @FXML
 	 private TableColumn<Categoria, Double> preciokm;
 	 @FXML
-	 private TableColumn<Categoria, Double> preciokmmodkm;
-	 @FXML
 	 private TableColumn<Categoria, Double> precioSeguroRiesgos;
 	 @FXML
 	 private TableColumn<Categoria, Double> precioSeguroTerceros;
 	 @FXML
 	 private TableColumn<Categoria, String> catsup;
+	 @FXML
+	 private TableColumn<Categoria, Double> preciokmmodkm;
 	 @FXML
 	 private Button aceptar;
 
@@ -52,17 +52,17 @@ public class ControladorListarCategorias  extends ControladorCasoDeUso {
 		 nombre.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getNombre()));
 		 precioIli.setCellValueFactory(param -> new
-					ReadOnlyObjectWrapper<>(param.getValue().getPrecioIli()));
+					ReadOnlyObjectWrapper<>(param.getValue().getPrecioModIlimitada()));
 		 preciokm.setCellValueFactory(param -> new
-					ReadOnlyObjectWrapper<>(param.getValue().getPreciokm()));
-		 preciokmmodkm.setCellValueFactory(param -> new
-					ReadOnlyObjectWrapper<>(param.getValue().getPreciokmmodkm()));
-		 precioSeguroRiesgos.setCellValueFactory(param -> new
-					ReadOnlyObjectWrapper<>(param.getValue().getPrecioSeguroRiesgos()));
+					ReadOnlyObjectWrapper<>(param.getValue().getPrecioModKms()));
+		 		 precioSeguroRiesgos.setCellValueFactory(param -> new
+					ReadOnlyObjectWrapper<>(param.getValue().getPrecioSeguroTRiesgo()));
 		 precioSeguroTerceros.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getPrecioSeguroTerceros()));
 		 catsup.setCellValueFactory(param -> new
-					ReadOnlyObjectWrapper<>(param.getValue().getCatsup()));
+					ReadOnlyObjectWrapper<>(param.getValue().getNombreCategoriaSuperior()));
+		 preciokmmodkm.setCellValueFactory(param -> new
+					ReadOnlyObjectWrapper<>(param.getValue().getPrecioKMModKms()));
 
 		 			AlquilerVehiculos al = new AlquilerVehiculos();
 		 			this.categorias.getItems().addAll(al.listarCategoria());
