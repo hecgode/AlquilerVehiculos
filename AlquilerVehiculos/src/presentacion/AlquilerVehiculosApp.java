@@ -23,6 +23,7 @@ private BorderPane rootLayout;
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("ALQUILER DE VEHICULOS");
+		this.primaryStage.setResizable(false);
 		initRootLayout();
 	}
 

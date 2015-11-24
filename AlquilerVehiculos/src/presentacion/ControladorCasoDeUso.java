@@ -34,6 +34,7 @@ public abstract class ControladorCasoDeUso implements Initializable {
 				 Parent parent = fxmlLoader.load();
 				 controlador = fxmlLoader.getController();
 				 controlador.stage.setScene(new Scene(parent));
+				 controlador.stage.setResizable(false);
 				 controlador.stage.initOwner(owner);
 				 controlador.setControladorPrincipal(controladorPrincipal);
 			 }
