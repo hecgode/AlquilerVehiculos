@@ -42,7 +42,7 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 	@FXML
 	private TableColumn<Reserva, Integer> Lugar_devol;
 	@FXML
-	private TableColumn<Reserva, Integer> modalidad;
+	private TableColumn<Reserva, String> modalidad;
 	@FXML
 	private TableColumn<Reserva, String> nombre_cliente;
 	@FXML

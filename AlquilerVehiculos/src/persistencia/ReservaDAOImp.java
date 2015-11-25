@@ -11,6 +11,7 @@ import logica.AlquilerVehiculos;
 import persistencia.dto.ReservaDTO;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class ReservaDAOImp implements IReservaDAO{
@@ -42,7 +43,7 @@ public class ReservaDAOImp implements IReservaDAO{
 							rs.getInt("ID"),
 							LocalDateTime.of(rs.getDate("FECHARECOGIDA").toLocalDate(), rs.getTime("FECHARECOGIDA").toLocalTime()),
 							LocalDateTime.of(rs.getDate("FECHADEVOLUCION").toLocalDate(), rs.getTime("FECHADEVOLUCION").toLocalTime()),
-							rs.getInt("MODALIDADALQUILER"),
+							rs.getString("MODALIDADALQUILER"),
 							rs.getString("CLIENTEREALIZA"),
 							rs.getString("CATEGORIA"),
 							rs.getInt("SUCURSALRECOGIDA"),
@@ -74,7 +75,7 @@ public class ReservaDAOImp implements IReservaDAO{
 							rs.getInt("ID"),
 							LocalDateTime.of(rs.getDate("fechaRecogida").toLocalDate(),rs.getTime("fechaRecogida").toLocalTime()),
 							LocalDateTime.of(rs.getDate("fechaDevolucion").toLocalDate(),rs.getTime("fechaDevolucion").toLocalTime()),
-							rs.getInt("modalidadAlquiler"),
+							rs.getString("modalidadAlquiler"),
 							rs.getString("dniCliente"),
 							rs.getString("nombreCategoria"),
 							rs.getInt("idSucursalRecogida"),
@@ -94,12 +95,16 @@ public class ReservaDAOImp implements IReservaDAO{
 	public void crearReserva(ReservaDTO reserva) throws DAOExcepcion {
 		// TODO Auto-generated method stub
 		try {
-			connManager.connect();
-			connManager.updateDB("insert into RESERVA  (ID, FECHARECOGIDA, FECHADEVOLUCION, MODALIDADALQUILER, CATEGORIA, CLIENTEREALIZA, SUCURSALRECOGIDA, SUCURSALDEVOLUCION) values "+"("+reserva.getId()+",'"+reserva.getFechaRecogida()+"','"
-					+reserva.getFechaDevolucion()+"','"+reserva.getModalidadAlquiler()
-					+"','"+reserva.getNombreCategoria()+"','"+reserva.getDniCliente()
-					+"',"+reserva.getIdSucursalRecogida()+","+reserva.getFechaDevolucion()+")");
-			connManager.close();
+			  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+				LocalDateTime dateTime = reserva.getFechaRecogida();
+				String formattedDataRecogida=dateTime.format(formatter);
+				LocalDateTime dateTime2 = reserva.getFechaDevolucion();
+				String formattedDataEntrega=dateTime2.format(formatter);
+				connManager.connect();
+			//	connManager.connect();
+				String str = "insert into RESERVA values ("+reserva.getId()+",'"+formattedDataRecogida+"','"+formattedDataEntrega+"','"+reserva.getModalidadAlquiler()+"','"+reserva.getNombreCategoria()+"','"+reserva.getDniCliente()+"',"+reserva.getIdSucursalRecogida()+","+reserva.getIdSucursalDevolucion()+")";
+				connManager.updateDB(str);
+				connManager.close();
 
 		}
 		catch(Exception e) {
@@ -125,7 +130,7 @@ public class ReservaDAOImp implements IReservaDAO{
 									rs.getInt("ID"),
 									LocalDateTime.of(rs.getDate("FECHARECOGIDA").toLocalDate(),rs.getTime("FECHARECOGIDA").toLocalTime()),
 									LocalDateTime.of(rs.getDate("FECHADEVOLUCION").toLocalDate(),rs.getTime("FECHADEVOLUCION").toLocalTime()),
-									rs.getInt("MODALIDADALQUILER"),
+									rs.getString("MODALIDADALQUILER"),
 									rs.getString("CATEGORIA"),
 									rs.getString("CLIENTEREALIZA"),
 									rs.getInt("SUCURSALRECOGIDA"),
@@ -143,7 +148,7 @@ public class ReservaDAOImp implements IReservaDAO{
 
 
 
-	
+
 
 
 

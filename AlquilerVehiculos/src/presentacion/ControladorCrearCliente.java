@@ -75,11 +75,11 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 						Integer.parseInt(anyoTC.getText()),
 						 Integer.parseInt(cvc.getText()), tipoTarjeta.getText());
 
-						 if (nuevoCliente != null) {
+					//	 if (nuevoCliente != null) {
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 							 AlquilerVehiculos.dameAlquiler().crearCliente(nuevoCliente);
 
-						 }									
+						// }									
 		 }
 		 catch(Exception e) {
 			Alert alert = new Alert(AlertType.ERROR);

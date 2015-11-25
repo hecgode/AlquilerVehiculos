@@ -6,14 +6,14 @@ public class ReservaDTO {
 	private int id;
 	private LocalDateTime fechaRecogida;
 	private LocalDateTime fechaDevolucion;
-	private int modalidadAlquiler;
+	private String modalidadAlquiler;
 	private String dniCliente;
 	private String nombreCategoria;
 	private int idSucursalRecogida;
 	private int idSucursalDevolucion;
 
 	public ReservaDTO(int id, LocalDateTime fechaRecogida,
-			LocalDateTime fechaDevolucion, int modalidadAlquiler,
+			LocalDateTime fechaDevolucion, String modalidadAlquiler,
 			String dniCliente, String nombreCategoria, int idSucursalRecogida,
 			int idSucursalDevolucion) {
 		super();
@@ -51,11 +51,11 @@ public class ReservaDTO {
 		this.fechaDevolucion = fechaDevolucion;
 	}
 
-	public int getModalidadAlquiler() {
+	public String getModalidadAlquiler() {
 		return modalidadAlquiler;
 	}
 
-	public void setModalidadAlquiler(int modalidadAlquiler) {
+	public void setModalidadAlquiler(String modalidadAlquiler) {
 		this.modalidadAlquiler = modalidadAlquiler;
 	}
 

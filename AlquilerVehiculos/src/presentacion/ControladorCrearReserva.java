@@ -55,12 +55,12 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 @FXML
 	 public void aceptar (ActionEvent eve) throws DAOExcepcion
 	 {
-	
+
 		 try {
 			LocalTime local = null ;
-			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),Integer.parseInt(moda.getText()),dnic.getText(),
+			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
 					 nombre.getText(),Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
-			
+
 			 if (nuevaReserva != null) {
 
 												 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
@@ -68,8 +68,8 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 
 		 }
-		 
-		
+
+
 		 catch(Exception e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("ERROR");
@@ -93,6 +93,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 		 stage.setTitle("CREAR RESERVA");
 
 
-	 
+
 	 }
 	}
