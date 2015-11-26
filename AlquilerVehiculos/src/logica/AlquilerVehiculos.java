@@ -54,20 +54,27 @@ public class AlquilerVehiculos {
   }
 
 
-  public List<Reserva> listarReservas(int identificador)
-  {
-      Sucursal suc = null;
+public List<Reserva> listarReservas(int identificador) {
       List<Reserva> lista = null;
-      for (int i=0 ; i<mSucursal.size();i++)
-          if ( mSucursal.get(i).getIdentificador()==identificador)
-              suc = mSucursal.get(i);
-
-      if (suc != null)
-          lista = suc.listarReserva();
+      for (int i=0 ; i<mReserva.size();i++)
+          if ( mReserva.get(i).getIdSucursalRecogida()==identificador)
+        	  lista.add(mReserva.get(i));
       return lista;
+}
 
+  public List<Reserva> listarReservas() {
+	  return mReserva;
   }
 
+
+  private void cargaReservasPorSucursal(int ent) {
+	  List<ReservaDTO> listareserva = dal.obtenerReservasPORSUCURSAL(ent);
+
+	  for(ReservaDTO resDTO : listareserva) {
+		  anyadirReserva(new Reserva(resDTO.getId(), resDTO.getFechaRecogida(), resDTO.getFechaDevolucion(), resDTO.getModalidadAlquiler(), resDTO.getDniCliente(), resDTO.getNombreCategoria(), resDTO.getIdSucursalRecogida(), resDTO.getIdSucursalDevolucion()));
+
+	  }
+  }
 
 
   private void anyadirReserva(Reserva reserva) {
@@ -109,7 +116,6 @@ public class AlquilerVehiculos {
 		  if (catDTO.getNombreCategoriaSuperior() != null);
 			//  buscarCategoria(catDTO.getNombre()).setNombreCategoriaSuperior(buscarCategoria(catDTO.getNombreCategoriaSuperior()));
   }
-
 
   public List<Categoria> listarCategoria()  throws LogicaExcepcion
   {
