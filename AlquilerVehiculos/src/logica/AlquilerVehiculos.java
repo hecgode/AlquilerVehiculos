@@ -25,14 +25,14 @@ public class AlquilerVehiculos {
   {
 	cargaCategorias();
 	cargaSucursales();
-	cargarReservas();
+	cargarReservasporSucursal();
   }
   /*****************METODOS DE RESERVAS*******************************************************************************************
    * **************************************************************************************/
 
-  public void cargarReservas() throws DAOExcepcion
+  public void cargarReservasporSucursal() throws DAOExcepcion
   {
-	  List<ReservaDTO> listaresdto = dal.obtenerReservas();
+	  List<ReservaDTO> listaresdto = dal.dameDAL().obtenerReservasPORSUCURSAL(2);
 	  // Crear y anyadir todas las categorias a la coleccion
 	  for (ReservaDTO sucDTO : listaresdto)
 	  {
@@ -67,7 +67,7 @@ public List<Reserva> listarReservas(int identificador) {
   }
 
 
-  private void cargaReservasPorSucursal(int ent) {
+  public void cargaReservasPorSucursal(int ent) {
 	  List<ReservaDTO> listareserva = dal.obtenerReservasPORSUCURSAL(ent);
 
 	  for(ReservaDTO resDTO : listareserva) {

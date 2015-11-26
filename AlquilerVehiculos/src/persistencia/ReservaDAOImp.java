@@ -9,6 +9,7 @@ import java.util.List;
 import excepciones.DAOExcepcion;
 import logica.AlquilerVehiculos;
 import persistencia.dto.ReservaDTO;
+import persistencia.dto.SucursalDTO;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -63,34 +64,40 @@ public class ReservaDAOImp implements IReservaDAO{
 		// TODO Auto-generated method stub
 		try{
 			connManager.connect();
-			ResultSet rs=connManager.queryDB("select * from RESERVA where ID="+idSucursal);
-			connManager.close();
+			String str = "select * from RESERVA where  SUCURSALRECOGIDA  = "+idSucursal+"";
+				ResultSet rs = connManager.queryDB(str);
+					connManager.close(); 
 
-			List<ReservaDTO> listaresDTO = new ArrayList<ReservaDTO>();
 
 			try{
 				while (rs.next()){
 
-					ReservaDTO resDTO = new ReservaDTO(
-							rs.getInt("ID"),
-							LocalDateTime.of(rs.getDate("fechaRecogida").toLocalDate(),rs.getTime("fechaRecogida").toLocalTime()),
-							LocalDateTime.of(rs.getDate("fechaDevolucion").toLocalDate(),rs.getTime("fechaDevolucion").toLocalTime()),
-							rs.getString("modalidadAlquiler"),
-							rs.getString("dniCliente"),
-							rs.getString("nombreCategoria"),
-							rs.getInt("idSucursalRecogida"),
-							rs.getInt("idSucursalDevolucion"));
-				listaresDTO.add(resDTO);
 				}
-				return listaresDTO;
+				List<ReservaDTO> RESER = new ArrayList<ReservaDTO>();
+
+
+
+					while(rs.next()) {
+						ReservaDTO RES = new ReservaDTO(
+								rs.getInt("ID"),
+								LocalDateTime.of(rs.getDate("FECHARECOGIDA").toLocalDate(), rs.getTime("FECHARECOGIDA").toLocalTime()),
+								LocalDateTime.of(rs.getDate("FECHADEVOLUCION").toLocalDate(), rs.getTime("FECHADEVOLUCION").toLocalTime()),
+								rs.getString("MODALIDADALQUILER"),
+								rs.getString("CLIENTEREALIZA"),
+								rs.getString("CATEGORIA"),
+								rs.getInt("SUCURSALRECOGIDA"),
+								rs.getInt("SUCURSALDEVOLUCION"));
+						 RESER.add(RES);
+
+					}
+					return RESER;
 			}
 			catch (Exception e){	throw new DAOExcepcion(e);}
 		}
 		catch (SQLException e){	throw new DAOExcepcion(e);}
 		catch (DAOExcepcion e){		throw e;}
+
 	}
-
-
 
 	public void crearReserva(ReservaDTO reserva) throws DAOExcepcion {
 		// TODO Auto-generated method stub

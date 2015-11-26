@@ -71,8 +71,11 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 			categoria.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getNombreCategoria()));
 			Lugar_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalRecogida()));
 			Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
-			AL.listarReservas(identificador);
+			AL.cargaReservasPorSucursal(identificador);
 			this.sucursales.getItems().addAll(AL.listarReservas());
+
+
+			//this.sucursales.getItems().addAll(AL.listarReservas());
 		} catch(Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(AlertType.ERROR);
