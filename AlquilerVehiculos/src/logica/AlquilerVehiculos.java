@@ -32,7 +32,7 @@ public class AlquilerVehiculos {
 
   public void cargarReservasporSucursal() throws DAOExcepcion
   {
-	  List<ReservaDTO> listaresdto = dal.dameDAL().obtenerReservasPORSUCURSAL(2);
+	  List<ReservaDTO> listaresdto = dal.dameDAL().obtenerReservas();
 	  // Crear y anyadir todas las categorias a la coleccion
 	  for (ReservaDTO sucDTO : listaresdto)
 	  {
