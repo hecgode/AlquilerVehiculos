@@ -54,18 +54,38 @@ public class AlquilerVehiculos {
   }
 
 
-public List<Reserva> listarReservas(int identificador) {
-      List<Reserva> lista = null;
-      for (int i=0 ; i<mReserva.size();i++)
-          if ( mReserva.get(i).getIdSucursalRecogida()==identificador)
-        	  lista.add(mReserva.get(i));
-      return lista;
-}
 
-  public List<Reserva> listarReservas() {
+
+  public List<Reserva> listarReservas2() {
 	  return mReserva;
   }
+  public List<Reserva> listarReservas(int identificador)
+  {
 
+
+
+int recogida =0;
+
+
+
+
+
+      List<Reserva> lista = new ArrayList<Reserva>();
+      for (int i=0 ; i<mReserva.size();i++){
+    	   recogida = mReserva.get(i).getIdSucursalRecogida();
+    	  
+          
+		if ( mReserva.get(i).getIdSucursalRecogida()==identificador)
+              lista.add(mReserva.get(i));
+      }
+
+
+                return lista;
+  }
+
+  
+  
+  
 
   public void cargaReservasPorSucursal(int ent) {
 	  List<ReservaDTO> listareserva = dal.obtenerReservasPORSUCURSAL(ent);
