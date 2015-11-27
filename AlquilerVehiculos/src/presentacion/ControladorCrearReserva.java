@@ -62,6 +62,15 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 					 nombre.getText(),Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
 
 			 if (nuevaReserva != null) {
+				 
+				 								if (AlquilerVehiculos.dameAlquiler().buscaClientes(dnic.getText())==false) {
+				 										 									
+				 													 									Alert alert = new Alert(AlertType.ERROR);
+				 									alert.setTitle("ERROR");
+				 									alert.setHeaderText(null);
+				 									alert.setContentText("¡CLiente no existe!");
+				 									alert.showAndWait();
+				 								}
 
 												 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
 												 }

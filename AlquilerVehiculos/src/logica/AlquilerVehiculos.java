@@ -73,8 +73,8 @@ int recogida =0;
       List<Reserva> lista = new ArrayList<Reserva>();
       for (int i=0 ; i<mReserva.size();i++){
     	   recogida = mReserva.get(i).getIdSucursalRecogida();
-    	  
-          
+
+
 		if ( mReserva.get(i).getIdSucursalRecogida()==identificador)
               lista.add(mReserva.get(i));
       }
@@ -83,9 +83,9 @@ int recogida =0;
                 return lista;
   }
 
-  
-  
-  
+
+
+
 
   public void cargaReservasPorSucursal(int ent) {
 	  List<ReservaDTO> listareserva = dal.obtenerReservasPORSUCURSAL(ent);
@@ -260,6 +260,26 @@ int recogida =0;
 	  else return true;
 
   }
+
+  public boolean buscaClientes(String dni) throws DAOExcepcion {
+
+	 ClienteDTO CLI = dal.buscarCliente(dni);
+	 if (CLI==null)
+		 return false;
+		 else return true;
+
+  }
+	 /*
+	 }
+
+	  // Crear y anyadir todas las categorias a la coleccion
+	  for (ClienteDTO cli: listaclidto) {
+
+		  AnyadirCliente(new Cliente(cli.getDni(),cli.getNombreyApellidos(),cli.getDireccion(),cli.getPoblacion(),cli.getCodPostal(),cli.getFechaCanetConducir(),cli.getDigitosTC(),cli.getMesTC(),cli.getAnyoTC(),cli.getCvcTC(),cli.getTipoTC()));
+		 // anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));
+
+	  }
+  }*/
 
 
   public void AnyadirCliente(Cliente cliente) {
