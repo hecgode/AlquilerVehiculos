@@ -82,11 +82,12 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 				 									alert.setHeaderText(null);
 				 									alert.setContentText("¡CLiente no existe!");
 				 									alert.showAndWait();
+				 									stage.close();
 				 								}
 				 								
 
 												 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
-												 //AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Reserva creada con éxito");
+												 AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Reserva creada con éxito");
 												 stage.close();
 			}
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
