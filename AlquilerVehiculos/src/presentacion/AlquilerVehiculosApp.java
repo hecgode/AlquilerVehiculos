@@ -6,6 +6,8 @@ import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -38,12 +40,20 @@ private BorderPane rootLayout;
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			primaryStage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
-	        
+
 			ControladorPrincipal controlador = loader.getController();
 			controlador.setPrimaryStage(primaryStage);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
+	public static void createAlert(String title, AlertType alertType, String text) {
+		Alert alert = new Alert(alertType);
+		alert.setTitle(title);
+		alert.setHeaderText(null);
+		alert.setContentText(text);
+		alert.showAndWait();
+	 }
 }
 

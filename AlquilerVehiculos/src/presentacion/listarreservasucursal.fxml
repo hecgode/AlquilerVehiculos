@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="98.0" prefHeight="247.00009999999747" prefWidth="849.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorListarReservaSucursales">
+<AnchorPane minHeight="98.0" prefHeight="247.00009999999747" prefWidth="849.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorListarReservaSucursales">
   <children>
     <Label layoutX="47.0" layoutY="432.0" text="" />
     <Label layoutX="711.0" layoutY="28.0" text="id:" />
@@ -15,14 +15,14 @@
     <Button layoutX="750.0" layoutY="199.0" minHeight="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="34.0" prefWidth="85.0" scaleX="1.0" scaleY="1.0" scaleZ="1.0" text="Cerrar" />
     <TableView fx:id="sucursales" layoutX="1.0" layoutY="0.0" prefHeight="247.0" prefWidth="606.0">
       <columns>
-        <TableColumn prefWidth="75.0" text="ID" fx:id="id_0" />
-        <TableColumn prefWidth="75.0" text="F.recogida" fx:id="Fecha_recogida" />
-        <TableColumn prefWidth="75.0" text="F.devol" fx:id="Fecha_devol" />
-        <TableColumn prefWidth="75.0" text="Modalidad" fx:id="modalidad" />
-        <TableColumn prefWidth="75.0" text="Cliente" fx:id="nombre_cliente" />
-        <TableColumn prefWidth="75.0" text="C.categoria" fx:id="categoria" />
-        <TableColumn prefWidth="75.0" text="L.recogida" fx:id="Lugar_recogida" />
-        <TableColumn prefWidth="75.0" text="L.devol" fx:id="Lugar_devol" />
+        <TableColumn fx:id="id_0" prefWidth="75.0" text="ID" />
+        <TableColumn fx:id="Fecha_recogida" prefWidth="75.0" text="F.recogida" />
+        <TableColumn fx:id="Fecha_devol" prefWidth="75.0" text="F.devol" />
+        <TableColumn fx:id="modalidad" prefWidth="75.0" text="Modalidad" />
+        <TableColumn fx:id="nombre_cliente" prefWidth="75.0" text="C.categoria" />
+        <TableColumn fx:id="categoria" prefWidth="75.0" text="Cliente" />
+        <TableColumn fx:id="Lugar_recogida" prefWidth="75.0" text="L.recogida" />
+        <TableColumn fx:id="Lugar_devol" prefWidth="75.0" text="L.devol" />
       </columns>
     </TableView>
   </children>

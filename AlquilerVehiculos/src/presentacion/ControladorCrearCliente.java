@@ -59,14 +59,14 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 @FXML
 	 public void aceptar (ActionEvent eve) throws DAOExcepcion
 	 {
-		
+
 		 try {
 			 LocalTime local = null;
 
 			 nuevoCliente = new Cliente(
 					 dni.getText(),
 					 nombreApellidos.getText(),
-					 
+
 						direccion.getText(),
 						 poblacion.getText(),
 						 codigoPostal.getText(),
@@ -75,18 +75,67 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 						Integer.parseInt(anyoTC.getText()),
 						 Integer.parseInt(cvc.getText()), tipoTarjeta.getText());
 
-					//	 if (nuevoCliente != null) {
-						 //Invocamos el servicio encargado de Crear un nuevo cliente
-							 AlquilerVehiculos.dameAlquiler().crearCliente(nuevoCliente);
 
-						// }									
+
+			 if(dni.getText().length()<=0 || nombreApellidos.getText().length()<=0 || poblacion.getText().length()<=0 || direccion.getText().length()<=0 || codigoPostal.getText().length()<=0 || digitosTC.getText().length()<=0
+					 || cvc.getText().length()<=0 || tipoTarjeta.getText().length()<=0) {
+				 AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
+			 }
+			 else {
+		 			AlquilerVehiculos.dameAlquiler().crearCliente(nuevoCliente);
+					AlquilerVehiculosApp.createAlert("Informacion", AlertType.INFORMATION, "cliente creado con exito");
+					 stage.close();
+			 }
 		 }
 		 catch(Exception e) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("ERROR");
-			alert.setHeaderText(null);
-			alert.setContentText("¡No se han introducido datos!");
-			alert.showAndWait();
+			 String pantallazo = "error producido en: ";
+			try{Integer.parseInt(mesTC.getText());}
+			catch(Exception err1)
+			{
+				//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del mes incorrecto");
+				pantallazo += " mes";
+			}
+			try{Integer.parseInt(anyoTC.getText());}
+			catch(Exception err1)
+			{
+				//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del a�o incorrecto");
+				if(!pantallazo.equals("error producido en: "))
+				{
+					pantallazo += ", año";
+				}
+				else
+				{
+					pantallazo += "año ";
+				}
+			}
+			try{Integer.parseInt(cvc.getText());}
+			catch(Exception err1)
+			{
+				//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo de cvc incorrecto");
+				if(!pantallazo.equals("error producido en: "))
+				{
+					pantallazo += ", cvc";
+				}
+				else
+				{
+					pantallazo += "cvc ";
+				}
+			}
+			try{LocalTime local = null;LocalDateTime.of(fechaCarnet.getValue(),local.MIDNIGHT);}
+			catch(Exception err1)
+			{
+				//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo de cvc incorrecto");
+				if(!pantallazo.equals("error producido en: "))
+				{
+					pantallazo += ", fecha";
+				}
+				else
+				{
+					pantallazo += "fecha ";
+				}
+			}
+			pantallazo += ".";
+			AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, pantallazo);
 		 }
 	 }
 
@@ -99,10 +148,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 
 
 	 public void initialize(URL location, ResourceBundle resources) {
-
 		 stage = new Stage(StageStyle.DECORATED);
 		 stage.setTitle("CREAR CLIENTE");
-
-
 	 }
-	}
+}

@@ -61,7 +61,19 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
 					 nombre.getText(),Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
 
-			 if (nuevaReserva != null) {
+
+			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0 || nombre.getText().length()<=0)
+			 {
+				 AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
+			 }
+			 else
+			 { 
+								
+			
+			if (nuevaReserva != null) {
+				 
+				 
+				 
 				 
 				 								if (AlquilerVehiculos.dameAlquiler().buscaClientes(dnic.getText())==false) {
 				 										 									
@@ -71,20 +83,83 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 				 									alert.setContentText("Â¡CLiente no existe!");
 				 									alert.showAndWait();
 				 								}
+				 								
 
 												 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
-												 }
+												 //AlquilerVehiculosApp.createAlert("InformaciÃ³n", AlertType.INFORMATION, "Reserva creada con Ã©xito");
+												 stage.close();
+			}
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 
+		 }
 		 }
 
 
 		 catch(Exception e) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("ERROR");
-			alert.setHeaderText(null);
-			alert.setContentText("Â¡No se han introducido datos!");
-			alert.showAndWait();
+			 LocalTime local = null ;
+			 //AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "Â¡Faltan datos!");
+			 String pantallazo = "error producido en: ";
+				try{Integer.parseInt(id.getText());}
+				catch(Exception err1)
+				{
+					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del mes incorrecto");
+					pantallazo += " id";
+				}
+				try{LocalDateTime.of(recogida.getValue(),local.MIDNIGHT);}
+				catch(Exception err1)
+				{
+					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del año incorrecto");
+					if(!pantallazo.equals("error producido en: "))
+					{
+						pantallazo += ", fecha recogida";
+					}
+					else
+					{
+						pantallazo += "fecha recogida ";
+					}
+				}
+				try{LocalDateTime.of(devol.getValue(),local.NOON);}
+				catch(Exception err1)
+				{
+					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del año incorrecto");
+					if(!pantallazo.equals("error producido en: "))
+					{
+						pantallazo += ", fecha devolucion";
+					}
+					else
+					{
+						pantallazo += "fecha devolucion ";
+					}
+				}
+				try{Integer.parseInt(ud1.getText());}
+				catch(Exception err1)
+				{
+					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del año incorrecto");
+					if(!pantallazo.equals("error producido en: "))
+					{
+						pantallazo += ", ud1";
+					}
+					else
+					{
+						pantallazo += "ud1 ";
+					}
+				}
+				try{Integer.parseInt(ud2.getText());}
+				catch(Exception err1)
+				{
+					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del año incorrecto");
+					if(!pantallazo.equals("error producido en: "))
+					{
+						pantallazo += ", ud2";
+					}
+					else
+					{
+						pantallazo += "ud2 ";
+					}
+				}
+				pantallazo += ".";
+				AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, pantallazo);
+
 		 }
 	 }
 

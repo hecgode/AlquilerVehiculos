@@ -17,6 +17,7 @@ import java.awt.Button;
 import java.net.URI;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import excepciones.DAOExcepcion;
@@ -72,21 +73,17 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 			Lugar_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalRecogida()));
 			Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
 			//AL.cargaReservasPorSucursal(identificador);
-			this.sucursales.getItems().addAll(AL.listarReservas(identificador));
+			List<Reserva> res = AlquilerVehiculos.dameAlquiler().listarReservas(identificador);
+			if(res.isEmpty())
+				throw new IllegalStateException();
+			
+			this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().listarReservas(identificador));
 
-
-			//this.sucursales.getItems().addAll(AL.listarReservas());
 		} catch(Exception e) {
-			e.printStackTrace();
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("ERROR");
-			alert.setHeaderText(null);
-			alert.setContentText("¡No se han introducido datos!");
-			alert.showAndWait();
+			AlquilerVehiculosApp.createAlert("Sin reservas", AlertType.INFORMATION, "No hay reservas para el ID introducido");
 		}
-
-
 	}
+
 
 	public void cerrar(ActionEvent event) {
 		stage.close();
