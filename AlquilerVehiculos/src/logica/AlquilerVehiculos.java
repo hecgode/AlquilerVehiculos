@@ -184,34 +184,11 @@ int recogida =0;
   }
 
 
-  public Sucursal consultar_Sucursal1(int id){
-	  for(Sucursal sucursal: mSucursal)
-		  if(sucursal.getIdentificador()==id)
-			  return sucursal;
-	  return null;
-  }
 
 
-  public boolean eliminar_Sucursal(int id){
-	  return mSucursal.remove(consultar_Sucursal1(id));
-  }
 
-  public Sucursal buscarSucursal(int identificador) {
 
-	Sucursal suc = null;
-	boolean encontrado=false;
-	for (int i=0;i<mSucursal.size() && !encontrado;i++  )
-	{
-		if(mSucursal.get(i).getIdentificador()==identificador)
-		{
-				encontrado=true;
-			suc=mSucursal.get(i);
 
-		}
-	}
-	return suc;
-
-  }
 
 
 
@@ -272,16 +249,7 @@ int recogida =0;
 	  mCliente.add(cliente);
   }
 
-  public boolean anyadir_Cliente(Cliente cliente){
-	  return mCliente.add(cliente);
-  }
 
-  public Cliente consultar_Cliente(String id){
-	  for(Cliente cliente: mCliente	)
-		  if(cliente.getIdendificador().equals(id))
-			  return cliente;
-	  return null;
-  }
 
   public List<Cliente> listarClientes()  throws LogicaExcepcion
   {
