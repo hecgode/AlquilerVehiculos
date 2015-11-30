@@ -110,6 +110,19 @@ public ClienteDTO buscarCliente(String dni)
 
 
 
+public CategoriaDTO buscarCategoria(String nombre)
+{
+	CategoriaDTO cl = null;
+	try {
+		cl = catDAO.buscarCategoria(nombre);
+		} catch (DAOExcepcion e) {
+
+		}
+	return cl;
+}
+
+
+
 	//Patron Singleton
 		public static DAL dameDAL() throws DAOExcepcion{
 			if(dal==null)

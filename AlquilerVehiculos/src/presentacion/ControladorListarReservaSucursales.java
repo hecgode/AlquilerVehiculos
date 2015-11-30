@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import logica.*;
@@ -50,6 +51,8 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 	private TableColumn<Reserva, String> nombre_cliente;
 	@FXML
 	private TableColumn<Reserva, String> categoria;
+	@FXML
+	private Label label;
 	int identificador;
 
 	@Override
@@ -73,7 +76,7 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 			categoria.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getNombreCategoria()));
 			Lugar_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalRecogida()));
 			Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
-			//AL.cargaReservasPorSucursal(identificador);
+		//	categorias.setCellValueFactory(value);//AL.cargaReservasPorSucursal(identificador);
 			List<Reserva> res = AlquilerVehiculos.dameAlquiler().listarReservas(identificador);
 			if(res.isEmpty())
 				throw new IllegalStateException();
@@ -83,6 +86,17 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 		} catch(Exception e) {
 			AlquilerVehiculosApp.createAlert("Sin reservas", AlertType.INFORMATION, "No hay reservas para el ID introducido");
 		}
+	}
+
+
+
+	public void mostrar() throws DAOExcepcion
+	{
+		Reserva res = sucursales.getSelectionModel().getSelectedItem();
+		String resu = res.getDniCliente();
+		label.setText(AlquilerVehiculos.dameAlquiler().buscarCat(resu));
+
+
 	}
 
 

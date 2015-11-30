@@ -144,6 +144,29 @@ int recogida =0;
   }
 
 
+  public String buscarCat(String nombreCategoriaSuperior) {
+CategoriaDTO aux= dal.buscarCategoria(nombreCategoriaSuperior);
+
+List<Double> lista = new ArrayList<Double>();
+lista.add(aux.getPrecioModIlimitada());
+lista.add(aux.getPrecioModKms());
+lista.add(aux.getPrecioSeguroTRiesgo());
+lista.add(aux.getPrecioSeguroTerceros());
+lista.add(aux.getPrecioKMModKms());
+
+
+Double sa = aux.getPrecioKMModKms(),a;
+return lista.toString();
+//return sa.toString();
+//String str = "('"+aux.getPrecioKMModKms()+"','"+cliDTO.getNombreyApellidos()+"','"+cliDTO.getDireccion()+"','"+cliDTO.getPoblacion()+"','"+cliDTO.getCodPostal()+"','"+formattedDateTime+"','"+cliDTO.getDigitosTC()+"',"+cliDTO.getMesTC()+","+cliDTO.getAnyoTC()+","+cliDTO.getCvcTC()+",'"+cliDTO.getTipoTC()+"')";
+
+
+
+
+	//  return dal.buscarCategoria(nombreCategoriaSuperior).toString();
+	   }
+
+
   public void anyadirCategoria(Categoria cat) {
 	  mCategoria.add(cat);
   }
