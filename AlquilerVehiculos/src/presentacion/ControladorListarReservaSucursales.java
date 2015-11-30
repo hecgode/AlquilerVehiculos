@@ -61,6 +61,7 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 	}
 
 	public void buscar(ActionEvent event) throws DAOExcepcion {
+		sucursales.getItems().clear();
 		try {
 			AlquilerVehiculos AL = new AlquilerVehiculos();
 			identificador = Integer.parseInt(id.getText());
@@ -76,7 +77,7 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 			List<Reserva> res = AlquilerVehiculos.dameAlquiler().listarReservas(identificador);
 			if(res.isEmpty())
 				throw new IllegalStateException();
-			
+
 			this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().listarReservas(identificador));
 
 		} catch(Exception e) {
