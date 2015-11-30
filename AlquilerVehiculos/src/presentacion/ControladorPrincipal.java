@@ -8,6 +8,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
@@ -21,6 +23,9 @@ public class ControladorPrincipal {
 	 private static final String LISTAR_RESERVA_SUCURSAL = "listarreservasucursal.fxml";
 
 	 private Stage primaryStage;
+
+	 @FXML
+	 private ImageView i1;
 
 	 @FXML
 	 void listarSucursales(ActionEvent event) throws LogicaExcepcion {
@@ -37,14 +42,10 @@ public class ControladorPrincipal {
 		 initCasoDeUso(LISTAR_CLIENTES, ControladorListarClientes.class).show();
 	 }
 
-
-
-
 	 @FXML
 	 void crearCliente(ActionEvent event) throws LogicaExcepcion {
 		 initCasoDeUso(CREAR_CLIENTE, ControladorCrearCliente.class).show();
 	 }
-
 
 	 @FXML
 	 void crearReserva(ActionEvent event) {
@@ -81,6 +82,7 @@ public class ControladorPrincipal {
 
 	 public void setPrimaryStage(Stage primaryStage) {
 		 this.primaryStage = primaryStage;
+		 i1.setImage(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "TheCar.png" )));
 	 }
 
 	 private <T extends ControladorCasoDeUso> T initCasoDeUso(String urlVista,
