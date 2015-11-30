@@ -86,7 +86,7 @@ int recogida =0;
 
 
 
-
+/*
   public void cargaReservasPorSucursal(int ent) {
 	  List<ReservaDTO> listareserva = dal.obtenerReservasPORSUCURSAL(ent);
 
@@ -95,29 +95,15 @@ int recogida =0;
 
 	  }
   }
-
+*/
 
   private void anyadirReserva(Reserva reserva) {
 	  mReserva.add(reserva);
   }
 
 
-  public boolean eliminar_Reserva(int id){
-	  return mReserva.remove(consultar_Reservas(id));
-  }
 
 
-  public Reserva consultar_Reservas(int id) {
-	  Reserva cat = null;
-	  boolean encontrado=false;
-	  for (int i=0;i<mReserva.size() && !encontrado;i++  )
-	  {
-		  if(mReserva.get(i).getId()==id)
-			  encontrado=true;
-				cat=mReserva.get(i);
-
-	  }	return cat;
-  }
 
 /*****************METODOS DE CATEGORIAS*******************************************************************************************
  * **************************************************************************************/
