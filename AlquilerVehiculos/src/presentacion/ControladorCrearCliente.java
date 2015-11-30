@@ -84,7 +84,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 			 else {
 		 			AlquilerVehiculos.dameAlquiler().crearCliente(nuevoCliente);
 					AlquilerVehiculosApp.createAlert("Informacion", AlertType.INFORMATION, "cliente creado con exito");
-					 stage.close();
+					stage.close();
 			 }
 		 }
 		 catch(Exception e) {
