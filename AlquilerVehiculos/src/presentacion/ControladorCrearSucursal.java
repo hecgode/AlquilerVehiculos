@@ -65,7 +65,7 @@ public class ControladorCrearSucursal extends ControladorCasoDeUso {
 	 public void initialize(URL location, ResourceBundle resources) {
 
 		 stage = new Stage(StageStyle.DECORATED);
-		 stage.setTitle("CREAR CLIENTE");
+		 stage.setTitle("CREAR SUCURSAL");
 
 
 	 }
