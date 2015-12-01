@@ -32,14 +32,10 @@ public class ControladorCrearSucursal extends ControladorCasoDeUso {
 	 private Label label;
 
 	 @FXML
-	 public void aceptar (ActionEvent eve) throws DAOExcepcion
-	 {
-		 System.out.println("Hasta aquí");
+	 public void aceptar (ActionEvent eve) throws DAOExcepcion {
 		 try {
 			 if(direccion.getText()=="")
 				 System.err.println("ALGO NO FUNCA");
-			 System.out.println("Hasta aquí");
-			 System.out.println(direccion.getText());
 			 nuevaSucursal = new Sucursal(Integer.parseInt(id.getText()),direccion.getText());
 
 						 if (nuevaSucursal != null) {

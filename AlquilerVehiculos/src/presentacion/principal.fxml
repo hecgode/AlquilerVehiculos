@@ -39,17 +39,17 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Empleado">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#listarReservaSucursal" text="ListarReservasSucursal">
+            <MenuItem mnemonicParsing="false" onAction="#listarReservaSucursal" text="Listar Reservas Sucursal">
               <accelerator>
                 <KeyCodeCombination alt="ANY" code="F3" control="UP" meta="UP" shift="UP" shortcut="UP" />
               </accelerator>
             </MenuItem>
-            <MenuItem mnemonicParsing="false" onAction="#listarcategorias" text="ListarCategorias ">
+            <MenuItem mnemonicParsing="false" onAction="#listarcategorias" text="Listar Categorias ">
               <accelerator>
                 <KeyCodeCombination alt="ANY" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
               </accelerator>
             </MenuItem>
-            <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="ListarSucursales">
+            <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="Listar Sucursales">
               <accelerator>
                 <KeyCodeCombination alt="ANY" code="F5" control="UP" meta="UP" shift="UP" shortcut="UP" />
               </accelerator>
