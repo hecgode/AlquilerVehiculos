@@ -7,23 +7,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="308.0" prefHeight="338.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorCrearReserva">
+<AnchorPane minHeight="308.0" minWidth="662.0" prefHeight="338.0" prefWidth="713.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorCrearReserva">
   <children>
-    <GridPane prefHeight="219.0" prefWidth="650.0" AnchorPane.bottomAnchor="333.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="14.0">
+    <GridPane prefHeight="219.0" prefWidth="650.0" AnchorPane.bottomAnchor="321.5" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="25.5">
       <children>
-        <Label text="id:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <TextField fx:id="id" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label text="recogida:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
         <DatePicker fx:id="recogida" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Label text="devolucion:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label text="id:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
         <DatePicker fx:id="devol" layoutX="350.0" layoutY="122.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <TextField fx:id="id" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="recogida:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label text="devolucion:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
         <Label text="moda:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
         <TextField fx:id="moda" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         <Label text="dnic:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
         <TextField fx:id="dnic" GridPane.columnIndex="1" GridPane.rowIndex="5" />
         <Label text="ud1:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
         <Label text="ud2:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-        <Label text="nombre categoria:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+        <Label text="Nombre categoria:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <ComboBox fx:id="cbx" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <ComboBox fx:id="cbx2" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <ComboBox fx:id="cbx3" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -37,18 +40,14 @@
         <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
+        <RowConstraints maxHeight="16.0" prefHeight="16.0" />
+        <RowConstraints maxHeight="0.0" prefHeight="0.0" />
+        <RowConstraints maxHeight="0.0" prefHeight="0.0" />
       </rowConstraints>
     </GridPane>
-    <Button layoutX="524.0" layoutY="300.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="80.0" text="Aceptar" />
-    <Button fx:id="cancelar" layoutX="624.0" layoutY="300.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-      <ComboBox fx:id="cbx" layoutX="319.0" layoutY="197.0" prefWidth="150.0" />
-      <ComboBox fx:id="cbx2" layoutX="319.0" layoutY="233.0" prefWidth="150.0" />
-      <ComboBox fx:id="cbx3" layoutX="313.0" layoutY="275.0" prefWidth="150.0" />
-      <Label fx:id="pre" layoutX="550.0" layoutY="225.0" />
-      <Button fx:id="p" layoutX="641.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#cargarpre" text="Precio" />
-      <Label layoutX="476.0" layoutY="201.0" text="Ilimitado-km-Triesgo-Terceros--kmmodkms" />
+    <Button layoutX="519.0" layoutY="296.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="80.0" text="Aceptar" />
+    <Button fx:id="cancelar" layoutX="619.0" layoutY="296.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+    <Label fx:id="pre" layoutX="550.0" layoutY="225.0" />
+    <Button fx:id="p" layoutX="622.0" layoutY="260.0" mnemonicParsing="false" onAction="#cargarpre" onMouseClicked="#cargarpre" prefWidth="76.0" text="Precio" />
   </children>
 </AnchorPane>

@@ -72,56 +72,16 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 ComboBox<String> cbx2;
 	 @FXML
 	 ComboBox<String> cbx3;
+	 @FXML
 
-
-
-
-/*
-
-
-	 public int sucursalrecogia () {
-
-		 int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
-		 return suc;
-	 }
-	 public int sucursaldevol () {
-
-		 int suc2 = sucursales_d.getSelectionModel().getSelectedItem().getIdentificador();
-		 return suc2;
-	 }
-*/@FXML
-
-
-
-
-
-
-
-
-
-
-
-	public void aceptar (ActionEvent eve) throws DAOExcepcion
-	 {
-
-
-
+	public void aceptar (ActionEvent eve) throws DAOExcepcion {
 		 try {
-
-
 			LocalTime local = null ;
 			//int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
-
-
-
-
 			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
 					 this.cbx3.getSelectionModel().getSelectedItem().toString(),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()));
 					 //Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
-
-
-			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0)
-			 {
+			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0) {
 				 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
 			 }
 			 else
@@ -210,14 +170,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 		 List<Categoria> aux2 = AlquilerVehiculos.dameAlquiler().getmCategoria();
 		 for (int i=0;i<aux2.size();i++)
 			 cat.add(aux2.get(i).getNombre());
-
-
-
-
-
-
-
-
 		 	cbx.setItems(suc);
 		 	cbx2.setItems(suc);
 		 	cbx3.setItems(cat);
@@ -226,24 +178,30 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 }
 
 
-	 public void cargarpre() throws DAOExcepcion		 {
-		 List<Categoria> aux2 = AlquilerVehiculos.dameAlquiler().getmCategoria();
-		 ObservableList<Double> precios =
-				    FXCollections.observableArrayList( );
-		 for (int i=0;i<aux2.size();i++)
-			 if (aux2.get(i).getNombre()==this.cbx3.getSelectionModel().getSelectedItem().toString())
-			 {		 precios.add(aux2.get(i).getPrecioModIlimitada());
-				 precios.add(aux2.get(i).getPrecioModKms());
+	 public void cargarpre() throws DAOExcepcion {
+		 try {
+			 List<Categoria> aux2 = AlquilerVehiculos.dameAlquiler().getmCategoria();
+			 ObservableList<String> precios =
+					    FXCollections.observableArrayList( );
+			 for (int i=0;i<aux2.size();i++)
+				 if (aux2.get(i).getNombre()==this.cbx3.getSelectionModel().getSelectedItem().toString())
+				 {		 precios.addAll(String.valueOf(aux2.get(i).getPrecioModIlimitada())+"€");
+					 precios.addAll(String.valueOf(aux2.get(i).getPrecioModKms())+"€");
 
 
-		 		precios.add(aux2.get(i).getPrecioSeguroTRiesgo());
-		 		precios.add(aux2.get(i).getPrecioSeguroTerceros());
-		 		precios.add(aux2.get(i).getPrecioKMModKms());
+			 		precios.addAll(String.valueOf(aux2.get(i).getPrecioSeguroTRiesgo())+"€");
+			 		precios.add(String.valueOf(aux2.get(i).getPrecioSeguroTerceros())+"€");
+			 		precios.add(String.valueOf(aux2.get(i).getPrecioKMModKms())+"€");
 
 
 
-			 }
-		 pre.setText(precios.toString());
+				 }
+			 AlquilerVehiculos.createAlert("PRECIOS", AlertType.INFORMATION, precios.toString());
+
+		 } catch(Exception e) {
+			 AlquilerVehiculos.createAlert("CUIDADO", AlertType.INFORMATION, "Faltan datos");
+		 }
+
 
 
 
