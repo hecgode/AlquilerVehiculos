@@ -11,7 +11,7 @@ import java.util.List;
 
 import excepciones.DAOExcepcion;
 import persistencia.dto.ClienteDTO;
-import java.sql.Date;
+
 public class ClienteDAOImp implements IClienteDAO {
 
 
