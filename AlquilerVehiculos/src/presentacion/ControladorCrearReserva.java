@@ -52,10 +52,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 @FXML
 	 private Button cancelar;
 	 @FXML
-	 private TableView<Sucursal> sucursales;
-	 @FXML
-	 private TableView<Sucursal> sucursales_d;
-	 @FXML
 	 private TableColumn<Sucursal, Integer> id_r;
 	 private Cliente nuevoCliente;
 	 @FXML
@@ -64,20 +60,11 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 private Label label;
 	 @FXML
 	 ComboBox<String> cbx;
+	 @FXML
+	 ComboBox<String> cbx2;
+	 @FXML
+	 ComboBox<String> cbx3;
 
-	 public int obtenerSucuR() {
-		 int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
-		 System.out.println(suc);
-		 return suc;
-
-	 }
-
-	 public int obtenerSucuD() {
-		 int suc2 = sucursales_d.getSelectionModel().getSelectedItem().getIdentificador();
-		 System.out.println(suc2);
-		 return suc2;
-
-	 }
 
 /*
 
@@ -106,11 +93,11 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 
 
 			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
-					 this.cbx.getSelectionModel().getSelectedItem().toString(),obtenerSucuR(),obtenerSucuD());
+					 this.cbx.getSelectionModel().getSelectedItem().toString(),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()),Integer.parseInt(this.cbx3.getSelectionModel().getSelectedItem().toString()));
 					 //Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
 
 
-			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0 || this.cbx.getSelectionModel().getSelectedItem().toString().length()<=0)
+			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0)
 			 {
 				 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
 			 }
@@ -120,22 +107,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 					 if (AlquilerVehiculos.dameAlquiler().buscaClientes(dnic.getText())==false) {
 						 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "¡Cliente no existe!");
 				}
-
-				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(obtenerSucuR()))
-				{
-					 AlquilerVehiculos.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
-
-				}
-
-
-
-				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(obtenerSucuD()))
-				 {
-			 AlquilerVehiculos.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
-
-			 System.out.print("Sucursal no existe");
-
-				 }
 				 else {
 					 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
 					 AlquilerVehiculos.createAlert("Información", AlertType.INFORMATION, "Reserva creada con éxito");
@@ -181,30 +152,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 						pantallazo += "fecha devolucion ";
 					}
 				}
-				try {
-					obtenerSucuR();
-				} catch(Exception err2) {
-					if(!pantallazo.equals("error producido en: "))
-					{
-						pantallazo += ", obtener sucursal recogida";
-					}
-					else
-					{
-						pantallazo += "obtener sucursal recogida ";
-					}
-				}
-				try {
-					obtenerSucuD();
-				} catch(Exception err2) {
-					if(!pantallazo.equals("error producido en: "))
-					{
-						pantallazo += ", obtener sucursal devolucion";
-					}
-					else
-					{
-						pantallazo += "obtener sucursal devolucion ";
-					}
-				}
 
 
 				pantallazo += ".";
@@ -226,21 +173,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
-		 
-		  
-
-		 id_r.setCellValueFactory(param -> new
-					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
-
-
-					this.sucursales.getItems().addAll( AlquilerVehiculos.dameAlquiler().listarSucursales());
-
-
-					 id_d.setCellValueFactory(param -> new
-								ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
-
-
-								this.sucursales_d.getItems().addAll( AlquilerVehiculos.dameAlquiler().listarSucursales());
 
 	 }
 

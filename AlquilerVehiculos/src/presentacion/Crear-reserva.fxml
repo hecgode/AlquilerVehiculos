@@ -21,8 +21,30 @@
         <TextField fx:id="moda" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         <Label text="dnic:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
         <TextField fx:id="dnic" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-        <Label text="nombre categoria:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-        <ComboBox fx:id="cbx" prefWidth="107.0" value="economy" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Label text="ud1:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+		<ComboBox fx:id="cbx2" prefWidth="107.0" value="1" GridPane.columnIndex="1" GridPane.rowIndex="6">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="1" />
+              <String fx:value="2" />
+              <String fx:value="3" />
+              <String fx:value="4" />
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Label text="ud2:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <ComboBox fx:id="cbx3" prefWidth="107.0" value="1" GridPane.columnIndex="1" GridPane.rowIndex="7">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="1" />
+              <String fx:value="2" />
+              <String fx:value="3" />
+              <String fx:value="4" />
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Label text="nombre categoria:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+         <ComboBox fx:id="cbx" prefWidth="107.0" value="economy" GridPane.columnIndex="1" GridPane.rowIndex="8">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="economy" />
@@ -51,15 +73,5 @@
     </GridPane>
     <Button layoutX="629.0" layoutY="393.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="80.0" text="Aceptar" />
     <Button fx:id="cancelar" layoutX="629.0" layoutY="454.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-    <TableView fx:id="sucursales" layoutX="14.0" layoutY="369.0" prefHeight="145.0" prefWidth="253.0">
-      <columns>
-        <TableColumn prefWidth="264.0" text="Sucursal recogida" fx:id="id_r" />
-      </columns>
-    </TableView>
-    <TableView fx:id="sucursales_d" layoutX="307.0" layoutY="369.0" prefHeight="145.0" prefWidth="253.0">
-      <columns>
-        <TableColumn prefWidth="264.0" text="Sucursal devolucion" fx:id="id_d" />
-      </columns>
-    </TableView>
   </children>
 </AnchorPane>
