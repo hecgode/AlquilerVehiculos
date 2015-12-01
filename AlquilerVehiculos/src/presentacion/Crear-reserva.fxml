@@ -47,5 +47,6 @@
       <ComboBox fx:id="cbx" layoutX="319.0" layoutY="197.0" prefWidth="150.0" />
       <ComboBox fx:id="cbx2" layoutX="319.0" layoutY="233.0" prefWidth="150.0" />
       <ComboBox fx:id="cbx3" layoutX="313.0" layoutY="275.0" prefWidth="150.0" />
+      <Label fx:id="pre" layoutX="550.0" layoutY="225.0" text="Label" />
   </children>
 </AnchorPane>

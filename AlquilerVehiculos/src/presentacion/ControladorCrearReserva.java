@@ -61,6 +61,8 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 @FXML
 	 private Label label;
 	 @FXML
+	 private Label pre;
+	 @FXML
 	 ComboBox<String> cbx;
 	 @FXML
 	 ComboBox<String> cbx2;
@@ -189,11 +191,28 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 			 cat.add(aux2.get(i).getNombre());
 
 
+		 ObservableList<Double> precios =
+				    FXCollections.observableArrayList( );
+		 for (int i=0;i<aux2.size();i++)
+			 if (aux2.get(i).getNombre()==this.cbx3.getSelectionModel().getSelectedItem().toString())
+			 {
+		 		precios.add(aux2.get(i).getPrecioKMModKms());
+		 		precios.add(aux2.get(i).getPrecioModIlimitada());
+		 		precios.add(aux2.get(i).getPrecioModKms());
+		 		precios.add(aux2.get(i).getPrecioSeguroTerceros());
+		 		precios.add(aux2.get(i).getPrecioSeguroTRiesgo());
+		 		;
+
+
+			 }
+
+
 
 
 		 	cbx.setItems(suc);
 		 	cbx2.setItems(suc);
 		 	cbx3.setItems(cat);
+		 	pre.setText(precios.toString());
 
 	 }
 
