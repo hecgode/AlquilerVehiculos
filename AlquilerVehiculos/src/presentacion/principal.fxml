@@ -30,24 +30,48 @@
                 <KeyCodeCombination alt="ANY" code="F1" control="UP" meta="UP" shift="UP" shortcut="UP" />
               </accelerator>
             </MenuItem>
-            <MenuItem mnemonicParsing="false" onAction="#crearCliente" text="Crear Cliente" />
+            <MenuItem mnemonicParsing="false" onAction="#crearCliente" text="Crear Cliente">
+              <accelerator>
+                <KeyCodeCombination alt="ANY" code="F2" control="UP" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Empleado">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#listarReservaSucursal" text="ListarReservasSucursal" />
-            <MenuItem mnemonicParsing="false" onAction="#listarcategorias" text="ListarCategorias " />
-            <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="ListarSucursales" />
+            <MenuItem mnemonicParsing="false" onAction="#listarReservaSucursal" text="ListarReservasSucursal">
+              <accelerator>
+                <KeyCodeCombination alt="ANY" code="F3" control="UP" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" onAction="#listarcategorias" text="ListarCategorias ">
+              <accelerator>
+                <KeyCodeCombination alt="ANY" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" onAction="#listarSucursales" text="ListarSucursales">
+              <accelerator>
+                <KeyCodeCombination alt="ANY" code="F5" control="UP" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Sucursales">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#CrearSuc" text="Crear Sucursal" />
+            <MenuItem mnemonicParsing="false" onAction="#CrearSuc" text="Crear Sucursal">
+              <accelerator>
+                <KeyCodeCombination alt="ANY" code="F6" control="UP" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
           </items>
         </Menu>
         <Menu mnemonicParsing="false" onAction="#about" text="About">
           <items>
-            <MenuItem mnemonicParsing="false" text="Sobre la app" />
+            <MenuItem mnemonicParsing="false" text="Sobre la app">
+              <accelerator>
+                <KeyCodeCombination alt="ANY" code="F7" control="UP" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
           </items>
         </Menu>
       </menus>

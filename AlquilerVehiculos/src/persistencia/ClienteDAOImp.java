@@ -1,6 +1,7 @@
 package persistencia;
-/*AlquilerVehiculos ultima modificacion 06/10/15*/
+
 import java.sql.ResultSet;
+
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;

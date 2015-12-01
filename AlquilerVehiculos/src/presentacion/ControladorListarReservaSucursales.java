@@ -86,13 +86,13 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 		}
 	}
 
-
 	public void mostrar() throws DAOExcepcion {
 		Reserva res = sucursales.getSelectionModel().getSelectedItem();
 		String resu = res.getDniCliente();
-		label.setText(AlquilerVehiculos.dameAlquiler().buscarCat(resu));
-
-
+		String textaco = AlquilerVehiculos.dameAlquiler().buscarCat(resu);
+		textaco = textaco.substring(1, textaco.length()-1);
+		textaco = textaco.replaceAll(",", " ");
+		label.setText(textaco);
 	}
 
 	public void cerrar(ActionEvent event) {
