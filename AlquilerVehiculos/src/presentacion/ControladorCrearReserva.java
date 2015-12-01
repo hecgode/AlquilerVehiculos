@@ -185,13 +185,13 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 					    FXCollections.observableArrayList( );
 			 for (int i=0;i<aux2.size();i++)
 				 if (aux2.get(i).getNombre()==this.cbx3.getSelectionModel().getSelectedItem().toString())
-				 {		 precios.addAll(String.valueOf(aux2.get(i).getPrecioModIlimitada())+"â‚¬");
-					 precios.addAll(String.valueOf(aux2.get(i).getPrecioModKms())+"â‚¬");
+				 {		 precios.addAll(String.valueOf(aux2.get(i).getPrecioModIlimitada())+"‚");
+					 precios.addAll(String.valueOf(aux2.get(i).getPrecioModKms())+"‚");
 
 
-			 		precios.addAll(String.valueOf(aux2.get(i).getPrecioSeguroTRiesgo())+"â‚¬");
-			 		precios.add(String.valueOf(aux2.get(i).getPrecioSeguroTerceros())+"â‚¬");
-			 		precios.add(String.valueOf(aux2.get(i).getPrecioKMModKms())+"â‚¬");
+			 		precios.addAll(String.valueOf(aux2.get(i).getPrecioSeguroTRiesgo())+"‚");
+			 		precios.add(String.valueOf(aux2.get(i).getPrecioSeguroTerceros())+"‚");
+			 		precios.add(String.valueOf(aux2.get(i).getPrecioKMModKms())+"‚");
 
 
 
