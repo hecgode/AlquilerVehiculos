@@ -2,45 +2,36 @@ package presentacion;
 
 
 import java.net.URL;
-import java.sql.Time;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.sun.javafx.logging.Logger;
-
 import excepciones.DAOExcepcion;
 import excepciones.LogicaExcepcion;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import logica.AlquilerVehiculos;
 import logica.Categoria;
-import logica.Cliente;
 import logica.Reserva;
 import logica.Sucursal;
 
 public class ControladorCrearReserva extends ControladorCasoDeUso {
-	// private static final Logger LOG =	Logger.getLogger(ControladorCrearCliente.class.getName());
+
 	 @FXML
 	 private TextField id;
 	 @FXML
@@ -59,7 +50,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 private Button cancelar;
 	 @FXML
 	 private TableColumn<Sucursal, Integer> id_r;
-	 private Cliente nuevoCliente;
 	 @FXML
 	 private TableColumn<Sucursal, Integer> id_d;
 	 @FXML
@@ -72,91 +62,78 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 ComboBox<String> cbx2;
 	 @FXML
 	 ComboBox<String> cbx3;
-	 @FXML
+	 @SuppressWarnings("static-access")
+	@FXML
 
 	public void aceptar (ActionEvent eve) throws DAOExcepcion {
 		 try {
-			LocalTime local = null ;
-			//int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
-			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
-					 this.cbx3.getSelectionModel().getSelectedItem().toString(),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()));
-					 //Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
-			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0) {
-				 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
-			 }
-			 else
-			 {
-				 if (nuevaReserva != null) {
-					 if (AlquilerVehiculos.dameAlquiler().buscaClientes(dnic.getText())==false) {
+				LocalTime local = null ;
+				Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
+						 this.cbx3.getSelectionModel().getSelectedItem().toString(),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()));
 
-
-						 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "¡Cliente no existe!");
-				}
-				 else {
-					 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
-					 AlquilerVehiculos.createAlert("Información", AlertType.INFORMATION, "Reserva creada con éxito");
-					 stage.close();
+				 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0) {
+					 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
 				 }
-			}//Invocamos el servicio encargado de Crear un nuevo cliente
+				 else {
+					 if (nuevaReserva != null) {
+						 if (AlquilerVehiculos.dameAlquiler().buscaClientes(dnic.getText())==false) {
+							 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "¡Cliente no existe!");
+					}
+					else {
+						 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
+						 AlquilerVehiculos.createAlert("Información", AlertType.INFORMATION, "Reserva creada con éxito");
+						 stage.close();
+					 }
+				}
+			 }
 		 }
-}
 		 catch(Exception e) {
 			 e.printStackTrace();
 			 LocalTime local = null ;
-			 //AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "¡Faltan datos!");
 			 String pantallazo = "error producido en: ";
-				try{Integer.parseInt(id.getText());}
-				catch(Exception err1)
-				{
-					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del mes incorrecto");
+				try {
+					Integer.parseInt(id.getText());
+				}
+				catch(Exception err1) {
+
 					pantallazo += " id";
 				}
-				try{LocalDateTime.of(recogida.getValue(),local.MIDNIGHT);}
-				catch(Exception err1)
-				{
-					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del a�o incorrecto");
-					if(!pantallazo.equals("error producido en: "))
-					{
+				try {
+					LocalDateTime.of(recogida.getValue(),local.MIDNIGHT);
+				}
+				catch(Exception err1) {
+
+					if(!pantallazo.equals("error producido en: ")) {
 						pantallazo += ", fecha recogida";
 					}
-					else
-					{
+					else {
 						pantallazo += "fecha recogida ";
 					}
 				}
-				try{LocalDateTime.of(devol.getValue(),local.NOON);}
-				catch(Exception err1)
-				{
-					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del a�o incorrecto");
-					if(!pantallazo.equals("error producido en: "))
-					{
+				try {
+					LocalDateTime.of(devol.getValue(),local.NOON);
+				}
+				catch(Exception err1){
+					if(!pantallazo.equals("error producido en: ")){
 						pantallazo += ", fecha devolucion";
 					}
-					else
-					{
+					else {
 						pantallazo += "fecha devolucion ";
 					}
 				}
-
-
 				pantallazo += ".";
 				AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, pantallazo);
 
-		 }}
-
-
-
-
-
+		 }
+	}
 
 	 @FXML
 	 public void cancelar (ActionEvent eve) {
 		 stage.close();
 
 	 }
+
 	 @Override
-
-
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
 		 ObservableList<String> suc =
 		    FXCollections.observableArrayList( );
@@ -173,10 +150,7 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 		 	cbx.setItems(suc);
 		 	cbx2.setItems(suc);
 		 	cbx3.setItems(cat);
-
-
 	 }
-
 
 	 public void cargarpre() throws DAOExcepcion {
 		 try {
@@ -184,32 +158,21 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 			 ObservableList<String> precios =
 					    FXCollections.observableArrayList( );
 			 for (int i=0;i<aux2.size();i++)
-				 if (aux2.get(i).getNombre()==this.cbx3.getSelectionModel().getSelectedItem().toString())
-				 {		 precios.addAll(String.valueOf(aux2.get(i).getPrecioModIlimitada())+"�");
-					 precios.addAll(String.valueOf(aux2.get(i).getPrecioModKms())+"�");
-
-
-			 		precios.addAll(String.valueOf(aux2.get(i).getPrecioSeguroTRiesgo())+"�");
-			 		precios.add(String.valueOf(aux2.get(i).getPrecioSeguroTerceros())+"�");
-			 		precios.add(String.valueOf(aux2.get(i).getPrecioKMModKms())+"�");
-
-
-
+				 if (aux2.get(i).getNombre()==this.cbx3.getSelectionModel().getSelectedItem().toString()) {
+					precios.addAll(String.valueOf("\tIlimitada: "+aux2.get(i).getPrecioModIlimitada())+"€\n");
+					precios.addAll(String.valueOf("\tModKms: "+aux2.get(i).getPrecioModKms())+"€\n");
+			 		precios.addAll(String.valueOf("\tSeguro: "+aux2.get(i).getPrecioSeguroTRiesgo())+"€\n");
+			 		precios.add(String.valueOf("\tSeguro terceros: "+aux2.get(i).getPrecioSeguroTerceros())+"€\n");
+			 		precios.add(String.valueOf("\tKMModKms: "+aux2.get(i).getPrecioKMModKms())+"€\n");
 				 }
-			 AlquilerVehiculos.createAlert("PRECIOS", AlertType.INFORMATION, precios.toString());
-
+			 String parameter = precios.toString();
+			 parameter = parameter.substring(1, parameter.length()-1);
+			 String chain = parameter.replaceAll(",", " ");
+			 AlquilerVehiculos.createAlert("PRECIOS", AlertType.INFORMATION, chain);
 		 } catch(Exception e) {
 			 AlquilerVehiculos.createAlert("CUIDADO", AlertType.INFORMATION, "Faltan datos");
 		 }
-
-
-
-
-
-
 	 }
-
-
 
 	 public void actualizar () throws DAOExcepcion {
 		 ObservableList<String> suc =
@@ -218,31 +181,17 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 		 for (int i=0;i<aux.size();i++)
 			 suc.add(Integer.toString(aux.get(i).getIdentificador()));
 
-
 	 }
 
+	public void initialize(URL location, ResourceBundle resources) {
 
-
-
-
-
-
-
-
-
-	 public void initialize(URL location, ResourceBundle resources) {
-
-		 stage = new Stage(StageStyle.DECORATED);
-		 stage.setTitle("CREAR RESERVA");
-		 try {
+		stage = new Stage(StageStyle.DECORATED);
+		stage.setTitle("CREAR RESERVA");
+		try {
 			boot();
-			//sucursalrecogia();
-			//sucursaldevol();
 		} catch (DAOExcepcion | LogicaExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
-	 }
 	}
+}
