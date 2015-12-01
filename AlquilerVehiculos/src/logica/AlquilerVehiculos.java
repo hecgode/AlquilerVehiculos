@@ -2,6 +2,8 @@ package logica;
 
 import java.util.*;
 import excepciones.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import persistencia.DAL;
 import persistencia.dto.*;
 
@@ -342,6 +344,14 @@ return lista.toString();
   			Alquiler=new AlquilerVehiculos();
   		return Alquiler;
   }
+
+  public static void createAlert(String title, AlertType alertType, String text) throws DAOExcepcion {
+		Alert alert = new Alert(alertType);
+		alert.setTitle(title);
+		alert.setHeaderText(null);
+		alert.setContentText(text);
+		alert.showAndWait();
+}
 
 }
 

@@ -9,7 +9,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorPrincipal">
   <center>
-    <ImageView fx:id="i1" fitHeight="362.0" fitWidth="482.66666666666663" pickOnBounds="true" preserveRatio="true" />
+    <ImageView fx:id="i1" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
   </center>
   <top>
     <MenuBar BorderPane.alignment="CENTER">

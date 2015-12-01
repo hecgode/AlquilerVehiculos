@@ -48,12 +48,6 @@ private BorderPane rootLayout;
 		}
 	}
 
-	public static void createAlert(String title, AlertType alertType, String text) {
-		Alert alert = new Alert(alertType);
-		alert.setTitle(title);
-		alert.setHeaderText(null);
-		alert.setContentText(text);
-		alert.showAndWait();
-	 }
+
 }
 

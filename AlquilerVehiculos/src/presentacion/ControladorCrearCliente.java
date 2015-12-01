@@ -79,11 +79,11 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 
 			 if(dni.getText().length()<=0 || nombreApellidos.getText().length()<=0 || poblacion.getText().length()<=0 || direccion.getText().length()<=0 || codigoPostal.getText().length()<=0 || digitosTC.getText().length()<=0
 					 || cvc.getText().length()<=0 || tipoTarjeta.getText().length()<=0) {
-				 AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
+				 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
 			 }
 			 else {
 		 			AlquilerVehiculos.dameAlquiler().crearCliente(nuevoCliente);
-					AlquilerVehiculosApp.createAlert("Informacion", AlertType.INFORMATION, "cliente creado con exito");
+					AlquilerVehiculos.createAlert("Informacion", AlertType.INFORMATION, "cliente creado con exito");
 					stage.close();
 			 }
 		 }
@@ -135,7 +135,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 				}
 			}
 			pantallazo += ".";
-			AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, pantallazo);
+			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, pantallazo);
 		 }
 	 }
 

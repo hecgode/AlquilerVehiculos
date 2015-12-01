@@ -57,27 +57,30 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 @FXML
 	 private TableView<Sucursal> sucursales;
 	 @FXML
+	 private TableView<Sucursal> sucursales_d;
+	 @FXML
 	 private TableColumn<Sucursal, Integer> id_r;
 	 private Cliente nuevoCliente;
-	 @FXML
-	 private TableView<Sucursal> sucursales_d;
 	 @FXML
 	 private TableColumn<Sucursal, Integer> id_d;
 	 @FXML
 	 private Label label;
 
 	 @FXML
-	 
-	 
+
+
 	 public int obtenerSucuR() {
 		 int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
+		 System.out.println(suc);
 		 return suc;
-		 
+
 	 }
+
 	 public int obtenerSucuD() {
 		 int suc2 = sucursales_d.getSelectionModel().getSelectedItem().getIdentificador();
+		 System.out.println(suc2);
 		 return suc2;
-		 
+
 	 }
 
 /*
@@ -98,7 +101,7 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 {
 
 		 try {
-			 
+
 
 			LocalTime local = null ;
 			//int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
@@ -113,53 +116,40 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 
 			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0 || nombre.getText().length()<=0)
 			 {
-				 AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
+				 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
 			 }
 			 else
 			 {
-
-
-			if (nuevaReserva != null) {
-
-
-
-
-				 if (AlquilerVehiculos.dameAlquiler().buscaClientes(dnic.getText())==false) {
-
-				 													 									Alert alert = new Alert(AlertType.ERROR);
-				 									alert.setTitle("ERROR");
-				 									alert.setHeaderText(null);
-				 									alert.setContentText("¡Cliente no existe!");
-				 									alert.showAndWait();
-				 									stage.close();
+				 if (nuevaReserva != null) {
+					 if (AlquilerVehiculos.dameAlquiler().buscaClientes(dnic.getText())==false) {
+						 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "¡Cliente no existe!");
 				}
 
-				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(Integer.parseInt(ud1.getText())))
-						 {
-					 AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
+				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(obtenerSucuR()))
+				{
+					 AlquilerVehiculos.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
 
-					 System.out.print("Sucursal no existe");
-
-						 }
+				}
 
 
 
-				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(Integer.parseInt(ud2.getText())))
+				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(obtenerSucuD()))
 				 {
-			 AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
+			 AlquilerVehiculos.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
 
 			 System.out.print("Sucursal no existe");
 
 				 }
 				 else {
 					 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
-					 AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Reserva creada con éxito");
+					 AlquilerVehiculos.createAlert("Información", AlertType.INFORMATION, "Reserva creada con éxito");
 					 stage.close();
 				 }
 			}//Invocamos el servicio encargado de Crear un nuevo cliente
 		 }
 }
 		 catch(Exception e) {
+			 e.printStackTrace();
 			 LocalTime local = null ;
 			 //AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "¡Faltan datos!");
 			 String pantallazo = "error producido en: ";
@@ -195,10 +185,34 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 						pantallazo += "fecha devolucion ";
 					}
 				}
+				try {
+					obtenerSucuR();
+				} catch(Exception err2) {
+					if(!pantallazo.equals("error producido en: "))
+					{
+						pantallazo += ", obtener sucursal recogida";
+					}
+					else
+					{
+						pantallazo += "obtener sucursal recogida ";
+					}
+				}
+				try {
+					obtenerSucuD();
+				} catch(Exception err2) {
+					if(!pantallazo.equals("error producido en: "))
+					{
+						pantallazo += ", obtener sucursal devolucion";
+					}
+					else
+					{
+						pantallazo += "obtener sucursal devolucion ";
+					}
+				}
 
 
 				pantallazo += ".";
-				AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, pantallazo);
+				AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, pantallazo);
 
 		 }}
 

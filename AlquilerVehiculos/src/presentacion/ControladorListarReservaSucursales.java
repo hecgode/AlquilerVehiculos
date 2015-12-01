@@ -4,7 +4,6 @@ import javafx.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -66,7 +65,6 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 	public void buscar(ActionEvent event) throws DAOExcepcion {
 		sucursales.getItems().clear();
 		try {
-			AlquilerVehiculos AL = new AlquilerVehiculos();
 			identificador = Integer.parseInt(id.getText());
 			id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
 			Fecha_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaRecogida()));
@@ -84,21 +82,18 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 			this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().listarReservas(identificador));
 
 		} catch(Exception e) {
-			AlquilerVehiculosApp.createAlert("Sin reservas", AlertType.INFORMATION, "No hay reservas para el ID introducido");
+			AlquilerVehiculos.createAlert("Sin reservas", AlertType.INFORMATION, "No hay reservas para el ID introducido");
 		}
 	}
 
 
-
-	public void mostrar() throws DAOExcepcion
-	{
+	public void mostrar() throws DAOExcepcion {
 		Reserva res = sucursales.getSelectionModel().getSelectedItem();
 		String resu = res.getDniCliente();
 		label.setText(AlquilerVehiculos.dameAlquiler().buscarCat(resu));
 
 
 	}
-
 
 	public void cerrar(ActionEvent event) {
 		stage.close();
