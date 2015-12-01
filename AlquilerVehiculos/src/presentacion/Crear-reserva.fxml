@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="308.0" prefHeight="566.0" prefWidth="745.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorCrearReserva">
+<AnchorPane minHeight="308.0" prefHeight="338.0" prefWidth="718.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorCrearReserva">
   <children>
     <GridPane prefHeight="219.0" prefWidth="650.0" AnchorPane.bottomAnchor="333.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="14.0">
       <children>
@@ -22,7 +22,7 @@
         <Label text="dnic:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
         <TextField fx:id="dnic" GridPane.columnIndex="1" GridPane.rowIndex="5" />
         <Label text="ud1:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-		<ComboBox fx:id="cbx2" prefWidth="107.0" value="1" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <ComboBox fx:id="cbx2" prefWidth="107.0" value="1" GridPane.columnIndex="1" GridPane.rowIndex="6">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="1" />
@@ -44,7 +44,7 @@
           </items>
         </ComboBox>
         <Label text="nombre categoria:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-         <ComboBox fx:id="cbx" prefWidth="107.0" value="economy" GridPane.columnIndex="1" GridPane.rowIndex="8">
+        <ComboBox fx:id="cbx" prefWidth="107.0" value="economy" GridPane.columnIndex="1" GridPane.rowIndex="8">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="economy" />
@@ -71,7 +71,7 @@
         <RowConstraints />
       </rowConstraints>
     </GridPane>
-    <Button layoutX="629.0" layoutY="393.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="80.0" text="Aceptar" />
-    <Button fx:id="cancelar" layoutX="629.0" layoutY="454.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+    <Button layoutX="524.0" layoutY="300.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="80.0" text="Aceptar" />
+    <Button fx:id="cancelar" layoutX="624.0" layoutY="300.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
   </children>
 </AnchorPane>
