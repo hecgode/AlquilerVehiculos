@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -21,7 +22,15 @@
         <Label text="dnic:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
         <TextField fx:id="dnic" GridPane.columnIndex="1" GridPane.rowIndex="5" />
         <Label text="nombre categoria:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-        <TextField fx:id="nombre" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <ComboBox fx:id="cbx" prefWidth="107.0" value="economy" GridPane.columnIndex="1" GridPane.rowIndex="6">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="economy" />
+              <String fx:value="luxury" />
+              <String fx:value="sedán" />
+            </FXCollections>
+          </items>
+        </ComboBox>
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />

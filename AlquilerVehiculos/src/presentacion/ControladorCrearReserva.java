@@ -13,12 +13,15 @@ import com.sun.javafx.logging.Logger;
 import excepciones.DAOExcepcion;
 import excepciones.LogicaExcepcion;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -45,12 +48,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 @FXML
 	 private TextField dnic;
 	 @FXML
-	 private TextField nombre;
-	 @FXML
-	 private TextField ud1;
-	 @FXML
-	 private TextField ud2;;
-	 @FXML
 	 private Button aceptar;
 	 @FXML
 	 private Button cancelar;
@@ -65,9 +62,8 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 private TableColumn<Sucursal, Integer> id_d;
 	 @FXML
 	 private Label label;
-
 	 @FXML
-
+	 ComboBox<String> cbx;
 
 	 public int obtenerSucuR() {
 		 int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
@@ -110,11 +106,11 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 
 
 			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
-					 nombre.getText(),obtenerSucuR(),obtenerSucuD());
+					 this.cbx.getSelectionModel().getSelectedItem().toString(),obtenerSucuR(),obtenerSucuD());
 					 //Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
 
 
-			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0 || nombre.getText().length()<=0)
+			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0 || this.cbx.getSelectionModel().getSelectedItem().toString().length()<=0)
 			 {
 				 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
 			 }
@@ -230,6 +226,9 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
+		 
+		  
+
 		 id_r.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
 
