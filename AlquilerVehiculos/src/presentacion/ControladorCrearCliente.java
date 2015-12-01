@@ -61,6 +61,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 {
 
 		 try {
+			 
 			 LocalTime local = null;
 
 			 nuevoCliente = new Cliente(

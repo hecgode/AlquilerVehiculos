@@ -36,6 +36,7 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 	 }
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
+		 
 		 id.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
 					 direccion.setCellValueFactory(param -> new

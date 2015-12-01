@@ -6,6 +6,7 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.logging.Logger;
@@ -31,6 +32,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import logica.AlquilerVehiculos;
+import logica.Categoria;
 import logica.Cliente;
 import logica.Reserva;
 import logica.Sucursal;
@@ -93,7 +95,7 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 
 
 			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
-					 this.cbx.getSelectionModel().getSelectedItem().toString(),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()),Integer.parseInt(this.cbx3.getSelectionModel().getSelectedItem().toString()));
+					 this.cbx3.getSelectionModel().getSelectedItem().toString(),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()));
 					 //Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
 
 
@@ -173,8 +175,47 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
+		 ObservableList<String> suc =
+		    FXCollections.observableArrayList( );
+		 List<Sucursal> aux = AlquilerVehiculos.dameAlquiler().getmSucursal();
+		 for (int i=0;i<aux.size();i++)
+			 suc.add(Integer.toString(aux.get(i).getIdentificador()));
+
+		 ObservableList<String> cat =
+				    FXCollections.observableArrayList( );
+
+		 List<Categoria> aux2 = AlquilerVehiculos.dameAlquiler().getmCategoria();
+		 for (int i=0;i<aux2.size();i++)
+			 cat.add(aux2.get(i).getNombre());
+
+
+
+
+		 	cbx.setItems(suc);
+		 	cbx2.setItems(suc);
+		 	cbx3.setItems(cat);
 
 	 }
+
+
+	 public void actualizar () throws DAOExcepcion {
+		 ObservableList<String> suc =
+				    FXCollections.observableArrayList( );
+		 List<Sucursal> aux = AlquilerVehiculos.dameAlquiler().getmSucursal();
+		 for (int i=0;i<aux.size();i++)
+			 suc.add(Integer.toString(aux.get(i).getIdentificador()));
+
+
+	 }
+
+
+
+
+
+
+
+
+
 
 	 public void initialize(URL location, ResourceBundle resources) {
 
