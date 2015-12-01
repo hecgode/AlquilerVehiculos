@@ -84,6 +84,24 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 				 									alert.showAndWait();
 				 									stage.close();
 				}
+				 
+				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(Integer.parseInt(ud1.getText())))
+						 {
+					 AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
+
+					 System.out.print("Sucursal no existe");
+					 
+						 }
+				 
+				 
+				 
+				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(Integer.parseInt(ud2.getText())))
+				 {
+			 AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
+
+			 System.out.print("Sucursal no existe");
+			 
+				 }
 				 else {
 					 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
 					 AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Reserva creada con éxito");

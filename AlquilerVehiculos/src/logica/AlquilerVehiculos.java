@@ -208,6 +208,19 @@ return lista.toString();
 
 
 
+  public boolean buscarSucursal(int id) {
+
+	  boolean encontrado=false;
+	  for (int i=0;i<mSucursal.size() && !encontrado;i++  )
+	  {
+		  if(mSucursal.get(i).getIdentificador()==id)
+			  encontrado=true;
+
+
+
+	  }
+	  return encontrado;
+  }
 
 
 
