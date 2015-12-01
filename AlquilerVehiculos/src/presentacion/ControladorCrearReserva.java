@@ -52,6 +52,8 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 @FXML
 	 private Button aceptar;
 	 @FXML
+	 private Button p;
+	 @FXML
 	 private Button cancelar;
 	 @FXML
 	 private TableColumn<Sucursal, Integer> id_r;
@@ -191,20 +193,8 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 			 cat.add(aux2.get(i).getNombre());
 
 
-		 ObservableList<Double> precios =
-				    FXCollections.observableArrayList( );
-		 for (int i=0;i<aux2.size();i++)
-			 if (aux2.get(i).getNombre()==this.cbx3.getSelectionModel().getSelectedItem().toString())
-			 {
-		 		precios.add(aux2.get(i).getPrecioKMModKms());
-		 		precios.add(aux2.get(i).getPrecioModIlimitada());
-		 		precios.add(aux2.get(i).getPrecioModKms());
-		 		precios.add(aux2.get(i).getPrecioSeguroTerceros());
-		 		precios.add(aux2.get(i).getPrecioSeguroTRiesgo());
-		 		;
 
 
-			 }
 
 
 
@@ -212,9 +202,36 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 		 	cbx.setItems(suc);
 		 	cbx2.setItems(suc);
 		 	cbx3.setItems(cat);
-		 	pre.setText(precios.toString());
+
 
 	 }
+
+
+	 public void cargarpre() throws DAOExcepcion		 {
+		 List<Categoria> aux2 = AlquilerVehiculos.dameAlquiler().getmCategoria();
+		 ObservableList<Double> precios =
+				    FXCollections.observableArrayList( );
+		 for (int i=0;i<aux2.size();i++)
+			 if (aux2.get(i).getNombre()==this.cbx3.getSelectionModel().getSelectedItem().toString())
+			 {		 precios.add(aux2.get(i).getPrecioModIlimitada());
+				 precios.add(aux2.get(i).getPrecioModKms());
+
+
+		 		precios.add(aux2.get(i).getPrecioSeguroTRiesgo());
+		 		precios.add(aux2.get(i).getPrecioSeguroTerceros());
+		 		precios.add(aux2.get(i).getPrecioKMModKms());
+
+
+
+			 }
+		 pre.setText(precios.toString());
+
+
+
+
+
+	 }
+
 
 
 	 public void actualizar () throws DAOExcepcion {
