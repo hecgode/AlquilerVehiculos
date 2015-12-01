@@ -6,11 +6,23 @@ import javafx.event.*;
 import excepciones.LogicaExcepcion;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.VBoxBuilder;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 
 public class ControladorPrincipal {
@@ -23,6 +35,7 @@ public class ControladorPrincipal {
 	 private static final String LISTAR_RESERVA_SUCURSAL = "listarreservasucursal.fxml";
 
 	 private Stage primaryStage;
+
 
 	 @FXML
 	 private ImageView i1;
@@ -64,8 +77,21 @@ public class ControladorPrincipal {
 
 	 @FXML
 	 void salir(ActionEvent event) {
-		 Platform.exit();
+		 exit();
 	 }
+
+	 public void exit() {
+		 Alert alert = new Alert(AlertType.CONFIRMATION, "¿De verdad quieres salir?", ButtonType.YES, ButtonType.NO);
+		 alert.showAndWait();
+
+		 if (alert.getResult() == ButtonType.YES) {
+			 Platform.exit();
+		 }
+		 else
+			 alert.close();
+	 }
+
+
 
 	 @FXML
 	 void about(ActionEvent event) {
@@ -83,6 +109,15 @@ public class ControladorPrincipal {
 	 public void setPrimaryStage(Stage primaryStage) {
 		 this.primaryStage = primaryStage;
 		 i1.setImage(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "TheCar.png" )));
+		 Platform.setImplicitExit(false);
+
+		 primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+		     @Override
+		     public void handle(WindowEvent event) {
+		    	 exit();
+		    	 event.consume();
+		     }
+		 });
 	 }
 
 	 private <T extends ControladorCasoDeUso> T initCasoDeUso(String urlVista,
@@ -90,10 +125,4 @@ public class ControladorPrincipal {
 		 return ControladorCasoDeUso.initCasoDeUso(urlVista, controlClass,
 		primaryStage, ControladorPrincipal.this);
 	 }
-
-
-
-
-
-
 	}

@@ -21,8 +21,8 @@
           <center>
             <TableView fx:id="sucursales" prefHeight="277.0" prefWidth="270.0">
               <columns>
-                <TableColumn prefWidth="138.0" text="C1" fx:id="id" />
-                <TableColumn prefWidth="143.0" text="C2" fx:id="direccion" />
+                <TableColumn prefWidth="138.0" text="ID" fx:id="id" />
+                <TableColumn prefWidth="143.0" text="Direccion" fx:id="direccion" />
               </columns>
             </TableView>
           </center>

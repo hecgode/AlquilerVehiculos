@@ -34,7 +34,12 @@ public class ControladorCrearSucursal extends ControladorCasoDeUso {
 	 @FXML
 	 public void aceptar (ActionEvent eve) throws DAOExcepcion
 	 {
+		 System.out.println("Hasta aquí");
 		 try {
+			 if(direccion.getText()=="")
+				 System.err.println("ALGO NO FUNCA");
+			 System.out.println("Hasta aquí");
+			 System.out.println(direccion.getText());
 			 nuevaSucursal = new Sucursal(Integer.parseInt(id.getText()),direccion.getText());
 
 						 if (nuevaSucursal != null) {
@@ -46,11 +51,7 @@ public class ControladorCrearSucursal extends ControladorCasoDeUso {
 						 }
 		 }
 		 catch(Exception e) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("ERROR");
-			alert.setHeaderText(null);
-			alert.setContentText("¡No se han introducido datos!");
-			alert.showAndWait();
+			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Faltan datos");
 		 }
 	 }
 
