@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 import com.sun.javafx.logging.Logger;
 
 import excepciones.DAOExcepcion;
+import excepciones.LogicaExcepcion;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
@@ -19,12 +21,16 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import logica.AlquilerVehiculos;
 import logica.Cliente;
 import logica.Reserva;
+import logica.Sucursal;
 
 public class ControladorCrearReserva extends ControladorCasoDeUso {
 	// private static final Logger LOG =	Logger.getLogger(ControladorCrearCliente.class.getName());
@@ -48,18 +54,61 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 private Button aceptar;
 	 @FXML
 	 private Button cancelar;
+	 @FXML
+	 private TableView<Sucursal> sucursales;
+	 @FXML
+	 private TableColumn<Sucursal, Integer> id_r;
 	 private Cliente nuevoCliente;
+	 @FXML
+	 private TableView<Sucursal> sucursales_d;
+	 @FXML
+	 private TableColumn<Sucursal, Integer> id_d;
 	 @FXML
 	 private Label label;
 
 	 @FXML
+	 
+	 
+	 public int obtenerSucuR() {
+		 int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
+		 return suc;
+		 
+	 }
+	 public int obtenerSucuD() {
+		 int suc2 = sucursales_d.getSelectionModel().getSelectedItem().getIdentificador();
+		 return suc2;
+		 
+	 }
+
+/*
+
+
+	 public int sucursalrecogia () {
+
+		 int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
+		 return suc;
+	 }
+	 public int sucursaldevol () {
+
+		 int suc2 = sucursales_d.getSelectionModel().getSelectedItem().getIdentificador();
+		 return suc2;
+	 }
+*/
 	 public void aceptar (ActionEvent eve) throws DAOExcepcion
 	 {
 
 		 try {
+			 
+
 			LocalTime local = null ;
+			//int suc = sucursales.getSelectionModel().getSelectedItem().getIdentificador();
+
+
+
+
 			Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
-					 nombre.getText(),Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
+					 nombre.getText(),obtenerSucuR(),obtenerSucuD());
+					 //Integer.parseInt(ud1.getText()),Integer.parseInt(ud2.getText()));
 
 
 			 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0 || nombre.getText().length()<=0)
@@ -84,23 +133,23 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 				 									alert.showAndWait();
 				 									stage.close();
 				}
-				 
+
 				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(Integer.parseInt(ud1.getText())))
 						 {
 					 AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
 
 					 System.out.print("Sucursal no existe");
-					 
+
 						 }
-				 
-				 
-				 
+
+
+
 				 else if (!AlquilerVehiculos.dameAlquiler().buscarSucursal(Integer.parseInt(ud2.getText())))
 				 {
 			 AlquilerVehiculosApp.createAlert("Información", AlertType.INFORMATION, "Sucursal no existe");
 
 			 System.out.print("Sucursal no existe");
-			 
+
 				 }
 				 else {
 					 AlquilerVehiculos.dameAlquiler().crearReserva(nuevaReserva);
@@ -110,8 +159,6 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 			}//Invocamos el servicio encargado de Crear un nuevo cliente
 		 }
 }
-
-
 		 catch(Exception e) {
 			 LocalTime local = null ;
 			 //AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "¡Faltan datos!");
@@ -148,37 +195,17 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 						pantallazo += "fecha devolucion ";
 					}
 				}
-				try{Integer.parseInt(ud1.getText());}
-				catch(Exception err1)
-				{
-					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del a�o incorrecto");
-					if(!pantallazo.equals("error producido en: "))
-					{
-						pantallazo += ", ud1";
-					}
-					else
-					{
-						pantallazo += "ud1 ";
-					}
-				}
-				try{Integer.parseInt(ud2.getText());}
-				catch(Exception err1)
-				{
-					//AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, "campo del a�o incorrecto");
-					if(!pantallazo.equals("error producido en: "))
-					{
-						pantallazo += ", ud2";
-					}
-					else
-					{
-						pantallazo += "ud2 ";
-					}
-				}
+
+
 				pantallazo += ".";
 				AlquilerVehiculosApp.createAlert("ERROR", AlertType.ERROR, pantallazo);
 
-		 }
-	 }
+		 }}
+
+
+
+
+
 
 	 @FXML
 	 public void cancelar (ActionEvent eve) {
@@ -188,11 +215,34 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 @Override
 
 
+	 public void boot() throws DAOExcepcion, LogicaExcepcion {
+		 id_r.setCellValueFactory(param -> new
+					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
+
+
+					this.sucursales.getItems().addAll( AlquilerVehiculos.dameAlquiler().listarSucursales());
+
+
+					 id_d.setCellValueFactory(param -> new
+								ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
+
+
+								this.sucursales_d.getItems().addAll( AlquilerVehiculos.dameAlquiler().listarSucursales());
+
+	 }
+
 	 public void initialize(URL location, ResourceBundle resources) {
 
 		 stage = new Stage(StageStyle.DECORATED);
 		 stage.setTitle("CREAR RESERVA");
-
+		 try {
+			boot();
+			//sucursalrecogia();
+			//sucursaldevol();
+		} catch (DAOExcepcion | LogicaExcepcion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 
 	 }

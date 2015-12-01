@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.ResourceBundle;
 
+import excepciones.DAOExcepcion;
+import excepciones.LogicaExcepcion;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -50,6 +52,11 @@ public abstract class ControladorCasoDeUso implements Initializable {
 }
 
 	public void initialize(URI location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void boot() throws DAOExcepcion, LogicaExcepcion {
 		// TODO Auto-generated method stub
 
 	}
