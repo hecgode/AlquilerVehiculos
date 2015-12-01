@@ -22,8 +22,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -72,6 +74,8 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 	 ComboBox<String> cbx3;
 
 
+
+
 /*
 
 
@@ -85,9 +89,22 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 		 int suc2 = sucursales_d.getSelectionModel().getSelectedItem().getIdentificador();
 		 return suc2;
 	 }
-*/
-	 public void aceptar (ActionEvent eve) throws DAOExcepcion
+*/@FXML
+
+
+
+
+
+
+
+
+
+
+
+	public void aceptar (ActionEvent eve) throws DAOExcepcion
 	 {
+
+
 
 		 try {
 
@@ -111,6 +128,8 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 			 {
 				 if (nuevaReserva != null) {
 					 if (AlquilerVehiculos.dameAlquiler().buscaClientes(dnic.getText())==false) {
+
+
 						 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "¡Cliente no existe!");
 				}
 				 else {
