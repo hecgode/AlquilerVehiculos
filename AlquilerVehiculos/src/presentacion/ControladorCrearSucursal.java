@@ -34,8 +34,8 @@ public class ControladorCrearSucursal extends ControladorCasoDeUso {
 	 @FXML
 	 public void aceptar (ActionEvent eve) throws DAOExcepcion {
 		 try {
-			 if(direccion.getText()=="")
-				 System.err.println("ALGO NO FUNCA");
+			 if(direccion.getText().length()<=0)
+				 throw new Exception();
 			 nuevaSucursal = new Sucursal(Integer.parseInt(id.getText()),direccion.getText());
 
 						 if (nuevaSucursal != null) {
