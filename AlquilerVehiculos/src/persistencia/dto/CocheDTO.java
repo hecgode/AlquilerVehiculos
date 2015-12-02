@@ -1,8 +1,8 @@
-package logica;
+package persistencia.dto;
 
-public class Coche {
+import logica.Sucursal;
 
-
+public class CocheDTO {
 
 	private String matricula;
 	private double km;
@@ -11,7 +11,7 @@ public class Coche {
 	private String nombre;
 	
 	
-	public Coche(String matricula, double km, int mSucursal, String categoria, String nombre) {
+	public CocheDTO(String matricula, double km, int mSucursal, String categoria, String nombre) {
 		super();
 		this.matricula = matricula;
 		this.km = km;
@@ -54,4 +54,3 @@ public class Coche {
 	
 
 }
-
