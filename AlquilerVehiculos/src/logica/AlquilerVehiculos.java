@@ -137,10 +137,11 @@ public class AlquilerVehiculos {
 		  return mCategoria.remove(buscarCategoria(id));
 	  }
 
-	  /*****************METODOS DE SUCURSALES*******************************************************************************************
+	  /*****************METODOS DE SUCURSALES
+	 * @throws DAOExcepcion *******************************************************************************************
 	   * **************************************************************************************/
 
-	  private void cargaSucursales() {
+	  private void cargaSucursales() throws DAOExcepcion {
 
 		  List<SucursalDTO> listasucdto = dal.obtenerSucursales();
 		  for (SucursalDTO sucDTO : listasucdto) {
