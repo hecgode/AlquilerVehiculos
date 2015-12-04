@@ -27,6 +27,7 @@ public class AlquilerVehiculos {
 		cargaCategorias();
 		cargaSucursales();
 		cargarReservasporSucursal();
+
 	  }
 	  /*****************METODOS DE RESERVAS*******************************************************************************************
 	   * **************************************************************************************/
@@ -149,6 +150,17 @@ public class AlquilerVehiculos {
 
 		  }
 	  }
+	  
+	  private void cargaCoches() throws DAOExcepcion {
+	
+
+		  List<SucursalDTO> listasucdto = dal.obtenerSucursales();
+		  for (SucursalDTO sucDTO : listasucdto) {
+			  anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));
+
+		  }
+	  }
+	
 
 	  public void crearSucursal(Sucursal suc) {
 

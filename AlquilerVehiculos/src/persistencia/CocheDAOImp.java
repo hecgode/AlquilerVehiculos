@@ -10,7 +10,7 @@ import persistencia.dto.CategoriaDTO;
 import persistencia.dto.CocheDTO;
 
 public class CocheDAOImp implements ICocheDAO {
-	
+
 
 	protected ConnectionManager connManager;
 
@@ -26,22 +26,23 @@ public class CocheDAOImp implements ICocheDAO {
 
 	@Override
 	public List<CocheDTO> obTenerCoches() throws DAOExcepcion {
-		
+
 		try{
 			connManager.connect();
 			ResultSet rs = connManager.queryDB("select * from COCHE");
 			connManager.close();
-			
+
 			List <CocheDTO> listaC = new ArrayList<CocheDTO>();
-			
+
 			try {
-				
+
 				while (rs.next()) {
-					
+					//MATRICULA CHARACTER(10) NOT NULL PRIMARY KEY,KMSACTUALES DOUBLE NOT NULL,SUCURSAL INTEGER,CATEGORIA CHARACTER(10) NOT NULL,NOMBRE CHARACTER(20) NOT NULL,CONSTRAINT FK_TABLACOCH
+
 				CocheDTO coche = new CocheDTO(
 								rs.getString("MATRICULA"),
-								rs.getDouble("KM"),
-								rs.getInt("MSUCURSAL"),
+								rs.getDouble("KMSACTUALES"),
+								rs.getInt("SUCURSAL"),
 								rs.getString("CATEGORIA"),
 								rs.getString("NOMBRE"));
 
@@ -49,14 +50,14 @@ public class CocheDAOImp implements ICocheDAO {
 							listaC.add(coche);
 				}
 					return listaC;
-				
+
 			} catch (Exception e) { throw new DAOExcepcion(e);}
-			
+
 		} catch (SQLException e) { throw new DAOExcepcion(e);}
 	      catch (DAOExcepcion e) { throw e;}
 
 	}
 }
-	
-	
+
+
 

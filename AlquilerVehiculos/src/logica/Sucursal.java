@@ -12,6 +12,8 @@ public class Sucursal {
     private String direccion;
 	private int identificador;
 	private DAL dal;
+	private static Sucursal Sucursal;
+
 
     private ArrayList<Empleado> mEmpleado = new ArrayList<Empleado>();
     private ArrayList<Coche> mCoche = new ArrayList<Coche>() ;
@@ -33,7 +35,12 @@ public class Sucursal {
     	this.dal = DAL.dameDAL();
 
     }
-    
+
+
+
+
+
+
     public void cargarCochesPorSucursal() throws DAOExcepcion {
 		  List<CocheDTO> listaresdto = dal.dameDAL().listarCoches();
 		  for (CocheDTO coche : listaresdto) {
@@ -43,7 +50,7 @@ public class Sucursal {
 
 	private void anyadirCoche(Coche coche) {
 		mCoche.add(coche);
-		
+
 	}
 
 	public String getDireccion() {
@@ -54,8 +61,6 @@ public class Sucursal {
         this.direccion = direccion;
     }
 
-    public ArrayList<Reserva> listarReserva() {
-        return mReserva;
-    }
+
 
 }
