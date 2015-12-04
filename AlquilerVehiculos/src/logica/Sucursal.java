@@ -41,8 +41,8 @@ public class Sucursal {
 
 
 
-    public void cargarCochesPorSucursal() throws DAOExcepcion {
-		  List<CocheDTO> listaresdto = dal.dameDAL().listarCoches();
+    public void cargarCochesPorSucursal(int suc) throws DAOExcepcion {
+		  List<CocheDTO> listaresdto = dal.dameDAL().listarCoches(suc);
 		  for (CocheDTO coche : listaresdto) {
 			  anyadirCoche(new Coche(coche.getMatricula(),coche.getKm(),coche.getmSucursal(),coche.getCategoria(),coche.getNombre()));
 		  }

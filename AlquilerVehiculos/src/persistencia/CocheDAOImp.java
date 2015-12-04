@@ -24,12 +24,12 @@ public class CocheDAOImp implements ICocheDAO {
 			}
 	}
 
-	@Override
-	public List<CocheDTO> obTenerCoches() throws DAOExcepcion {
+
+	public List<CocheDTO> obTenerCoches(int suc) throws DAOExcepcion {
 
 		try{
 			connManager.connect();
-			ResultSet rs = connManager.queryDB("select * from COCHE");
+			ResultSet rs = connManager.queryDB("select * from COCHE where SUCURSAL="+suc);
 			connManager.close();
 
 			List <CocheDTO> listaC = new ArrayList<CocheDTO>();

@@ -14,6 +14,7 @@ public class AlquilerVehiculos {
 	    private List<Reserva> mReserva= new ArrayList<Reserva>();
 	    private List<Categoria> mCategoria = new ArrayList <Categoria>();
 	    private ArrayList<Sucursal> mSucursal = new ArrayList <Sucursal>();
+	    private ArrayList<Coche> mCocheAUX = new ArrayList<Coche>() ;
 		private DAL dal;
 		private static AlquilerVehiculos Alquiler;
 		public AlquilerVehiculos()  throws DAOExcepcion {
@@ -27,8 +28,36 @@ public class AlquilerVehiculos {
 		cargaCategorias();
 		cargaSucursales();
 		cargarReservasporSucursal();
+		cargaCoches();
 
 	  }
+
+
+		public void cargaCoches() throws DAOExcepcion
+		{
+			for(int i = 0; i< mSucursal.size(); i++){
+
+
+					List<CocheDTO> lista = DAL.dameDAL().listarCoches(mSucursal.get(i).getIdentificador());
+					  for (CocheDTO coche : lista) {
+						  anyadirCoche(new Coche(coche.getMatricula(),coche.getKm(),coche.getmSucursal(),coche.getCategoria(),coche.getNombre()));
+					  }
+
+			}
+		}
+
+				private void anyadirCoche(Coche coche) {
+					mCocheAUX.add(coche);
+
+				}
+				
+
+				  public List<Coche> listarCoches() {
+					  return mCocheAUX;
+				  }
+
+
+
 	  /*****************METODOS DE RESERVAS*******************************************************************************************
 	   * **************************************************************************************/
 
@@ -150,17 +179,9 @@ public class AlquilerVehiculos {
 
 		  }
 	  }
-	  
-	  private void cargaCoches() throws DAOExcepcion {
-	
 
-		  List<SucursalDTO> listasucdto = dal.obtenerSucursales();
-		  for (SucursalDTO sucDTO : listasucdto) {
-			  anyadirSucursal(new Sucursal(sucDTO.getId(),sucDTO.getDireccion()));
 
-		  }
-	  }
-	
+
 
 	  public void crearSucursal(Sucursal suc) {
 

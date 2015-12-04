@@ -24,9 +24,9 @@ private DAL() throws DAOExcepcion{
 
 
 
-public List<CocheDTO> listarCoches () throws DAOExcepcion {
+public List<CocheDTO> listarCoches (int suc) throws DAOExcepcion {
 	try {
-		return  cocheDAO.obTenerCoches();
+		return  cocheDAO.obTenerCoches(suc);
 		} catch (DAOExcepcion e) {
 			return null;
 		}
