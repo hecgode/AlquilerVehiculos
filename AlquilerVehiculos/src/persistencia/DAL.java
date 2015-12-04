@@ -11,26 +11,17 @@ public class DAL {
 	IReservaDAO reservadao;
 	IClienteDAO clientedao;
 	ICategoriaDAO catDAO;
-	ICocheDAO cocheDAO;
 
 private DAL() throws DAOExcepcion{
 		catDAO = new CategoriaDAOImp();
 		clientedao = new ClienteDAOImp();
 		sucursaldao = new SucursalDAOImp();
 		reservadao = new ReservaDAOImp();
-		cocheDAO = new CocheDAOImp();
 
 	}
 
 
 
-public List<CocheDTO> listarCoches (int suc) throws DAOExcepcion {
-	try {
-		return  cocheDAO.obTenerCoches(suc);
-		} catch (DAOExcepcion e) {
-			return null;
-		}
-}
 
 public List<ClienteDTO> obtenerClientes() throws DAOExcepcion {
 	try {
@@ -43,6 +34,14 @@ public List<ClienteDTO> obtenerClientes() throws DAOExcepcion {
 public List<ReservaDTO> obtenerReservas() throws DAOExcepcion {
 	try {
 		return reservadao.obtenerReservas();
+		} catch (DAOExcepcion e) {
+			return null;
+		}
+}
+
+public List<ReservaDTO> obtenerReservasSinEntrega() throws DAOExcepcion {
+	try {
+		return reservadao.obtenerReservasSinEntrega();
 		} catch (DAOExcepcion e) {
 			return null;
 		}

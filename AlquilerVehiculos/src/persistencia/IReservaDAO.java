@@ -13,5 +13,6 @@ public interface IReservaDAO {
 
  public void crearReserva(ReservaDTO reserva) throws DAOExcepcion;
  public List<ReservaDTO> obtenerReservas() throws DAOExcepcion;
+ public List<ReservaDTO> obtenerReservasSinEntrega() throws DAOExcepcion;
 
 }

@@ -54,6 +54,11 @@
                 <KeyCodeCombination alt="ANY" code="F5" control="UP" meta="UP" shift="UP" shortcut="UP" />
               </accelerator>
             </MenuItem>
+            <MenuItem mnemonicParsing="false" onAction="#EntregarCocheReservado" text="Entregar Coche Reservado">
+              <accelerator>
+                <KeyCodeCombination alt="ANY" code="F8" control="UP" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Sucursales">

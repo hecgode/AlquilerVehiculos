@@ -66,7 +66,7 @@ public class ReservaDAOImp implements IReservaDAO{
 			connManager.connect();
 			String str = "select * from RESERVA where  SUCURSALRECOGIDA  = "+idSucursal+"";
 				ResultSet rs = connManager.queryDB(str);
-					connManager.close(); 
+					connManager.close();
 
 
 			try{
@@ -153,10 +153,35 @@ public class ReservaDAOImp implements IReservaDAO{
 	}
 
 
+	@Override
+	public List<ReservaDTO> obtenerReservasSinEntrega() throws DAOExcepcion {
+		// TODO Auto-generated method stub
+		try{
+			connManager.connect();
+			ResultSet rs=connManager.queryDB("select * from RESERVA WHERE ID NOT IN(SELECT E.id FROM entrega E)");
+			connManager.close();
 
+			List<ReservaDTO> listaresDTO = new ArrayList<ReservaDTO>();
 
+			try{
+				while (rs.next()){
 
-
-
-
+					ReservaDTO resDTO = new ReservaDTO(
+							rs.getInt("ID"),
+							LocalDateTime.of(rs.getDate("FECHARECOGIDA").toLocalDate(),rs.getTime("FECHARECOGIDA").toLocalTime()),
+							LocalDateTime.of(rs.getDate("FECHADEVOLUCION").toLocalDate(),rs.getTime("FECHADEVOLUCION").toLocalTime()),
+							rs.getString("MODALIDADALQUILER"),
+							rs.getString("CATEGORIA"),
+							rs.getString("CLIENTEREALIZA"),
+							rs.getInt("SUCURSALRECOGIDA"),
+							rs.getInt("SUCURSALDEVOLUCION"));
+				listaresDTO.add(resDTO);
+				}
+				return listaresDTO;
+			}
+			catch (Exception e){	throw new DAOExcepcion(e);}
+		}
+		catch (SQLException e){	throw new DAOExcepcion(e);}
+		catch (DAOExcepcion e){		throw e;}
+	}
 }
