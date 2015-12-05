@@ -106,7 +106,12 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
             //this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));*/
             System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
-            AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.CONFIRMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
+            if(String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0))=="[]") {
+            	AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, "No hay coches para esta reserva");
+            }
+            else {
+            	 AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
+            }
     }
 
     public void cerrar(ActionEvent event) {
