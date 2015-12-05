@@ -69,7 +69,7 @@ public class DAL {
 				}
 		}
 
-	public List<CochesDispDTO> obtenerCochesDisp(String sucursal,String categoria) throws DAOExcepcion {
+	public List<CochesDispDTO> obtenerCochesDisp(int sucursal,String categoria) throws DAOExcepcion {
 		try {
 			return cochesdao.ObtenerCochesDisponibles(sucursal, categoria);
 		} catch (DAOExcepcion e) {

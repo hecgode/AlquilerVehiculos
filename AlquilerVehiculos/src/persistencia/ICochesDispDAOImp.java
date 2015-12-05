@@ -26,11 +26,12 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 	}
 
 	@Override
-	public List<CochesDispDTO> ObtenerCochesDisponibles(String sucursal, String categoria) throws DAOExcepcion {
+	public List<CochesDispDTO> ObtenerCochesDisponibles(int sucursal, String categoria) throws DAOExcepcion {
 
 		try{
 			connManager.connect();
 			ResultSet rs = connManager.queryDB("SELECT * FROM COCHE WHERE SUCURSAL="+sucursal+" AND CATEGORIA="+categoria);
+			System.out.println("HASTA AQUÍ BIEN");
 			if(rs.wasNull())
 				System.out.println("Consulta vacía");
 			connManager.close();
