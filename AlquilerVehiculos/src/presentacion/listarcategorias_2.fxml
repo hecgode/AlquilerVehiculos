@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="257.0" prefWidth="600.99995585936995" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorListarCategorias">
+  <children>
+<TableView fx:id="categorias" prefHeight="277.0" prefWidth="620.0">
+  <columns>
+    <TableColumn fx:id="nombre" prefWidth="138.0" text="nombre" />
+    <TableColumn fx:id="precioIli" prefWidth="143.0" text="precioIli" />
+    <TableColumn fx:id="preciokm" prefWidth="143.0" text="preciokm" />
+    <TableColumn fx:id="precioSeguroRiesgos" prefWidth="143.0" text="Riesgos" />
+    <TableColumn fx:id="precioSeguroTerceros" prefWidth="200.0" text="Tercers" />
+    <TableColumn fx:id="catsup" prefWidth="200.0" text="categoria" />
+    <TableColumn fx:id="preciokmmodkm" prefWidth="143.0" text="precio km " />
+  </columns>
+</TableView>
+  </children>
+</AnchorPane>
