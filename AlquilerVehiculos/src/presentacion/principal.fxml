@@ -59,6 +59,11 @@
                 <KeyCodeCombination alt="ANY" code="F8" control="UP" meta="UP" shift="UP" shortcut="UP" />
               </accelerator>
             </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Listar Vehiculos Disponibles">
+              <accelerator>
+                <KeyCodeCombination alt="ANY" code="F12" control="UP" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Sucursales">
