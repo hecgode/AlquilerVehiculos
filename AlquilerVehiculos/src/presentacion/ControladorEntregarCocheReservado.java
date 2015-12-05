@@ -93,10 +93,10 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             Reserva res = sucursales.getSelectionModel().getSelectedItem();
             String resu = res.getDniCliente();
             //Sucursal y categoria La categopria se obtiene en getDNIcliente()
-
             String categoria0 = res.getNombreCategoria();
             int sucursal = res.getIdSucursalDevolucion();
-            /*id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
+            //System.out.println("Hasta aquí");
+            id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
             Fecha_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaRecogida()));
             Fecha_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaDevolucion()));
             modalidad.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getModalidadAlquiler()));
@@ -104,14 +104,15 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             categoria.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getDniCliente()));
             Lugar_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalRecogida()));
             Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
-            //this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));*/
-            System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
+            //this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
+            /*System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
             if(String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0))=="[]") {
             	AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, "No hay coches para esta reserva");
             }
             else {
             	 AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
-            }
+            }*/
+            System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
     }
 
     public void cerrar(ActionEvent event) {

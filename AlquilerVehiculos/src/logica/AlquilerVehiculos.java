@@ -14,7 +14,7 @@ public class AlquilerVehiculos {
 	    private List<Reserva> mReserva= new ArrayList<Reserva>();
 	    private List<Categoria> mCategoria = new ArrayList <Categoria>();
 	    private List<Reserva> mReserva2 = new ArrayList<Reserva>();
-	    private List<Coche> mCoche = new ArrayList<Coche>();
+	    private ArrayList<Coche> mCoche = new ArrayList<Coche>();
 	    private ArrayList<Sucursal> mSucursal = new ArrayList <Sucursal>();
 		private DAL dal;
 		private static AlquilerVehiculos Alquiler;
