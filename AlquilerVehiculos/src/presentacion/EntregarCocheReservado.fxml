@@ -19,7 +19,6 @@
         <TableColumn prefWidth="75.0" text="Cliente" fx:id="categoria" />
         <TableColumn prefWidth="75.0" text="L.recogida" fx:id="Lugar_recogida" />
         <TableColumn prefWidth="75.0" text="L.devol" fx:id="Lugar_devol" />
-        <TableColumn prefWidth="75.0" text="Column X" />
       </columns>
     </TableView>
     <Button layoutX="590.0" layoutY="257.0" minHeight="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="34.0" prefWidth="85.0" scaleX="1.0" scaleY="1.0" scaleZ="1.0" text="Cerrar" />

@@ -6,8 +6,8 @@ import excepciones.DAOExcepcion;
 import persistencia.dto.*;
 
 public interface ICochesDispDAO {
-	
 
-	 public List<CochesDispDTO> ObtenerCochesDisponibles(String sucursal)throws DAOExcepcion ;
-	
+
+	 public List<CochesDispDTO> ObtenerCochesDisponibles(String sucursal, String categoria)throws DAOExcepcion ;
+
 }

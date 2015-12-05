@@ -17,6 +17,8 @@ public class AlquilerVehiculos {
 	    private ArrayList<Sucursal> mSucursal = new ArrayList <Sucursal>();
 		private DAL dal;
 		private static AlquilerVehiculos Alquiler;
+		private List<Coche> coches = new ArrayList<Coche>();
+
 		public AlquilerVehiculos()  throws DAOExcepcion {
 
 	    this.dal = DAL.dameDAL();
@@ -53,17 +55,27 @@ public class AlquilerVehiculos {
 
 
 
-	  public void crearReserva(Reserva res)
-	  {
-			ReservaDTO resvaDTO = new ReservaDTO(res.getId(),res.getFechaDevolucion(),res.getFechaDevolucion(),res.getModalidadAlquiler(),
-					res.getDniCliente(),res.getNombreCategoria(),res.getIdSucursalDevolucion(),res.getIdSucursalRecogida());
+	  public void crearReserva(Reserva res) {
+			ReservaDTO resvaDTO = new ReservaDTO(res.getId(),res.getFechaRecogida(),res.getFechaDevolucion(),res.getModalidadAlquiler(),
+					res.getDniCliente(), res.getNombreCategoria(),res.getIdSucursalDevolucion(),res.getIdSucursalRecogida());
 
 			anyadirReserva(res);
 			dal.CrearReserva(resvaDTO);
 
 	  }
 
+	  public List<Reserva> obtenerCochesDisp(String sucursal,String categoria) throws DAOExcepcion {
+	      List<CochesDispDTO> lista = dal.dameDAL().obtenerCochesDisp(sucursal, categoria);
+	      for(CochesDispDTO coDTO : lista) {
+	    	  int km = (int) coDTO.getKm();
+	    	anyadirCocheSinReserva(new Coche(Integer.parseInt(coDTO.getMatricula()),km));
+	      }
+	      return mReserva2;
+	  }
 
+	  private void anyadirCocheSinReserva(Coche coche) {
+		  coches.add(coche);
+	  }
 
 
 	  public List<Reserva> listarReservas2() {

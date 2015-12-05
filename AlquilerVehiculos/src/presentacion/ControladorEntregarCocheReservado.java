@@ -58,7 +58,7 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     public void initialize(URL location, ResourceBundle resources) {
             // TODO Auto-generated method stub
              stage = new Stage(StageStyle.DECORATED);
-             stage.setTitle("LISTADO DE SUCURSALES RESERVA");
+             stage.setTitle("COCHES SIN RESERVA");
              try {
 				boot();
 			} catch (DAOExcepcion e) {
@@ -70,12 +70,14 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     public void boot() throws DAOExcepcion {
     	sucursales.getItems().clear();
         try {
+        		//getNombreCategoria() devuelve el DNI del cliente.
+        		//getDNI() devuelve el nombre de la categoría.
                 id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
                 Fecha_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaRecogida()));
                 Fecha_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaDevolucion()));
                 modalidad.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getModalidadAlquiler()));
-                nombre_cliente.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getDniCliente()));
-                categoria.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getNombreCategoria()));
+                nombre_cliente.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getNombreCategoria()));
+                categoria.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getDniCliente()));
                 Lugar_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalRecogida()));
                 Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
 
@@ -90,10 +92,12 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     public void mostrar() throws DAOExcepcion {
             Reserva res = sucursales.getSelectionModel().getSelectedItem();
             String resu = res.getDniCliente();
-            String textaco = AlquilerVehiculos.dameAlquiler().buscarCat(resu);
-            textaco = textaco.substring(1, textaco.length()-1);
-            textaco = textaco.replaceAll(",", " ");
-            label.setText(textaco);
+            //Sucursal y categoria La categopria se obtiene en getDNIcliente()
+
+            String categoria = sucursales.getSelectionModel().getSelectedItem().getDniCliente();
+            int sucursal = sucursales.getSelectionModel().getSelectedItem().getIdSucursalDevolucion();
+
+
     }
 
     public void cerrar(ActionEvent event) {
