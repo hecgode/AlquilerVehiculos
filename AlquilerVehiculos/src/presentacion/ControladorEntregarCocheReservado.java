@@ -59,32 +59,32 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             // TODO Auto-generated method stub
              stage = new Stage(StageStyle.DECORATED);
              stage.setTitle("LISTADO DE SUCURSALES RESERVA");
-
+             try {
+				boot();
+			} catch (DAOExcepcion e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     }
 
-    public void buscar(ActionEvent event) throws DAOExcepcion {
-            sucursales.getItems().clear();
-            try {
-                    identificador = Integer.parseInt(id.getText());
-                    id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
-                    Fecha_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaRecogida()));
-                    Fecha_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaDevolucion()));
-                    modalidad.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getModalidadAlquiler()));
-                    nombre_cliente.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getDniCliente()));
-                    categoria.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getNombreCategoria()));
-                    Lugar_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalRecogida()));
-                    Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
-            //      categorias.setCellValueFactory(value);//AL.cargaReservasPorSucursal(identificador);
-                    List<Reserva> res = AlquilerVehiculos.dameAlquiler().listarReservas(identificador);
-                    if(res.isEmpty())
-                            throw new IllegalStateException();
+    public void boot() throws DAOExcepcion {
+    	sucursales.getItems().clear();
+        try {
+                id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
+                Fecha_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaRecogida()));
+                Fecha_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaDevolucion()));
+                modalidad.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getModalidadAlquiler()));
+                nombre_cliente.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getDniCliente()));
+                categoria.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getNombreCategoria()));
+                Lugar_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalRecogida()));
+                Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
 
-                    //this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().obtenerCochesSinReserva());
+                this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().obtenerCochesSinReserva());
 
-            } catch(Exception e) {
-                    AlquilerVehiculos.createAlert("Sin reservas", AlertType.INFORMATION, "No hay reservas para el ID introducido");
-            }
-            int a = 25;
+        } catch(Exception e) {
+                //AlquilerVehiculos.createAlert("Sin reservas", AlertType.INFORMATION, "No hay reservas para el ID introducido");
+        		e.printStackTrace();
+        }
     }
 
     public void mostrar() throws DAOExcepcion {

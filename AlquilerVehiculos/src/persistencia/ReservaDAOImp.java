@@ -158,7 +158,7 @@ public class ReservaDAOImp implements IReservaDAO{
 		// TODO Auto-generated method stub
 		try{
 			connManager.connect();
-			ResultSet rs=connManager.queryDB("select * from RESERVA WHERE ID NOT IN(SELECT E.id FROM entrega E)");
+			ResultSet rs=connManager.queryDB("select * from RESERVA WHERE ID IN(SELECT E.id FROM entrega E)");
 			connManager.close();
 
 			List<ReservaDTO> listaresDTO = new ArrayList<ReservaDTO>();

@@ -13,6 +13,7 @@ public class AlquilerVehiculos {
 	    private List<Cliente> mCliente = new ArrayList<Cliente>();
 	    private List<Reserva> mReserva= new ArrayList<Reserva>();
 	    private List<Categoria> mCategoria = new ArrayList <Categoria>();
+	    private List<Reserva> mReserva2 = new ArrayList<Reserva>();
 	    private ArrayList<Sucursal> mSucursal = new ArrayList <Sucursal>();
 		private DAL dal;
 		private static AlquilerVehiculos Alquiler;
@@ -37,6 +38,19 @@ public class AlquilerVehiculos {
 			  anyadirReserva(new Reserva(sucDTO.getId(),sucDTO.getFechaRecogida(),sucDTO.getFechaDevolucion(),sucDTO.getModalidadAlquiler(),sucDTO.getDniCliente(),sucDTO.getNombreCategoria(),sucDTO.getIdSucursalRecogida(),sucDTO.getIdSucursalDevolucion()));
 		  }
 	  }
+
+	  public List<Reserva> obtenerCochesSinReserva() throws DAOExcepcion {
+	      List<ReservaDTO> lista = dal.dameDAL().obtenerReservasSinEntrega();
+	      for(ReservaDTO sucDTO : lista) {
+	    	anyadirCocheSinReserva(new Reserva(sucDTO.getId(),sucDTO.getFechaRecogida(),sucDTO.getFechaDevolucion(),sucDTO.getModalidadAlquiler(),sucDTO.getDniCliente(),sucDTO.getNombreCategoria(),sucDTO.getIdSucursalRecogida(),sucDTO.getIdSucursalDevolucion()));
+	      }
+	      return mReserva2;
+	  }
+
+	  private void anyadirCocheSinReserva(Reserva reserva) {
+		  mReserva2.add(reserva);
+	  }
+
 
 
 	  public void crearReserva(Reserva res)
@@ -68,13 +82,6 @@ public class AlquilerVehiculos {
 	              lista.add(mReserva.get(i));
 	      }
 
-
-	                return lista;
-	  }
-
-	  public List<ReservaDTO> obtenerCochesSinReserva() throws DAOExcepcion {
-	      List<ReservaDTO> lista = new ArrayList<ReservaDTO>();
-	      lista = dal.obtenerReservasSinEntrega();
 
 	      return lista;
 	  }
@@ -166,23 +173,16 @@ public class AlquilerVehiculos {
 
 	  }
 
-
 	  public void anyadirSucursal(Sucursal suc){
 		  mSucursal.add(suc);
 	  }
 
-
-
 	  public boolean buscarSucursal(int id) {
 
 		  boolean encontrado=false;
-		  for (int i=0;i<mSucursal.size() && !encontrado;i++  )
-		  {
+		  for (int i=0;i<mSucursal.size() && !encontrado;i++  ) {
 			  if(mSucursal.get(i).getIdentificador()==id)
 				  encontrado=true;
-
-
-
 		  }
 		  return encontrado;
 	  }
@@ -196,8 +196,7 @@ public class AlquilerVehiculos {
 	 * **************************************************************************************/
 
 
-	  public void crearCliente(Cliente cliente)
-	  {
+	  public void crearCliente(Cliente cliente) {
 
 		  ClienteDTO clienteDTO = new ClienteDTO(cliente.getIdendificador(), cliente.getNombreyApellidos(),
 				  cliente.getDireccion(), cliente.getPoblacion(), cliente.getCodPostal(),
@@ -209,8 +208,7 @@ public class AlquilerVehiculos {
 	  }
 
 
-	  public boolean buscar_cliente (String dni)
-	  {
+	  public boolean buscar_cliente (String dni) {
 		  ClienteDTO c = dal.buscarCliente(dni);
 		  if (c==null)
 			  return false;
