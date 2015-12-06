@@ -16,7 +16,7 @@ import logica.Coche;
 import logica.Reserva;
 
 public class ControladorCoches extends ControladorCasoDeUso{
-	
+
 	@FXML
     private TextField id;
 	@FXML
@@ -35,13 +35,15 @@ public class ControladorCoches extends ControladorCasoDeUso{
 				e.printStackTrace();
 			}
     }
-	
+
 	public void boot() throws DAOExcepcion {
 		id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getMatricula()));
 		id_1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getKm()));
     }
-	
+
 	public void cerrar(ActionEvent event) {
-		}
+		stage.close();
+		System.out.println("HOLA");
+	}
 
 }

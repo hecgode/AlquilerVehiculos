@@ -42,6 +42,7 @@ public class AlquilerVehiculos {
 	  }
 
 	  public List<Reserva> obtenerCochesSinReserva() throws DAOExcepcion {
+		  mReserva2.clear();
 	      List<ReservaDTO> lista = dal.dameDAL().obtenerReservasSinEntrega();
 	      for(ReservaDTO sucDTO : lista) {
 	    	anyadirCocheSinReserva(new Reserva(sucDTO.getId(),sucDTO.getFechaRecogida(),sucDTO.getFechaDevolucion(),sucDTO.getModalidadAlquiler(),sucDTO.getDniCliente(),sucDTO.getNombreCategoria(),sucDTO.getIdSucursalRecogida(),sucDTO.getIdSucursalDevolucion()));

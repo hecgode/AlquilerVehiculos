@@ -124,7 +124,7 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     }
 
     public void cerrar(ActionEvent event) {
-            stage.close();
+    	stage.close();
     }
 
       @FXML
@@ -132,6 +132,7 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     		Parent root = FXMLLoader.load(getClass().getResource("EntregarCoche.fxml"));
     		Scene scene = new Scene(root);
     		stage.setScene(scene);
+    		stage.setTitle("VER COCHES");
     		stage.show();
      }
 }
