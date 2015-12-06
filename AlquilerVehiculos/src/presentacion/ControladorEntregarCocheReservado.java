@@ -92,6 +92,7 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     public void mostrar() throws DAOExcepcion {
             Reserva res = sucursales.getSelectionModel().getSelectedItem();
             String resu = res.getDniCliente();
+            int b;
             //Sucursal y categoria La categopria se obtiene en getDNIcliente()
             String categoria0 = res.getNombreCategoria();
             int sucursal = res.getIdSucursalDevolucion();
