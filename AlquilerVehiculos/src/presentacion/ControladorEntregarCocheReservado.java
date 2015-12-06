@@ -124,6 +124,7 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     }
 
     public void cerrar(ActionEvent event) {
+
     	stage.close();
     }
 
