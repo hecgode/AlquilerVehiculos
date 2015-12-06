@@ -6,9 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="98.0" minWidth="511.0" prefHeight="305.0000999999975" prefWidth="689.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane minHeight="98.0" minWidth="511.0" prefHeight="305.0000999999975" prefWidth="689.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorCoches">
   <children>
-    <Button layoutX="609.0" layoutY="270.0" mnemonicParsing="false" text="Cerrar" />
-    
+    <Button layoutX="609.0" onAction="#cerrar" layoutY="270.0" mnemonicParsing="false" text="Cerrar" />
+    <TableView fx:id="coches" layoutX="1.0" layoutY="0.0" prefHeight="247.0" prefWidth="606.0">
+      <columns>
+      		<TableColumn prefWidth="75.0" text="Matricula" fx:id="id_0" />
+        	<TableColumn prefWidth="75.0" text="Kms" fx:id="id_1" />
+      </columns>
+    </TableView>
   </children>
 </AnchorPane>
