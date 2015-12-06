@@ -22,7 +22,7 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 		}
 		catch (ClassNotFoundException e){
 			throw new DAOExcepcion(e);
-			}
+		}
 	}
 
 	public List<CochesDispDTO> ObtenerCochesDisponibles(int sucursal, String categoria) throws DAOExcepcion {
@@ -51,8 +51,7 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 
 		     while (rs.next()) {
 
-		      if(rs.getString("CATEGORIA") == categoria)
-		      {
+		      if(rs.getString("CATEGORIA") == categoria) {
 		       CochesDispDTO coche = new CochesDispDTO(
 		         rs.getString("MATRICULA"),
 		         rs.getDouble("KMSACTUALES"),

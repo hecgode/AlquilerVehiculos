@@ -19,6 +19,26 @@ public class AlquilerVehiculos {
 		private DAL dal;
 		private static AlquilerVehiculos Alquiler;
 
+		private int sucursal = 0;
+
+		private String categoria = "";
+
+		public int getCocheSucursal() {
+		   return sucursal;
+		}
+
+		public void setCocheSucursal(int sucur) {
+			sucursal = sucur;
+		}
+
+		public String getCocheCategoria() {
+		   return categoria;
+		}
+
+		public void setCocheCategoria(String cat) {
+		   categoria = cat;
+		}
+
 		public AlquilerVehiculos()  throws DAOExcepcion {
 
 	    this.dal = DAL.dameDAL();
