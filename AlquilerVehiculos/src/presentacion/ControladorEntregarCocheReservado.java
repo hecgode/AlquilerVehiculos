@@ -123,13 +123,21 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
     }
 
+    private void parametros() throws DAOExcepcion {
+    	Reserva res = sucursales.getSelectionModel().getSelectedItem();
+    	String categoria0 = res.getNombreCategoria();
+    	int sucursal = res.getIdSucursalDevolucion();
+    	AlquilerVehiculos.dameAlquiler().setCocheCategoria(categoria0);
+    	AlquilerVehiculos.dameAlquiler().setCocheSucursal(sucursal);
+    }
+
     public void cerrar(ActionEvent event) {
 
     	stage.close();
     }
 
       @FXML
-      public void abrir(ActionEvent event) throws IOException {
+      public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
     		Parent root = FXMLLoader.load(getClass().getResource("EntregarCoche.fxml"));
     		Scene scene = new Scene(root);
     		stage.setScene(scene);
