@@ -4,9 +4,12 @@ import javafx.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -14,6 +17,7 @@ import javafx.stage.StageStyle;
 import logica.*;
 
 import java.awt.Button;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -122,4 +126,12 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     public void cerrar(ActionEvent event) {
             stage.close();
     }
+
+      @FXML
+      public void abrir(ActionEvent event) throws IOException {
+    		Parent root = FXMLLoader.load(getClass().getResource("EntregarCoche.fxml"));
+    		Scene scene = new Scene(root);
+    		stage.setScene(scene);
+    		stage.show();
+     }
 }

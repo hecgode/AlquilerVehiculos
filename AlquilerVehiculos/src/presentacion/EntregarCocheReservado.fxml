@@ -23,5 +23,6 @@
       </columns>
     </TableView>
     <Button layoutX="590.0" layoutY="257.0" minHeight="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="34.0" prefWidth="85.0" scaleX="1.0" scaleY="1.0" scaleZ="1.0" text="Cerrar" />
+    <Button layoutX="495.0" layoutY="258.0" mnemonicParsing="false" onAction="#abrir" prefHeight="34.0" prefWidth="85.0" text="Abrir" />
   </children>
 </AnchorPane>
