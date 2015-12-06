@@ -96,14 +96,14 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             String categoria0 = res.getNombreCategoria();
             int sucursal = res.getIdSucursalDevolucion();
             //System.out.println("Hasta aquí");
-            id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
-            Fecha_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaRecogida()));
-            Fecha_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaDevolucion()));
-            modalidad.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getModalidadAlquiler()));
-            nombre_cliente.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getNombreCategoria()));
-            categoria.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getDniCliente()));
-            Lugar_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalRecogida()));
-            Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
+            //id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
+            //Fecha_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaRecogida()));
+            //Fecha_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaDevolucion()));
+            //modalidad.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getModalidadAlquiler()));
+            //nombre_cliente.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getNombreCategoria()));
+            //categoria.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getDniCliente()));
+            //Lugar_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalRecogida()));
+            //Lugar_devol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getIdSucursalDevolucion()));
             //this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
             /*System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
             if(String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0))=="[]") {
@@ -112,6 +112,8 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             else {
             	 AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
             }*/
+            System.out.println(sucursal);
+            System.out.println(categoria0);
             System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
     }
 

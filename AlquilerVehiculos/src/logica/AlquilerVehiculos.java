@@ -66,7 +66,7 @@ public class AlquilerVehiculos {
 	      List<CochesDispDTO> lista = dal.dameDAL().obtenerCochesDisp(sucursal, categoria);
 	      for(CochesDispDTO coDTO : lista) {
 	    	  int km = (int) coDTO.getKm();
-	    	anyadirCocheSinReserva(new Coche(Integer.parseInt(coDTO.getMatricula()),km));
+	    	anyadirCocheSinReserva(new Coche(coDTO.getMatricula(),km));
 	      }
 	      return mCoche;
 	  }

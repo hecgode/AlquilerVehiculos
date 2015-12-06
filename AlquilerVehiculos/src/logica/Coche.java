@@ -3,21 +3,21 @@ package logica;
 public class Coche {
 
 
-	private int matricula;
+	private String matricula;
 	private int km;
 
 	private Sucursal mSucursal;
 
-	public Coche (int matricula, int km) {
+	public Coche (String matricula, int km) {
 		this.matricula=matricula;
 		this.km=km;
 	}
 
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 

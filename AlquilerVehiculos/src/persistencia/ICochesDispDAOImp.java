@@ -30,10 +30,10 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 
 		try{
 			connManager.connect();
-			ResultSet rs = connManager.queryDB("SELECT * FROM COCHE WHERE SUCURSAL="+sucursal+" AND CATEGORIA="+categoria);
-			System.out.println("HASTA AQUÍ BIEN");
+			ResultSet rs = connManager.queryDB("SELECT * FROM COCHE");
+			System.out.println("HASTA AQUÃ� BIEN");
 			if(rs.wasNull())
-				System.out.println("Consulta vacía");
+				System.out.println("Consulta vacÃ­a");
 			connManager.close();
 
 			List <CochesDispDTO> listaCoches = new ArrayList<CochesDispDTO>();
