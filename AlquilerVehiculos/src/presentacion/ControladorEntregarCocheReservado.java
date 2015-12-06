@@ -112,9 +112,10 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             else {
             	 AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
             }*/
-            System.out.println(sucursal);
-            System.out.println(categoria0);
-            System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
+            //System.out.println(sucursal);
+            //System.out.println(categoria0);
+            //System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
+            AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
     }
 
     public void cerrar(ActionEvent event) {
