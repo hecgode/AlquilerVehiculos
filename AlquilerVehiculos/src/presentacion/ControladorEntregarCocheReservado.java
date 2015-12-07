@@ -124,12 +124,18 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     }
 
     private void parametros() throws DAOExcepcion {
-    	Reserva res = sucursales.getSelectionModel().getSelectedItem();
-    	String categoria0 = res.getNombreCategoria();
-    	int sucursal = res.getIdSucursalDevolucion();
-    	AlquilerVehiculos.dameAlquiler().setCocheCategoria(categoria0);
-    	AlquilerVehiculos.dameAlquiler().setCocheSucursal(sucursal);
-    }
+    	try{
+	        Reserva res = sucursales.getSelectionModel().getSelectedItem();
+	        String categoria0 = res.getNombreCategoria();
+	        int sucursal = res.getIdSucursalDevolucion();
+	        AlquilerVehiculos.dameAlquiler().setCocheCategoria(categoria0);
+	        AlquilerVehiculos.dameAlquiler().setCocheSucursal(sucursal);
+	        AlquilerVehiculos.dameAlquiler().setCocheFechaE(res.getFechaRecogida());
+	        AlquilerVehiculos.dameAlquiler().setCocheFechaD(res.getFechaDevolucion());
+        }catch(Exception err) {
+        	AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Selecciona una reserva previamente");
+        }
+       }
 
     public void cerrar(ActionEvent event) {
 
@@ -138,6 +144,7 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
 
       @FXML
       public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
+    	  	parametros();
     		Parent root = FXMLLoader.load(getClass().getResource("EntregarCoche.fxml"));
     		Scene scene = new Scene(root);
     		stage.setScene(scene);

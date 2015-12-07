@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -55,7 +56,14 @@ public class ControladorCoches extends ControladorCasoDeUso{
 		this.coches.getItems().addAll(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal,categoria));
     }
 
-	public void reservar() throws IOException {
+	public void reservar() throws IOException, DAOExcepcion {
+		Coche coche = null;
+		try{
+			coche = coches.getSelectionModel().getSelectedItem();
+			AlquilerVehiculos.dameAlquiler().setCocheMatricula(coche.getMatricula());
+		}catch(Exception err) {
+			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Selecciona un coche previamente");
+	    }
 		Parent root = FXMLLoader.load(getClass().getResource("InsertarCocheBaseDeDatos.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);

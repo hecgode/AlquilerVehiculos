@@ -1,5 +1,6 @@
 package logica;
 
+import java.time.LocalDateTime;
 import java.util.*;
 import excepciones.*;
 import javafx.scene.control.Alert;
@@ -22,6 +23,36 @@ public class AlquilerVehiculos {
 		private int sucursal = 0;
 
 		private String categoria = "";
+
+		private LocalDateTime fechaE = null;
+		  private LocalDateTime fechaD = null;
+		  private String matricula = "";
+
+
+		  public LocalDateTime getCocheFechaE() {
+		      return fechaE;
+		   }
+
+		  public void setCocheFechaE(LocalDateTime fecha) {
+		    fechaE = fecha;
+		  }
+
+		  public LocalDateTime getCocheFechaD() {
+		      return fechaD;
+		   }
+
+		  public void setCocheFechaD(LocalDateTime fecha) {
+		    fechaD = fecha;
+		  }
+
+		  public String getCocheMatricula()
+		  {
+		   return matricula;
+		  }
+
+		  public void setCocheMatricula(String matr) {
+		   matricula = matr;
+		  }
 
 		public int getCocheSucursal() {
 		   return sucursal;
