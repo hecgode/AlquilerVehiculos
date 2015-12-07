@@ -19,19 +19,29 @@ public class AlquilerVehiculos {
 	    private ArrayList<Sucursal> mSucursal = new ArrayList <Sucursal>();
 		private DAL dal;
 		private static AlquilerVehiculos Alquiler;
+		private int id = 0;
+
 
 		private int sucursal = 0;
 
 		private String categoria = "";
 
 		private LocalDateTime fechaE = null;
-		  private LocalDateTime fechaD = null;
-		  private String matricula = "";
+		private LocalDateTime fechaD = null;
+		private String matricula = "";
+
+		 public int getCocheId(){return id;}
+		 public void SetCocheId(int ident){id = ident;}
+
+		 public void crearEntrega(Entrega res) {
+			   EntregasDTO entregaDTO = new EntregasDTO(res.getId(),res.getFecha(),res.getSeguro(),res.getKm(),res.getCombustible(),res.getCocheAsignado(),res.getEmpleadoRealiza());
+			   dal.creaEntrega(entregaDTO);
+		}
 
 
-		  public LocalDateTime getCocheFechaE() {
-		      return fechaE;
-		   }
+		 public LocalDateTime getCocheFechaE() {
+		     return fechaE;
+		 }
 
 		  public void setCocheFechaE(LocalDateTime fecha) {
 		    fechaE = fecha;

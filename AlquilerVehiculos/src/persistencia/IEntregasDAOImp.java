@@ -3,6 +3,7 @@ package persistencia;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,29 @@ public class IEntregasDAOImp implements IEntregasDAO {
 			}
 	}
 
+	 public void crearEntrega(EntregasDTO entrega) throws DAOExcepcion {
+		  // TODO Auto-generated method stub
+		  try {
+		    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		    int id = entrega.getId();
+		    LocalDateTime dateTime1 = entrega.getFechaE();
+		    String seguro = entrega.getTipoSeguro();
+		    Double kms = entrega.getKms();
+		    Double combustible = entrega.getCombustible();
+		    String cocheAsignado = entrega.getCocheAsignado();
+		    String empleadoRealiza = entrega.getEmpleadoRealiza();
+		    connManager.connect();
+		   // connManager.connect();
+		    String str = "insert into RESERVA values ("+id+",'"+dateTime1+"','"+seguro+"',"+kms+","+combustible+",'"+cocheAsignado+"','"+empleadoRealiza+")";
+		    connManager.updateDB(str);
+		    connManager.close();
+
+		  }
+		  catch(Exception e) {
+		   throw new DAOExcepcion(e);
+		  }
+	}
+
 	@Override
 	public List<EntregasDTO> ObtenerEntregas() throws DAOExcepcion {
 
@@ -41,7 +65,6 @@ public class IEntregasDAOImp implements IEntregasDAO {
 				EntregasDTO entrega = new EntregasDTO(
 								rs.getInt("ID"),
 								LocalDateTime.of(rs.getDate("FECHAE").toLocalDate(), rs.getTime("FECHAE").toLocalTime()),
-								LocalDateTime.of(rs.getDate("FECHAD").toLocalDate(), rs.getTime("FECHAD").toLocalTime()),
 								rs.getString("TIPOSEGURO"),
 								rs.getDouble("KMS"),
 								rs.getDouble("COMBUSTIBLE"),

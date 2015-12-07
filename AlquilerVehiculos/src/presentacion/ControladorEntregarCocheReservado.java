@@ -131,7 +131,7 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
 	        AlquilerVehiculos.dameAlquiler().setCocheCategoria(categoria0);
 	        AlquilerVehiculos.dameAlquiler().setCocheSucursal(sucursal);
 	        AlquilerVehiculos.dameAlquiler().setCocheFechaE(res.getFechaRecogida());
-	        AlquilerVehiculos.dameAlquiler().setCocheFechaD(res.getFechaDevolucion());
+	        AlquilerVehiculos.dameAlquiler().SetCocheId(res.getId());
         }catch(Exception err) {
         	AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Selecciona una reserva previamente");
         }

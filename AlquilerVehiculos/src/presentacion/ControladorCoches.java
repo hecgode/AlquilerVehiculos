@@ -62,7 +62,8 @@ public class ControladorCoches extends ControladorCasoDeUso{
 			coche = coches.getSelectionModel().getSelectedItem();
 			AlquilerVehiculos.dameAlquiler().setCocheMatricula(coche.getMatricula());
 		}catch(Exception err) {
-			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Selecciona un coche previamente");
+			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "No hay coche seleccionado");
+			//return;
 	    }
 		Parent root = FXMLLoader.load(getClass().getResource("InsertarCocheBaseDeDatos.fxml"));
 		Scene scene = new Scene(root);

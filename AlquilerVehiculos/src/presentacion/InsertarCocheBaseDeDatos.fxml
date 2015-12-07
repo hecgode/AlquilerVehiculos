@@ -6,9 +6,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="98.0" minWidth="511.0" prefHeight="305.0000999999975" prefWidth="689.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.EntregaCoche">
+<AnchorPane minHeight="98.0" minWidth="428.0" prefHeight="246.00009999999747" prefWidth="428.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.EntregaCoche">
   <children>
-    <Button layoutX="416.0" layoutY="270.0" mnemonicParsing="false" prefWidth="176.0" text="Finalizar reserva" />
-    <Button fx:id="close_btn" layoutX="609.0" layoutY="270.0" mnemonicParsing="false" onAction="#close" text="Cerrar" />
+    <Button layoutX="165.0" layoutY="204.0" mnemonicParsing="false" prefWidth="176.0" text="Finalizar reserva" />
+    <Button fx:id="close_btn" layoutX="353.0" layoutY="204.0" mnemonicParsing="false" onAction="#close" text="Cerrar" />
+    <Label layoutX="69.0" layoutY="50.0" text="Id:" />
+    <Label layoutX="69.0" layoutY="66.0" text="Seguro" />
+    <Label layoutX="69.0" layoutY="91.0" text="Combustible" />
+    <Label layoutX="71.0" layoutY="118.0" text="Km" />
+    <TextField layoutX="165.0" layoutY="39.0" prefWidth="200.0" />
+    <TextField layoutX="165.0" layoutY="66.0" prefWidth="200.0" />
+    <TextField layoutX="165.0" layoutY="88.0" prefWidth="200.0" />
+    <TextField layoutX="165.0" layoutY="115.0" prefWidth="200.0" />
   </children>
 </AnchorPane>

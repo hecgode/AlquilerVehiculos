@@ -12,6 +12,7 @@ public class DAL {
 	IClienteDAO clientedao;
 	ICategoriaDAO catDAO;
 	ICochesDispDAO cochesdao;
+	IEntregasDAO entregasdao;
 
 	private DAL() throws DAOExcepcion{
 		catDAO = new CategoriaDAOImp();
@@ -19,6 +20,15 @@ public class DAL {
 		sucursaldao = new SucursalDAOImp();
 		reservadao = new ReservaDAOImp();
 		cochesdao = new ICochesDispDAOImp();
+		entregasdao = new IEntregasDAOImp();
+	}
+
+	 public void creaEntrega(EntregasDTO e1){
+	  try {
+	   entregasdao.crearEntrega(e1);
+	  } catch (DAOExcepcion e) {
+		  e.printStackTrace();
+	  }
 	}
 
 	public List<ClienteDTO> obtenerClientes() throws DAOExcepcion {

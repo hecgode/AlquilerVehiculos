@@ -13,11 +13,10 @@ public class EntregasDTO {
 	private String cocheAsignado;
 	private String empleadoRealiza;
 
-	public EntregasDTO(int id,LocalDateTime fechaE, LocalDateTime fechaD, String tipoSeguro,Double kms,Double combustible,String cocheAsignado,String empleadoRealiza) {
+	public EntregasDTO(int id,LocalDateTime fechaE, String tipoSeguro,Double kms,Double combustible,String cocheAsignado,String empleadoRealiza) {
 		super();
 		this.id = id;
 		this.fechaE = fechaE;
-		this.fechaD = fechaD;
 		this.tipoSeguro = tipoSeguro;
 		this.kms = kms;
 		this.combustible = combustible;
