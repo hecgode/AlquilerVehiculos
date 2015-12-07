@@ -40,14 +40,13 @@ public class IEntregasDAOImp implements IEntregasDAO {
 
 				EntregasDTO entrega = new EntregasDTO(
 								rs.getInt("ID"),
-								LocalDateTime.of(rs.getDate("FECHA").toLocalDate(), rs.getTime("FECHA").toLocalTime()),
+								LocalDateTime.of(rs.getDate("FECHAE").toLocalDate(), rs.getTime("FECHAE").toLocalTime()),
+								LocalDateTime.of(rs.getDate("FECHAD").toLocalDate(), rs.getTime("FECHAD").toLocalTime()),
 								rs.getString("TIPOSEGURO"),
 								rs.getDouble("KMS"),
 								rs.getDouble("COMBUSTIBLE"),
 								rs.getString("COCHEASIGNADO"),
 								rs.getString("EMPLEADOREALIZA"));
-
-
 							listaEntregas.add(entrega);
 				}
 					return listaEntregas;

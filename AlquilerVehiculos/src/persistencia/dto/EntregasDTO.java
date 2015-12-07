@@ -5,17 +5,19 @@ import java.time.LocalDateTime;
 public class EntregasDTO {
 
 	private int id;
-	private LocalDateTime fecha;
+	private LocalDateTime fechaE;
+	private LocalDateTime fechaD;
 	private String tipoSeguro;
 	private Double kms;
 	private Double combustible;
 	private String cocheAsignado;
 	private String empleadoRealiza;
 
-	public EntregasDTO(int id,LocalDateTime fecha,String tipoSeguro,Double kms,Double combustible,String cocheAsignado,String empleadoRealiza) {
+	public EntregasDTO(int id,LocalDateTime fechaE, LocalDateTime fechaD, String tipoSeguro,Double kms,Double combustible,String cocheAsignado,String empleadoRealiza) {
 		super();
 		this.id = id;
-		this.fecha = fecha;
+		this.fechaE = fechaE;
+		this.fechaD = fechaD;
 		this.tipoSeguro = tipoSeguro;
 		this.kms = kms;
 		this.combustible = combustible;
@@ -32,12 +34,20 @@ public class EntregasDTO {
 		this.id = id;
 	}
 
-	public LocalDateTime getFecha() {
-		return fecha;
+	public LocalDateTime getFechaE() {
+		return fechaE;
 	}
 
-	public void setFecha(LocalDateTime fecha) {
-		this.fecha = fecha;
+	public void setFechaE(LocalDateTime fechaE) {
+		this.fechaE = fechaE;
+	}
+
+	public LocalDateTime getFechaD() {
+		return fechaD;
+	}
+
+	public void setFechaD(LocalDateTime fechaD) {
+		this.fechaD = fechaD;
 	}
 
 	public String getTipoSeguro() {
@@ -79,6 +89,5 @@ public class EntregasDTO {
 	public void setEmpleadoRealiza(String empleadoRealiza) {
 		this.empleadoRealiza = empleadoRealiza;
 	}
-
 
 }

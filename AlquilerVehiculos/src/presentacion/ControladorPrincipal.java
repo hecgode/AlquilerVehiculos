@@ -34,12 +34,18 @@ public class ControladorPrincipal {
 	 private static final String LISTAR_CLIENTES = "listarclientes.fxml";
 	 private static final String LISTAR_RESERVA_SUCURSAL = "listarreservasucursal.fxml";
 	 private static final String ENTREGAR_COCHE_RESERVADO = "EntregarCocheReservado.fxml";
+	 private static final String INSERTAR_COCHE_BASE_DE_DATOS = "InsertarCocheBaseDeDatos.fxml";
 
 	 private Stage primaryStage;
 
 
 	 @FXML
 	 private ImageView i1;
+
+	 @FXML
+	 void InsertarCocheBaseDeDatos(ActionEvent event) throws LogicaExcepcion {
+		 initCasoDeUso(INSERTAR_COCHE_BASE_DE_DATOS, EntregaCoche.class).show();
+	 }
 
 	 @FXML
 	 void EntregarCocheReservado(ActionEvent event) throws LogicaExcepcion {
