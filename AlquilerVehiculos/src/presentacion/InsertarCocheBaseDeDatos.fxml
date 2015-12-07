@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="98.0" minWidth="511.0" prefHeight="305.0000999999975" prefWidth="689.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.EntregaCoche">
+  <children>
+    <Button layoutX="416.0" layoutY="270.0" mnemonicParsing="false" prefWidth="176.0" text="Finalizar reserva" />
+    <Button fx:id="close_btn" layoutX="609.0" layoutY="270.0" mnemonicParsing="false" onAction="#close" text="Cerrar" />
+  </children>
+</AnchorPane>
