@@ -29,20 +29,19 @@ public class AlquilerVehiculos {
 		private LocalDateTime fechaE = null;
 		private LocalDateTime fechaD = null;
 		private String matricula = "";
-		
+
 		private int numSucursal = 0;
-		
-		 public int getCocheNumScurusal(){return numSucursal;}
-		 public void SetCocheNumSucursal(int suc){numSucursal = suc;}
 
-		 public int getCocheId(){return id;}
-		 public void SetCocheId(int ident){id = ident;}
+		public int getCocheNumScurusal(){return numSucursal;}
+		public void SetCocheNumSucursal(int suc){numSucursal = suc;}
 
-		 public void crearEntrega(Entrega res) {
-			   EntregasDTO entregaDTO = new EntregasDTO(res.getId(),res.getFecha(),res.getSeguro(),res.getKm(),res.getCombustible(),res.getCocheAsignado(),res.getEmpleadoRealiza());
-			   dal.creaEntrega(entregaDTO);
+		public int getCocheId(){return id;}
+		public void SetCocheId(int ident){id = ident;}
+
+		public void crearEntrega(Entrega res) {
+			EntregasDTO entregaDTO = new EntregasDTO(res.getId(),res.getFecha(),res.getSeguro(),res.getKm(),res.getCombustible(),res.getCocheAsignado(),res.getEmpleadoRealiza());
+			dal.creaEntrega(entregaDTO);
 		}
-
 
 		 public LocalDateTime getCocheFechaE() {
 		     return fechaE;
@@ -137,9 +136,9 @@ public class AlquilerVehiculos {
 	      }
 	      return mCoche;
 	  }
-	  
+
 	  public List<Coche> obtenerCochesDisp(int sucursal) throws DAOExcepcion {
-	      List<CochesDispDTO> lista = dal.dameDAL().obtenerCochesDisp(sucursal, categoria);
+	      List<CochesDispDTO> lista = dal.dameDAL().obtenerCochesDisp(sucursal);
 	      for(CochesDispDTO coDTO : lista) {
 	    	  int km = (int) coDTO.getKm();
 	    	anyadirCocheSinReserva(new Coche(coDTO.getMatricula(),km,coDTO.getCategoria()));
@@ -197,7 +196,7 @@ public class AlquilerVehiculos {
 	  {
 		  return new ArrayList<>(mCategoria);
 	  }
-	  
+
 	  public List<Coche> listarCoches()  throws LogicaExcepcion
 	  {
 		  return new ArrayList<>(mCoche);

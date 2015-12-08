@@ -19,7 +19,12 @@ public class DAL {
 		clientedao = new ClienteDAOImp();
 		sucursaldao = new SucursalDAOImp();
 		reservadao = new ReservaDAOImp();
-		cochesdao = new ICochesDispDAOImp();
+		try {
+			cochesdao = new ICochesDispDAOImp();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		entregasdao = new IEntregasDAOImp();
 	}
 
@@ -87,6 +92,14 @@ public class DAL {
 		}
 	}
 
+	public List<CochesDispDTO> obtenerCochesDisp(int sucursal) throws DAOExcepcion {
+		try {
+			return cochesdao.ObtenerCochesDisponibles(sucursal);
+		} catch (DAOExcepcion e) {
+			return null;
+		}
+	}
+
 	public void crearCliente(ClienteDTO cl)
 		{
 			try {
@@ -96,9 +109,7 @@ public class DAL {
 				}
 		}
 
-	public void CrearReserva (ReservaDTO res)
-
-	{
+	public void CrearReserva (ReservaDTO res) {
 		try {
 			reservadao.crearReserva(res);
 		} catch (DAOExcepcion e) {
