@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="257.0" prefWidth="281.99995585936995" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorListarVehiculosDisponibles">
+<AnchorPane prefHeight="257.0" prefWidth="281.99995585936995" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorListarVehiculosDisponibles">
   <children>
     <BorderPane onKeyPressed="#aceptar" prefHeight="243.0" prefWidth="330.99995585936995" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <bottom>
-        <Button mnemonicParsing="false" onAction="#aceptar" prefWidth="129.0" text="Aceptar">
+        <Button mnemonicParsing="false" onAction="#abrir" prefWidth="129.0" text="Abrir">
           <BorderPane.margin>
             <Insets left="130.0" />
           </BorderPane.margin>
@@ -21,8 +21,8 @@
           <center>
             <TableView fx:id="sucursales" prefHeight="277.0" prefWidth="270.0">
               <columns>
-                <TableColumn prefWidth="138.0" text="ID" fx:id="id" />
-                <TableColumn prefWidth="143.0" text="Direccion" fx:id="direccion" />
+                <TableColumn fx:id="id" prefWidth="138.0" text="ID" />
+                <TableColumn fx:id="direccion" prefWidth="143.0" text="Direccion" />
               </columns>
             </TableView>
           </center>

@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="257.0" prefWidth="281.99995585936995" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorListarVehiculosDisponibles2">
+  <children>
+    <BorderPane onKeyPressed="#aceptar" prefHeight="243.0" prefWidth="330.99995585936995" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <Button mnemonicParsing="false" onAction="#abrir" prefWidth="129.0" text="Abrir">
+          <BorderPane.margin>
+            <Insets left="130.0" />
+          </BorderPane.margin>
+        </Button>
+      </bottom>
+      <top>
+        <BorderPane prefHeight="200.0" prefWidth="200.0">
+          <center>
+            <TableView fx:id="sucursales" prefHeight="277.0" prefWidth="270.0">
+              <columns>
+                <TableColumn fx:id="id" prefWidth="138.0" text="ID" />
+                <TableColumn fx:id="direccion" prefWidth="143.0" text="Direccion" />
+              </columns>
+            </TableView>
+          </center>
+        </BorderPane>
+      </top>
+    </BorderPane>
+  </children>
 </AnchorPane>
-

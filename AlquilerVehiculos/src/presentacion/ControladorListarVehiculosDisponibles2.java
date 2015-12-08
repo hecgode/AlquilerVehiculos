@@ -26,7 +26,7 @@ import logica.Cliente;
 import logica.Reserva;
 import logica.Sucursal;
 
-public class ControladorListarVehiculosDisponibles extends ControladorCasoDeUso {
+public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso {
 	 @FXML
 	 private TableView<Sucursal> sucursales;
 	 @FXML

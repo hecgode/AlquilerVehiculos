@@ -29,6 +29,11 @@ public class AlquilerVehiculos {
 		private LocalDateTime fechaE = null;
 		private LocalDateTime fechaD = null;
 		private String matricula = "";
+		
+		private int numSucursal = 0;
+		
+		 public int getCocheNumScurusal(){return numSucursal;}
+		 public void SetCocheNumSucursal(int suc){numSucursal = suc;}
 
 		 public int getCocheId(){return id;}
 		 public void SetCocheId(int ident){id = ident;}
