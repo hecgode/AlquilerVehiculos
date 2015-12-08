@@ -88,13 +88,14 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
                 this.sucursales.getItems().addAll(AlquilerVehiculos.dameAlquiler().obtenerCochesSinReserva());
 
         } catch(Exception e) {
-                //AlquilerVehiculos.createAlert("Sin reservas", AlertType.INFORMATION, "No hay reservas para el ID introducido");
+                AlquilerVehiculos.createAlert("Sin reservas", AlertType.INFORMATION, "No hay reservas para el ID introducido");
         		e.printStackTrace();
         }
     }
 
     public void mostrar() throws DAOExcepcion {
-            Reserva res = sucursales.getSelectionModel().getSelectedItem();
+    	try {
+    		Reserva res = sucursales.getSelectionModel().getSelectedItem();
             String resu = res.getDniCliente();
             int b;
             //Sucursal y categoria La categopria se obtiene en getDNIcliente()
@@ -121,6 +122,10 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             //System.out.println(categoria0);
             //System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
             AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
+    	} catch(Exception e) {
+    		AlquilerVehiculos.createAlert("NO HAY COCHE SELECCIONADO", AlertType.INFORMATION, "No hay nada seleccionado.");
+    	}
+
     }
 
     private void parametros() throws DAOExcepcion {
