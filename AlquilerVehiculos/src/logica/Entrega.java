@@ -4,12 +4,12 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class Entrega {
- private int id;
+	private int id;
     private LocalDateTime fecha;
     private String seguro;
     private double km;
     private double combustible;
- private String cocheAsignado;
+    private String cocheAsignado;
     private String empleadoRealiza;
 
     private Coche mCoche;
@@ -18,7 +18,8 @@ public class Entrega {
     private Empleado mEmpleado;
     private ArrayList<Danyo> mDanyo = new ArrayList<Danyo>();
 
-    public Entrega (int id,LocalDateTime fecha, String seguro,double km, double combustible,String cocheAsignado,String empleadoRealiza) {
+    public Entrega (int id,LocalDateTime fecha, String seguro,double km, 
+    		double combustible,String cocheAsignado,String empleadoRealiza) {
      this.id = id;
      this.fecha=fecha;
      this.seguro=seguro;

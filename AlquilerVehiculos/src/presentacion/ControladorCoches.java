@@ -57,14 +57,14 @@ public class ControladorCoches extends ControladorCasoDeUso{
     }
 
 	public void reservar() throws IOException, DAOExcepcion {
-		Coche coche = null;
+		/*Coche coche = null;
 		try{
 			coche = coches.getSelectionModel().getSelectedItem();
 			AlquilerVehiculos.dameAlquiler().setCocheMatricula(coche.getMatricula());
 		}catch(Exception err) {
 			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "No hay coche seleccionado");
 			return;
-	    }
+	    }*/
 		Parent root = FXMLLoader.load(getClass().getResource("InsertarCocheBaseDeDatos.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
