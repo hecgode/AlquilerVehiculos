@@ -150,10 +150,10 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
       @FXML
       public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
     	  	parametros();
-    		Parent root = FXMLLoader.load(getClass().getResource("EntregarCoche.fxml"));
+    		Parent root = FXMLLoader.load(getClass().getResource("listarVehiculosDisponibles2.fxml"));
     		Scene scene = new Scene(root);
     		stage.setScene(scene);
-    		stage.setTitle("VER COCHES");
+    		stage.setTitle("COCHES DISPONIBLES DE LA SUCURSAL");
     		stage.show();
      }
 }

@@ -1,5 +1,6 @@
 package presentacion;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
@@ -9,6 +10,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -17,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import logica.AlquilerVehiculos;
 import logica.Entrega;
+import logica.Reserva;
 
 public class EntregaCoche extends ControladorCasoDeUso {
 
@@ -61,6 +66,24 @@ public class EntregaCoche extends ControladorCasoDeUso {
 			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Se ha producido un error");
 		}
 	}
+	
+	private void parametros() throws DAOExcepcion {
+    	try{
+    		
+        }catch(Exception err) {
+        	AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Selecciona una reserva previamente");
+        }
+       }
+	
+	@FXML
+    public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
+  	  	parametros();
+  		Parent root = FXMLLoader.load(getClass().getResource("EntregarCoche.fxml"));
+  		Scene scene = new Scene(root);
+  		stage.setScene(scene);
+  		stage.setTitle("VER COCHES");
+  		stage.show();
+   }
 	
 	public void close(ActionEvent event) {
 		try {

@@ -59,7 +59,7 @@
                 <KeyCodeCombination alt="ANY" code="F8" control="UP" meta="UP" shift="UP" shortcut="UP" />
               </accelerator>
             </MenuItem>
-            <MenuItem mnemonicParsing="false" text="Listar Vehiculos Disponibles">
+            <MenuItem mnemonicParsing="false" onAction="#ListarVehiculosDisponibles" text="Listar Vehiculos Disponibles">
               <accelerator>
                 <KeyCodeCombination alt="ANY" code="F12" control="UP" meta="UP" shift="UP" shortcut="UP" />
               </accelerator>
