@@ -38,7 +38,7 @@ public class IEntregasDAOImp implements IEntregasDAO {
 		    String cocheAsignado = entrega.getCocheAsignado();
 		    cocheAsignado = "ABC2244";
 		    String empleadoRealiza = entrega.getEmpleadoRealiza();
-		    empleadoRealiza = "34567890C";
+		    //empleadoRealiza = "34567890C";
 		    connManager.connect();
 		    String str = "INSERT INTO ENTREGA VALUES ("+id+",'"+formattedDataRecogida+"','"+seguro+"',"+kms+","+combustible+",'"+cocheAsignado+"','"+empleadoRealiza+"')";
 		    connManager.updateDB(str);

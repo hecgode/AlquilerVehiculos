@@ -30,8 +30,8 @@
           <TextField id="seguro" fx:id="seguro" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
           <TextField id="combustible" fx:id="combustible" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
           <TextField id="km" fx:id="km" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="EmpleadoRealizado" GridPane.rowIndex="4" />
-            <TextField id="empleasoRealiza" fx:id="empleadoRealiza" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+           <Label text="EmpleadoRealizado" GridPane.rowIndex="4" />
+           <ComboBox fx:id="cbx" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
          <rotationAxis>
             <Point3D />

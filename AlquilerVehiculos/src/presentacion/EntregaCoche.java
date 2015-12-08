@@ -5,9 +5,12 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import excepciones.DAOExcepcion;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -29,10 +32,15 @@ public class EntregaCoche extends ControladorCasoDeUso {
 	private TextField combustible;
 	@FXML
 	private TextField empleadoRealiza;
+	@FXML
+	private ComboBox<String> cbx;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stubs
+		ObservableList<String> clientes =
+			    FXCollections.observableArrayList("12345678A","23456789B","34567890C" );
+		cbx.setItems(clientes);
 	}
 
 	public void realizarEntrega() throws DAOExcepcion
