@@ -33,8 +33,6 @@ public class ControladorListarVehiculosDisponibles extends ControladorCasoDeUso 
 	 private TableColumn<Sucursal, Integer> id;
 	 @FXML
 	 private TableColumn<Sucursal, String> direccion;
-	 @FXML
-	 private Button aceptar;
 
 	 @FXML
 	 public void aceptar (ActionEvent eve) {
@@ -43,7 +41,7 @@ public class ControladorListarVehiculosDisponibles extends ControladorCasoDeUso 
 	 }
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
-		 
+
 		 id.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
 					 direccion.setCellValueFactory(param -> new
@@ -69,6 +67,8 @@ public class ControladorListarVehiculosDisponibles extends ControladorCasoDeUso 
 		 stage.setTitle("LISTADO DE SUCURSALES");
 		 try {
 			boot();
+			Button aceptar = new Button();
+
 		} catch (DAOExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,14 +77,16 @@ public class ControladorListarVehiculosDisponibles extends ControladorCasoDeUso 
 			e.printStackTrace();
 		}
 	}
-	
-	@FXML
-    public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
-  	  	parametros();
-  		Parent root = FXMLLoader.load(getClass().getResource("listarVehiculosDisponibles2.fxml"));
-  		Scene scene = new Scene(root);
-  		stage.setScene(scene);
-  		stage.setTitle("COCHES DISPONIBLES DE LA SUCURSAL");
-  		stage.show();
-   }
+
+	  public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
+	      parametros();
+	      Stage stage2 = new Stage(StageStyle.DECORATED);
+	      Parent root = FXMLLoader.load(getClass().getResource("listarVehiculosDisponibles2.fxml"));
+	      Scene scene = new Scene(root);
+	      stage2.setScene(scene);
+	      stage2.setTitle("COCHES DISPONIBLES DE LA SUCURSAL");
+	      stage2.show();
+	   }
+
+
 }
