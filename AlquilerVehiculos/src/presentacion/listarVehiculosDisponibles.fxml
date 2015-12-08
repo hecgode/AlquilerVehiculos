@@ -6,28 +6,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="257.0" prefWidth="281.99995585936995" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorListarVehiculosDisponibles">
+<AnchorPane prefHeight="257.0" prefWidth="281.99995585936995" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorListarVehiculosDisponibles">
   <children>
-    <BorderPane onKeyPressed="#aceptar" prefHeight="243.0" prefWidth="330.99995585936995" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <bottom>
-        <Button mnemonicParsing="false" onAction="#abrir" prefWidth="129.0" text="Abrir">
-          <BorderPane.margin>
-            <Insets left="130.0" />
-          </BorderPane.margin>
-        </Button>
-      </bottom>
+    <BorderPane onKeyPressed="#aceptar" prefHeight="207.0" prefWidth="281.99995585936995" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <top>
         <BorderPane prefHeight="200.0" prefWidth="200.0">
           <center>
             <TableView fx:id="sucursales" prefHeight="277.0" prefWidth="270.0">
               <columns>
-                <TableColumn fx:id="id" prefWidth="138.0" text="ID" />
-                <TableColumn fx:id="direccion" prefWidth="143.0" text="Direccion" />
+                <TableColumn prefWidth="138.0" text="ID" fx:id="id" />
+                <TableColumn prefWidth="143.0" text="Direccion" fx:id="direccion" />
               </columns>
             </TableView>
           </center>
         </BorderPane>
       </top>
     </BorderPane>
+    <Button layoutX="12.0" layoutY="227.0" mnemonicParsing="false" onAction="#abrir" prefWidth="129.0" text="Abrir" />
+    <Button layoutX="158.0" layoutY="227.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="110.00009999999747" text="Cancelar" />
   </children>
 </AnchorPane>

@@ -28,7 +28,7 @@ public class EntregaCoche extends ControladorCasoDeUso {
 	@FXML
 	private Button close_btn;
 
-	
+
 	@FXML
 	private TextField seguro;
 	@FXML
@@ -57,34 +57,24 @@ public class EntregaCoche extends ControladorCasoDeUso {
 					Double.valueOf(km.getText().toString()),Double.valueOf(combustible.getText().toString()),
 					AlquilerVehiculos.dameAlquiler().getCocheMatricula(),
 					empleadoRealiza.getText().toString());
-				
+
 				AlquilerVehiculos.dameAlquiler().crearEntrega(en);
-				AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Entrega Realizada con éxito");
-				
+				AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Entrega Realizada con ï¿½xito");
+
 		}catch(Exception err)
 		{
 			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Se ha producido un error");
 		}
 	}
-	
+
 	private void parametros() throws DAOExcepcion {
     	try{
-    		
+
         }catch(Exception err) {
         	AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Selecciona una reserva previamente");
         }
        }
-	
-	@FXML
-    public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
-  	  	parametros();
-  		Parent root = FXMLLoader.load(getClass().getResource("EntregarCoche.fxml"));
-  		Scene scene = new Scene(root);
-  		stage.setScene(scene);
-  		stage.setTitle("VER COCHES");
-  		stage.show();
-   }
-	
+
 	public void close(ActionEvent event) {
 		try {
 			Stage stage = (Stage) close_btn.getScene().getWindow();
