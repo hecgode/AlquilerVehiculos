@@ -6,29 +6,24 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="257.0" prefWidth="281.99995585936995" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.ControladorListarVehiculosDisponibles2">
+<AnchorPane prefHeight="257.0" prefWidth="281.99995585936995" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorListarVehiculosDisponibles2">
   <children>
-    <BorderPane onKeyPressed="#aceptar" prefHeight="243.0" prefWidth="330.99995585936995" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <bottom>
-        <Button mnemonicParsing="false" onAction="#abrir" prefWidth="129.0" text="Abrir">
-          <BorderPane.margin>
-            <Insets left="130.0" />
-          </BorderPane.margin>
-        </Button>
-      </bottom>
+    <BorderPane onKeyPressed="#aceptar" prefHeight="216.0" prefWidth="281.99995585936995" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <top>
         <BorderPane prefHeight="200.0" prefWidth="200.0">
           <center>
             <TableView fx:id="coches" prefHeight="277.0" prefWidth="270.0">
               <columns>
-                <TableColumn fx:id="matricula" prefWidth="138.0" text="matricula" />
-                <TableColumn fx:id="kms" prefWidth="143.0" text="kms" />
-                <TableColumn fx:id="categoria" prefWidth="143.0" text="categoria" />
+                <TableColumn prefWidth="138.0" text="matricula" fx:id="matricula" />
+                <TableColumn prefWidth="143.0" text="kms" fx:id="kms" />
+                <TableColumn prefWidth="143.0" text="categoria" fx:id="categoria" />
               </columns>
             </TableView>
           </center>
         </BorderPane>
       </top>
     </BorderPane>
+    <Button layoutX="14.0" layoutY="222.0" mnemonicParsing="false" onAction="#abrir" prefWidth="129.0" text="Abrir" />
+    <Button fx:id="close_btn" layoutX="143.0" layoutY="222.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="129.0" text="Cerrar" />
   </children>
 </AnchorPane>

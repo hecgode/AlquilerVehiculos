@@ -32,16 +32,17 @@ public class AlquilerVehiculos {
 
 		private int numSucursal = 0;
 
-		public int getCocheNumScurusal(){return numSucursal;}
-		public void SetCocheNumSucursal(int suc){numSucursal = suc;}
+		 public int getCocheNumScurusal(){return numSucursal;}
+		 public void SetCocheNumSucursal(int suc){numSucursal = suc;}
 
-		public int getCocheId(){return id;}
-		public void SetCocheId(int ident){id = ident;}
+		 public int getCocheId(){return id;}
+		 public void SetCocheId(int ident){id = ident;}
 
-		public void crearEntrega(Entrega res) {
-			EntregasDTO entregaDTO = new EntregasDTO(res.getId(),res.getFecha(),res.getSeguro(),res.getKm(),res.getCombustible(),res.getCocheAsignado(),res.getEmpleadoRealiza());
-			dal.creaEntrega(entregaDTO);
+		 public void crearEntrega(Entrega res) {
+			   EntregasDTO entregaDTO = new EntregasDTO(res.getId(),res.getFecha(),res.getSeguro(),res.getKm(),res.getCombustible(),res.getCocheAsignado(),res.getEmpleadoRealiza());
+			   dal.creaEntrega(entregaDTO);
 		}
+
 
 		 public LocalDateTime getCocheFechaE() {
 		     return fechaE;

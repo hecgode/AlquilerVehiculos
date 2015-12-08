@@ -19,12 +19,7 @@ public class DAL {
 		clientedao = new ClienteDAOImp();
 		sucursaldao = new SucursalDAOImp();
 		reservadao = new ReservaDAOImp();
-		try {
-			cochesdao = new ICochesDispDAOImp();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		cochesdao = new ICochesDispDAOImp();
 		entregasdao = new IEntregasDAOImp();
 	}
 
@@ -109,7 +104,9 @@ public class DAL {
 				}
 		}
 
-	public void CrearReserva (ReservaDTO res) {
+	public void CrearReserva (ReservaDTO res)
+
+	{
 		try {
 			reservadao.crearReserva(res);
 		} catch (DAOExcepcion e) {

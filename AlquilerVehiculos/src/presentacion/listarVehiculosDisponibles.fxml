@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="257.0" prefWidth="281.99995585936995" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentacion.ControladorListarVehiculosDisponibles">
   <children>
-    <BorderPane onKeyPressed="#aceptar" prefHeight="207.0" prefWidth="281.99995585936995" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <BorderPane onKeyPressed="#aceptar" prefHeight="216.0" prefWidth="281.99995585936995" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <top>
         <BorderPane prefHeight="200.0" prefWidth="200.0">
           <center>
@@ -22,7 +22,7 @@
         </BorderPane>
       </top>
     </BorderPane>
-    <Button layoutX="12.0" layoutY="227.0" mnemonicParsing="false" onAction="#abrir" prefWidth="129.0" text="Abrir" />
-    <Button layoutX="158.0" layoutY="227.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="110.00009999999747" text="Cancelar" />
+    <Button layoutX="12.0" layoutY="222.0" mnemonicParsing="false" onAction="#abrir" prefWidth="129.0" text="Abrir" />
+    <Button layoutX="141.0" layoutY="222.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="129.0" text="Cerrar" />
   </children>
 </AnchorPane>

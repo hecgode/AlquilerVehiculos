@@ -41,12 +41,12 @@ public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso
 
 	 @FXML
 	 public void aceptar (ActionEvent eve) {
-		 stage.close();
+		 this.stage.close();
 
 	 }
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
-		 
+
 		 matricula.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getMatricula()));
 					 kms.setCellValueFactory(param -> new
@@ -58,7 +58,7 @@ public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso
 					this.coches.getItems().addAll( AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(AlquilerVehiculos.dameAlquiler().getCocheNumScurusal()));
 
 	 }
-	       
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -74,8 +74,8 @@ public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	@FXML
     public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
   		stage.close();
