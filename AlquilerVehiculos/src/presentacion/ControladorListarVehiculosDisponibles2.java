@@ -23,16 +23,19 @@ import excepciones.DAOExcepcion;
 import excepciones.LogicaExcepcion;
 import logica.AlquilerVehiculos;
 import logica.Cliente;
+import logica.Coche;
 import logica.Reserva;
 import logica.Sucursal;
 
 public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso {
 	 @FXML
-	 private TableView<Sucursal> sucursales;
+	 private TableView<Coche> coches;
 	 @FXML
-	 private TableColumn<Sucursal, Integer> id;
+	 private TableColumn<Coche, String> matricula;
 	 @FXML
-	 private TableColumn<Sucursal, String> direccion;
+	 private TableColumn<Coche, Integer> kms;
+	 @FXML
+	 private TableColumn<Coche, String> categoria;
 	 @FXML
 	 private Button aceptar;
 
@@ -44,24 +47,18 @@ public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
 		 
-		 id.setCellValueFactory(param -> new
-					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
-					 direccion.setCellValueFactory(param -> new
-					ReadOnlyObjectWrapper<>(param.getValue().getDireccion()));
+		 matricula.setCellValueFactory(param -> new
+					ReadOnlyObjectWrapper<>(param.getValue().getMatricula()));
+					 kms.setCellValueFactory(param -> new
+					ReadOnlyObjectWrapper<>(param.getValue().getKm()));
+					 categoria.setCellValueFactory(param -> new
+								ReadOnlyObjectWrapper<>(param.getValue().getCategoria()));
 
 
-					this.sucursales.getItems().addAll( AlquilerVehiculos.dameAlquiler().listarSucursales());
+					this.coches.getItems().addAll( AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(AlquilerVehiculos.dameAlquiler().getCocheNumScurusal()));
 
 	 }
-
-	 private void parametros() throws DAOExcepcion {
-	    	try{
-		        Sucursal suc = sucursales.getSelectionModel().getSelectedItem();
-		        AlquilerVehiculos.dameAlquiler().SetCocheNumSucursal(suc.getIdentificador());
-	        }catch(Exception err) {
-	        	AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Selecciona una reserva previamente");
-	        }
-	       }
+	       
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -78,13 +75,9 @@ public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso
 		}
 	}
 	
+	
 	@FXML
     public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
-  	  	parametros();
-  		Parent root = FXMLLoader.load(getClass().getResource("listarVehiculosDisponibles2.fxml"));
-  		Scene scene = new Scene(root);
-  		stage.setScene(scene);
-  		stage.setTitle("COCHES DISPONIBLES DE LA SUCURSAL");
-  		stage.show();
+  		stage.close();
    }
 }

@@ -19,10 +19,11 @@
       <top>
         <BorderPane prefHeight="200.0" prefWidth="200.0">
           <center>
-            <TableView fx:id="sucursales" prefHeight="277.0" prefWidth="270.0">
+            <TableView fx:id="coches" prefHeight="277.0" prefWidth="270.0">
               <columns>
-                <TableColumn fx:id="id" prefWidth="138.0" text="ID" />
-                <TableColumn fx:id="direccion" prefWidth="143.0" text="Direccion" />
+                <TableColumn fx:id="matricula" prefWidth="138.0" text="matricula" />
+                <TableColumn fx:id="kms" prefWidth="143.0" text="kms" />
+                <TableColumn fx:id="categoria" prefWidth="143.0" text="categoria" />
               </columns>
             </TableView>
           </center>

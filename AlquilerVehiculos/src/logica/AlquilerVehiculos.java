@@ -29,9 +29,9 @@ public class AlquilerVehiculos {
 		private LocalDateTime fechaE = null;
 		private LocalDateTime fechaD = null;
 		private String matricula = "";
-
+		
 		private int numSucursal = 0;
-
+		
 		 public int getCocheNumScurusal(){return numSucursal;}
 		 public void SetCocheNumSucursal(int suc){numSucursal = suc;}
 
@@ -137,6 +137,15 @@ public class AlquilerVehiculos {
 	      }
 	      return mCoche;
 	  }
+	  
+	  public List<Coche> obtenerCochesDisp(int sucursal) throws DAOExcepcion {
+	      List<CochesDispDTO> lista = dal.dameDAL().obtenerCochesDisp(sucursal, categoria);
+	      for(CochesDispDTO coDTO : lista) {
+	    	  int km = (int) coDTO.getKm();
+	    	anyadirCocheSinReserva(new Coche(coDTO.getMatricula(),km,coDTO.getCategoria()));
+	      }
+	      return mCoche;
+	  }
 
 	  private void anyadirCocheSinReserva(Coche coche) {
 		  mCoche.add(coche);
@@ -187,6 +196,11 @@ public class AlquilerVehiculos {
 	  public List<Categoria> listarCategoria()  throws LogicaExcepcion
 	  {
 		  return new ArrayList<>(mCategoria);
+	  }
+	  
+	  public List<Coche> listarCoches()  throws LogicaExcepcion
+	  {
+		  return new ArrayList<>(mCoche);
 	  }
 
 

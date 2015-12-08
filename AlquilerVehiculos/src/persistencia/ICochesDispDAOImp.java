@@ -24,6 +24,40 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 			throw new DAOExcepcion(e);
 		}
 	}
+	
+	public List<CochesDispDTO> ObtenerCochesDisponibles(int sucursal) throws DAOExcepcion {
+		List <CochesDispDTO> listaCoches = new ArrayList<CochesDispDTO>();
+		  try{
+		   connManager.connect();
+		   ResultSet rs = connManager.queryDB("SELECT * FROM COCHE WHERE SUCURSAL ="+sucursal);
+		   System.out.println("HASTA AQUÃ  BIEN");
+		   if(rs.wasNull())
+		    System.out.println("Consulta vacÃ­a");
+		   connManager.close();
+		    try {
+
+		     while (rs.next()) {
+		       CochesDispDTO coche = new CochesDispDTO(
+		         rs.getString("MATRICULA"),
+		         rs.getDouble("KMSACTUALES"),
+		         rs.getInt("SUCURSAL"),
+		         rs.getString("CATEGORIA"),
+		         rs.getString("NOMBRE"));
+
+
+		       listaCoches.add(coche);
+		      
+
+		     }
+		    } catch (Exception e) { throw new DAOExcepcion(e);}
+		    
+
+		      return listaCoches;
+
+		  } catch (SQLException e) { throw new DAOExcepcion(e);}
+		       catch (DAOExcepcion e) { throw e;}
+
+		 }
 
 	public List<CochesDispDTO> ObtenerCochesDisponibles(int sucursal, String categoria) throws DAOExcepcion {
 		  try{
