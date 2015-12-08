@@ -19,11 +19,8 @@ public class EntregaCoche extends ControladorCasoDeUso {
 
 	@FXML
 	private Button close_btn;
+
 	
-	
-	
-	@FXML
-	private TextField id;
 	@FXML
 	private TextField seguro;
 	@FXML
@@ -42,27 +39,13 @@ public class EntregaCoche extends ControladorCasoDeUso {
 	{
 		try
 		{
-			int ejemplo1 =Integer.valueOf(id.getText().toString());
-			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "prueba 1");
-			LocalDateTime ejemplo2 = AlquilerVehiculos.dameAlquiler().getCocheFechaE();
-			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "prueba 2");
-			String ejemplo3 = seguro.getText().toString();
-			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "prueba 3");
-			double ejemplo4 = Double.valueOf(km.getText().toString());
-			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "prueba 4");
-			double ejemplo5 = Double.valueOf(combustible.getText().toString());
-			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "prueba 5");
-			String ejemplo6 = AlquilerVehiculos.dameAlquiler().getCocheMatricula();
-			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "prueba 6");
-			String ejemplo7 = empleadoRealiza.getText().toString();
-			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "prueba 7");
-			Entrega en = new Entrega(Integer.valueOf(id.getText().toString()),
+			Entrega en = new Entrega(AlquilerVehiculos.dameAlquiler().getCocheId(),
 					AlquilerVehiculos.dameAlquiler().getCocheFechaE(),seguro.getText().toString(),
 					Double.valueOf(km.getText().toString()),Double.valueOf(combustible.getText().toString()),
 					AlquilerVehiculos.dameAlquiler().getCocheMatricula(),
 					empleadoRealiza.getText().toString());
 				
-				//AlquilerVehiculos.dameAlquiler().crearEntrega(en);
+				AlquilerVehiculos.dameAlquiler().crearEntrega(en);
 				AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Entrega Realizada con éxito");
 				
 		}catch(Exception err)

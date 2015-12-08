@@ -31,14 +31,14 @@ public class IEntregasDAOImp implements IEntregasDAO {
 		    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		    int id = entrega.getId();
 		    LocalDateTime dateTime1 = entrega.getFechaE();
+		    String formattedDataRecogida=dateTime1.format(formatter);
 		    String seguro = entrega.getTipoSeguro();
 		    Double kms = entrega.getKms();
 		    Double combustible = entrega.getCombustible();
 		    String cocheAsignado = entrega.getCocheAsignado();
 		    String empleadoRealiza = entrega.getEmpleadoRealiza();
 		    connManager.connect();
-		   // connManager.connect();
-		    String str = "insert into RESERVA values ("+id+",'"+dateTime1+"','"+seguro+"',"+kms+","+combustible+",'"+cocheAsignado+"','"+empleadoRealiza+")";
+		    String str = "INSERT INTO ENTREGA VALUES ("+id+",'"+formattedDataRecogida+"','"+seguro+"',"+kms+","+combustible+",'"+cocheAsignado+"','"+empleadoRealiza+"')";
 		    connManager.updateDB(str);
 		    connManager.close();
 
