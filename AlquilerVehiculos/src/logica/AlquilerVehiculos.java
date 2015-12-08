@@ -29,9 +29,9 @@ public class AlquilerVehiculos {
 		private LocalDateTime fechaE = null;
 		private LocalDateTime fechaD = null;
 		private String matricula = "";
-		
+
 		private int numSucursal = 0;
-		
+
 		 public int getCocheNumScurusal(){return numSucursal;}
 		 public void SetCocheNumSucursal(int suc){numSucursal = suc;}
 
@@ -133,7 +133,7 @@ public class AlquilerVehiculos {
 	      List<CochesDispDTO> lista = dal.dameDAL().obtenerCochesDisp(sucursal, categoria);
 	      for(CochesDispDTO coDTO : lista) {
 	    	  int km = (int) coDTO.getKm();
-	    	anyadirCocheSinReserva(new Coche(coDTO.getMatricula(),km));
+	    	anyadirCocheSinReserva(new Coche(coDTO.getMatricula(),km,coDTO.getCategoria()));
 	      }
 	      return mCoche;
 	  }
