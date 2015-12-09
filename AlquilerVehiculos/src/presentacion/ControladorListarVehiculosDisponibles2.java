@@ -5,6 +5,7 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -41,8 +42,9 @@ public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso
 
 	 @FXML
 	 public void aceptar (ActionEvent eve) {
-		 this.stage.close();
-
+		 Node source = (Node) eve.getSource();
+		 Stage stage2 = (Stage) source.getScene().getWindow();
+		 stage2.close();
 	 }
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
@@ -62,8 +64,8 @@ public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		 stage = new Stage(StageStyle.DECORATED);
-		 stage.setTitle("LISTADO DE SUCURSALES");
+		 this.stage = new Stage(StageStyle.DECORATED);
+		 this.stage.setTitle("LISTADO DE SUCURSALES");
 		 try {
 			boot();
 		} catch (DAOExcepcion e) {
@@ -74,10 +76,4 @@ public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso
 			e.printStackTrace();
 		}
 	}
-
-
-	@FXML
-    public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
-  		stage.close();
-   }
 }

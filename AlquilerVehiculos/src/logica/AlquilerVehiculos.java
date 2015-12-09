@@ -130,6 +130,7 @@ public class AlquilerVehiculos {
 	  }
 
 	  public List<Coche> obtenerCochesDisp(int sucursal,String categoria) throws DAOExcepcion {
+		  mCoche.clear();
 	      List<CochesDispDTO> lista = dal.dameDAL().obtenerCochesDisp(sucursal, categoria);
 	      for(CochesDispDTO coDTO : lista) {
 	    	  int km = (int) coDTO.getKm();
@@ -139,6 +140,7 @@ public class AlquilerVehiculos {
 	  }
 
 	  public List<Coche> obtenerCochesDisp(int sucursal) throws DAOExcepcion {
+		  mCoche.clear();
 	      List<CochesDispDTO> lista = dal.dameDAL().obtenerCochesDisp(sucursal);
 	      for(CochesDispDTO coDTO : lista) {
 	    	  int km = (int) coDTO.getKm();
