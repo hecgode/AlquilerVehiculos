@@ -28,7 +28,7 @@ public class EntregaCoche extends ControladorCasoDeUso {
 	@FXML
 	private Button close_btn;
 
-	
+
 	@FXML
 	private TextField seguro;
 	@FXML
@@ -56,25 +56,27 @@ public class EntregaCoche extends ControladorCasoDeUso {
 					AlquilerVehiculos.dameAlquiler().getCocheFechaE(),seguro.getText().toString(),
 					Double.valueOf(km.getText().toString()),Double.valueOf(combustible.getText().toString()),
 					AlquilerVehiculos.dameAlquiler().getCocheMatricula(),
-					empleadoRealiza.getText().toString());
-				
+					this.cbx.getSelectionModel().getSelectedItem().toString());
+
+
+			//Entrega en = new Entrega(AlquilerVehiculos.dameAlquiler().getCocheId(),AlquilerVehiculos.dameAlquiler().getCocheFechaE(),seguro.getText().toString(),2.0,4.0,AlquilerVehiculos.dameAlquiler().getCocheMatricula(),"23456789B");
 				AlquilerVehiculos.dameAlquiler().crearEntrega(en);
-				AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Entrega Realizada con éxito");
-				
-		}catch(Exception err)
-		{
+				AlquilerVehiculos.createAlert("INFORMACION", AlertType.INFORMATION, "Entrega Realizada con ï¿½xito");
+
+		}catch(Exception err) {
+			System.out.println("1.- "+AlquilerVehiculos.dameAlquiler().getCocheId()+" 2.- "+AlquilerVehiculos.dameAlquiler().getCocheFechaE()+"3.- "+AlquilerVehiculos.dameAlquiler().getCocheMatricula());
 			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Se ha producido un error");
 		}
 	}
-	
+
 	private void parametros() throws DAOExcepcion {
     	try{
-    		
+
         }catch(Exception err) {
         	AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Selecciona una reserva previamente");
         }
        }
-	
+
 	@FXML
     public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
   	  	parametros();
@@ -84,7 +86,7 @@ public class EntregaCoche extends ControladorCasoDeUso {
   		stage.setTitle("VER COCHES");
   		stage.show();
    }
-	
+
 	public void close(ActionEvent event) {
 		try {
 			Stage stage = (Stage) close_btn.getScene().getWindow();
