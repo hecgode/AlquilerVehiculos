@@ -71,6 +71,12 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 				Reserva nuevaReserva = new Reserva(Integer.parseInt(id.getText()),LocalDateTime.of(recogida.getValue(),local.MIDNIGHT),LocalDateTime.of(devol.getValue(),local.NOON),moda.getText(),dnic.getText(),
 						 this.cbx3.getSelectionModel().getSelectedItem().toString(),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()),Integer.parseInt(this.cbx2.getSelectionModel().getSelectedItem().toString()));
 
+			if(AlquilerVehiculos.dameAlquiler().comprobarReservasID(Integer.parseInt(id.getText())) == false)
+			{
+				AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "id de la reserva existente,elija otro");
+			}
+			else
+			{
 				 if(id.getText().length()<=0 || moda.getText().length()<=0 || dnic.getText().length()<=0) {
 					 AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "comprueba que ningun campo este vacio");
 				 }
@@ -86,6 +92,7 @@ public class ControladorCrearReserva extends ControladorCasoDeUso {
 					 }
 				}
 			 }
+			}
 		 }
 		 catch(Exception e) {
 			 e.printStackTrace();

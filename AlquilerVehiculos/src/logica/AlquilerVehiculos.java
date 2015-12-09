@@ -100,6 +100,14 @@ public class AlquilerVehiculos {
 	  /*****************METODOS DE RESERVAS*******************************************************************************************
 	   * **************************************************************************************/
 
+	  public boolean comprobarReservasID(int x) throws DAOExcepcion {
+		  for (int i=0 ; i<mReserva.size();i++){
+	    	   if(mReserva.get(i).getId() == x){return false;}
+		  }
+		  return true;
+	  }
+	  
+	  
 	  public void cargarReservasporSucursal() throws DAOExcepcion {
 		  List<ReservaDTO> listaresdto = dal.dameDAL().obtenerReservas();
 		  for (ReservaDTO sucDTO : listaresdto) {
