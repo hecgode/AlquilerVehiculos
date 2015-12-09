@@ -67,7 +67,7 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 		   while(listaCoches.isEmpty() == true && intentos <5)
 		   {
 		   connManager.connect();
-		   ResultSet rs = connManager.queryDB("SELECT * FROM COCHE WHERE SUCURSAL ="+sucursal);
+		   ResultSet rs = connManager.queryDB("SELECT * FROM COCHE C WHERE C.SUCURSAL ="+sucursal+" AND C.MATRICULA NOT IN(SELECT E.COCHEASIGNADO FROM ENTREGA E WHERE C.MATRICULA = E.COCHEASIGNADO)");
 		   System.out.println("HASTA AQUÃ  BIEN");
 		   if(rs.wasNull())
 		    System.out.println("Consulta vacÃ­a");
@@ -77,8 +77,8 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 		     {
 		      switch(categoria)
 		      {
-		       case "economy":categoria = "sedán";break;
-		       case "sedán":categoria = "luxury";break;
+		       case "economy":categoria = "sed\u00e1n";break;
+		       case "sed\u00e1n":categoria = "luxury";break;
 		       default:intentos = 5;break;
 		      }
 		     }
