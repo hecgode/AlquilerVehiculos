@@ -62,6 +62,7 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 	public List<CochesDispDTO> ObtenerCochesDisponibles(int sucursal, String categoria) throws DAOExcepcion {
 		  try{
 		   int intentos = 1;
+		   System.out.print(categoria);
 		   List <CochesDispDTO> listaCoches = new ArrayList<CochesDispDTO>();
 		   while(listaCoches.isEmpty() == true && intentos <5)
 		   {
@@ -84,8 +85,9 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 		    try {
 
 		     while (rs.next()) {
+		    	System.out.print(rs.getString("NOMBRE"));
 
-		      if(rs.getString("CATEGORIA") == categoria) {
+		      if(rs.getString("NOMBRE").equals(categoria)) {
 		       CochesDispDTO coche = new CochesDispDTO(
 		         rs.getString("MATRICULA"),
 		         rs.getDouble("KMSACTUALES"),

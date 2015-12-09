@@ -99,8 +99,8 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             String resu = res.getDniCliente();
             int b;
             //Sucursal y categoria La categopria se obtiene en getDNIcliente()
-            String categoria0 = res.getNombreCategoria();
-            int sucursal = res.getIdSucursalDevolucion();
+            String categoria0 = res.getDniCliente();
+            int sucursal = res.getIdSucursalRecogida();
             //System.out.println("Hasta aquí");
             //id_0.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
             //Fecha_recogida.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getFechaRecogida()));
@@ -121,7 +121,7 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             //System.out.println(sucursal);
             //System.out.println(categoria0);
             //System.out.println(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0));
-            AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
+           // AlquilerVehiculos.createAlert("COCHE SELECCIONADO", AlertType.INFORMATION, String.valueOf(AlquilerVehiculos.dameAlquiler().obtenerCochesDisp(sucursal, categoria0)));
     	} catch(Exception e) {
     		AlquilerVehiculos.createAlert("NO HAY COCHE SELECCIONADO", AlertType.INFORMATION, "No hay nada seleccionado.");
     	}
@@ -131,7 +131,7 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
     private void parametros() throws DAOExcepcion {
     	try{
 	        Reserva res = sucursales.getSelectionModel().getSelectedItem();
-	        String categoria0 = res.getNombreCategoria();
+	        String categoria0 = res.getDniCliente();
 	        int sucursal = res.getIdSucursalDevolucion();
 	        AlquilerVehiculos.dameAlquiler().setCocheCategoria(categoria0);
 	        AlquilerVehiculos.dameAlquiler().setCocheSucursal(sucursal);
