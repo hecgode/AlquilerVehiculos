@@ -23,7 +23,7 @@
         </BorderPane>
       </top>
     </BorderPane>
-    <Button layoutX="14.0" layoutY="222.0" mnemonicParsing="false" onAction="#abrir" prefWidth="129.0" text="Abrir" />
+    <Button layoutX="14.0" layoutY="222.0" mnemonicParsing="false" prefWidth="129.0" text="Abrir" />
     <Button fx:id="close_btn" layoutX="143.0" layoutY="222.0" mnemonicParsing="false" onAction="#aceptar" prefWidth="129.0" text="Cerrar" />
   </children>
 </AnchorPane>

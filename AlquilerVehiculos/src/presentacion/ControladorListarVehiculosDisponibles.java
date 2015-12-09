@@ -43,7 +43,7 @@ public class ControladorListarVehiculosDisponibles extends ControladorCasoDeUso 
 	 }
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
-		 
+
 		 id.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
 					 direccion.setCellValueFactory(param -> new
@@ -65,6 +65,7 @@ public class ControladorListarVehiculosDisponibles extends ControladorCasoDeUso 
 		  		stage2.setTitle("COCHES DISPONIBLES DE LA SUCURSAL");
 		  		stage2.show();
 	        }catch(Exception err) {
+	        	err.printStackTrace();
 	        	AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Selecciona una reserva previamente");
 	        }
 	       }
@@ -83,8 +84,8 @@ public class ControladorListarVehiculosDisponibles extends ControladorCasoDeUso 
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	@FXML
     public void abrir(ActionEvent event) throws IOException, DAOExcepcion {
   	  	parametros();
