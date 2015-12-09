@@ -50,6 +50,11 @@ public class EntregaCoche extends ControladorCasoDeUso {
 
 	public void realizarEntrega() throws DAOExcepcion
 	{
+		if(Double.valueOf(km.getText().toString())<0 || Double.valueOf(combustible.getText().toString())<0)
+		{
+			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Introduce valores positivos");
+			return;
+		}
 		try
 		{
 			Entrega en = new Entrega(AlquilerVehiculos.dameAlquiler().getCocheId(),
@@ -61,7 +66,7 @@ public class EntregaCoche extends ControladorCasoDeUso {
 
 			//Entrega en = new Entrega(AlquilerVehiculos.dameAlquiler().getCocheId(),AlquilerVehiculos.dameAlquiler().getCocheFechaE(),seguro.getText().toString(),2.0,4.0,AlquilerVehiculos.dameAlquiler().getCocheMatricula(),"23456789B");
 				AlquilerVehiculos.dameAlquiler().crearEntrega(en);
-				AlquilerVehiculos.createAlert("INFORMACION", AlertType.INFORMATION, "Entrega Realizada con �xito");
+				AlquilerVehiculos.createAlert("INFORMACION", AlertType.INFORMATION, "Entrega Realizada con exito");
 
 		}catch(Exception err) {
 			System.out.println("1.- "+AlquilerVehiculos.dameAlquiler().getCocheId()+" 2.- "+AlquilerVehiculos.dameAlquiler().getCocheFechaE()+"3.- "+AlquilerVehiculos.dameAlquiler().getCocheMatricula());

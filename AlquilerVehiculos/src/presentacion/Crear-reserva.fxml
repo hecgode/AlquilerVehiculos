@@ -21,8 +21,8 @@
         <TextField fx:id="moda" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         <Label text="dnic:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
         <TextField fx:id="dnic" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-        <Label text="ud1:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-        <Label text="ud2:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <Label text="SucursalRecogida:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <Label text="SucursalDevolución:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
         <Label text="Nombre categoria:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <ComboBox fx:id="cbx" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
         <ComboBox fx:id="cbx2" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
