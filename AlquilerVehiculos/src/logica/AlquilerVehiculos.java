@@ -19,77 +19,7 @@ public class AlquilerVehiculos {
 	    private ArrayList<Sucursal> mSucursal = new ArrayList <Sucursal>();
 		private DAL dal;
 		private static AlquilerVehiculos Alquiler;
-		private int id = 0;
 
-
-		private int sucursal = 0;
-
-		private String categoria = "";
-
-		private LocalDateTime fechaE = null;
-		private LocalDateTime fechaD = null;
-		private String matricula = "";
-
-		private int numSucursal = 0;
-
-		 public int getCocheNumScurusal(){return numSucursal;}
-		 public void SetCocheNumSucursal(int suc){numSucursal = suc;}
-
-		 public int getCocheId(){return id;}
-		 public void SetCocheId(int ident){id = ident;}
-
-		 public void crearEntrega(Entrega res) {
-			   EntregasDTO entregaDTO = new EntregasDTO(res.getId(),res.getFecha(),res.getSeguro(),res.getKm(),res.getCombustible(),res.getCocheAsignado(),res.getEmpleadoRealiza());
-			   dal.creaEntrega(entregaDTO);
-		}
-
-
-		 public LocalDateTime getCocheFechaE() {
-		     return fechaE;
-		 }
-
-		  public void setCocheFechaE(LocalDateTime fecha) {
-		    fechaE = fecha;
-		  }
-
-		  public LocalDateTime getCocheFechaD() {
-		      return fechaD;
-		   }
-
-		  public void setCocheFechaD(LocalDateTime fecha) {
-		    fechaD = fecha;
-		  }
-
-		  public String getCocheMatricula()
-		  {
-		   return matricula;
-		  }
-
-		  public void setCocheMatricula(String matr) {
-		   matricula = matr;
-		  }
-
-		public int getCocheSucursal() {
-		   return sucursal;
-		}
-
-		public void setCocheSucursal(int sucur) {
-			sucursal = sucur;
-		}
-
-		public String getCocheCategoria() {
-		   return categoria;
-		}
-
-		public void setCocheCategoria(String cat) {
-		   categoria = cat;
-		}
-
-		public AlquilerVehiculos()  throws DAOExcepcion {
-
-	    this.dal = DAL.dameDAL();
-	    CargarSistema();
-		}
 
 	  void CargarSistema() throws DAOExcepcion
 	  {
@@ -339,6 +269,81 @@ public class AlquilerVehiculos {
 	/************************************************************************************************************
 	 * **************************************************************************************/
 
+		private int id = 0;
+
+
+		private int sucursal = 0;
+
+		private String categoria = "";
+
+		private LocalDateTime fechaE = null;
+		private LocalDateTime fechaD = null;
+		private String matricula = "";
+
+		private int numSucursal = 0;
+
+		 public int getCocheNumScurusal(){return numSucursal;}
+		 public void SetCocheNumSucursal(int suc){numSucursal = suc;}
+
+		 public int getCocheId(){return id;}
+		 public void SetCocheId(int ident){id = ident;}
+
+		 public void crearEntrega(Entrega res) {
+			   EntregasDTO entregaDTO = new EntregasDTO(res.getId(),res.getFecha(),res.getSeguro(),res.getKm(),res.getCombustible(),res.getCocheAsignado(),res.getEmpleadoRealiza());
+			   dal.creaEntrega(entregaDTO);
+		}
+
+
+		 public LocalDateTime getCocheFechaE() {
+		     return fechaE;
+		 }
+
+		  public void setCocheFechaE(LocalDateTime fecha) {
+		    fechaE = fecha;
+		  }
+
+		  public LocalDateTime getCocheFechaD() {
+		      return fechaD;
+		   }
+
+		  public void setCocheFechaD(LocalDateTime fecha) {
+		    fechaD = fecha;
+		  }
+
+		  public String getCocheMatricula()
+		  {
+		   return matricula;
+		  }
+
+		  public void setCocheMatricula(String matr) {
+		   matricula = matr;
+		  }
+
+		public int getCocheSucursal() {
+		   return sucursal;
+		}
+
+		public void setCocheSucursal(int sucur) {
+			sucursal = sucur;
+		}
+
+		public String getCocheCategoria() {
+		   return categoria;
+		}
+
+		public void setCocheCategoria(String cat) {
+		   categoria = cat;
+		}
+
+		public AlquilerVehiculos()  throws DAOExcepcion {
+
+	    this.dal = DAL.dameDAL();
+	    CargarSistema();
+		}
+	  
+	  
+	  
+	  
 	  public List<Cliente> getmCliente() {
 	      return mCliente;
 	  }
