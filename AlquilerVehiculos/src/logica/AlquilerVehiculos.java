@@ -5,8 +5,11 @@ import java.util.*;
 import excepciones.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import persistencia.DAL;
 import persistencia.dto.*;
+import presentacion.AlquilerVehiculosApp;
 
 
 public class AlquilerVehiculos {
@@ -36,8 +39,8 @@ public class AlquilerVehiculos {
 		  }
 		  return true;
 	  }
-	  
-	  
+
+
 	  public void cargarReservasporSucursal() throws DAOExcepcion {
 		  List<ReservaDTO> listaresdto = dal.dameDAL().obtenerReservas();
 		  for (ReservaDTO sucDTO : listaresdto) {
@@ -340,10 +343,10 @@ public class AlquilerVehiculos {
 	    this.dal = DAL.dameDAL();
 	    CargarSistema();
 		}
-	  
-	  
-	  
-	  
+
+
+
+
 	  public List<Cliente> getmCliente() {
 	      return mCliente;
 	  }
@@ -393,6 +396,9 @@ public class AlquilerVehiculos {
 
 	  public static void createAlert(String title, AlertType alertType, String text) throws DAOExcepcion {
 			Alert alert = new Alert(alertType);
+			 Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+				stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
 			alert.setTitle(title);
 			alert.setHeaderText(null);
 			alert.setContentText(text);

@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -63,6 +64,8 @@ public class ControladorEntregarCocheReservado extends ControladorCasoDeUso {
             // TODO Auto-generated method stub
              stage = new Stage(StageStyle.DECORATED);
              stage.setTitle("COCHES SIN RESERVA");
+ 			stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
              try {
 				boot();
 			} catch (DAOExcepcion e) {

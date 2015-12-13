@@ -43,12 +43,12 @@ public class ControladorPrincipal {
 
 	 @FXML
 	 private ImageView i1;
-	 
+
 	 @FXML
 	 void ListarVehiculosDisponibles2(ActionEvent event) throws LogicaExcepcion {
 		 initCasoDeUso(LISTAR_VEHICULOS_DISPONIBLES2, ControladorListarVehiculosDisponibles2.class).show();
 	 }
-	 
+
 	 @FXML
 	 void ListarVehiculosDisponibles(ActionEvent event) throws LogicaExcepcion {
 		 initCasoDeUso(LISTAR_VEHICULOS_DISPONIBLES, ControladorListarVehiculosDisponibles.class).show();
@@ -106,6 +106,9 @@ public class ControladorPrincipal {
 
 	 public void exit() {
 		 Alert alert = new Alert(AlertType.CONFIRMATION, "¿De verdad quieres salir?", ButtonType.YES, ButtonType.NO);
+		 Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+			stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
 		 alert.showAndWait();
 
 		 if (alert.getResult() == ButtonType.YES) {
@@ -119,8 +122,15 @@ public class ControladorPrincipal {
 
 	 @FXML
 	 void about(ActionEvent event) {
-		 	Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("ABOUT");
+
+		 
+		 	
+		 Alert alert = new Alert(AlertType.INFORMATION);
+		 Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+			stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
+
+		 alert.setTitle("ABOUT");
 			alert.setHeaderText(null);
 			alert.setContentText("Autores de la aplicacion:\n"
 					+ "Hector Gomez\n"

@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -61,7 +62,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 {
 
 		 try {
-			 
+
 			 LocalTime local = null;
 
 			 nuevoCliente = new Cliente(
@@ -151,5 +152,7 @@ public class ControladorCrearCliente extends ControladorCasoDeUso {
 	 public void initialize(URL location, ResourceBundle resources) {
 		 stage = new Stage(StageStyle.DECORATED);
 		 stage.setTitle("CREAR CLIENTE");
+			stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
 	 }
 }

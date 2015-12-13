@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import logica.AlquilerVehiculos;
@@ -74,6 +75,8 @@ public class ControladorListarClientes extends ControladorCasoDeUso {
 		public void initialize(URL location, ResourceBundle resources) {
 			 Stage stage = new Stage(StageStyle.DECORATED);
 			 stage.setTitle("LISTADO DE SUCURSALES");
+				stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
 			 try {
 				boot();
 			} catch (DAOExcepcion e) {

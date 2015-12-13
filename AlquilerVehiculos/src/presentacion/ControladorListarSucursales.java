@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -36,7 +37,7 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 	 }
 
 	 public void boot() throws DAOExcepcion, LogicaExcepcion {
-		 
+
 		 id.setCellValueFactory(param -> new
 					ReadOnlyObjectWrapper<>(param.getValue().getIdentificador()));
 					 direccion.setCellValueFactory(param -> new
@@ -52,6 +53,8 @@ public class ControladorListarSucursales extends ControladorCasoDeUso {
 	public void initialize(URL location, ResourceBundle resources) {
 		 stage = new Stage(StageStyle.DECORATED);
 		 stage.setTitle("LISTADO DE SUCURSALES");
+			stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
 		 try {
 			boot();
 		} catch (DAOExcepcion e) {

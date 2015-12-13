@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -71,6 +72,8 @@ public class ControladorCoches extends ControladorCasoDeUso{
 		stage.setTitle("INSERTAR DATOS RESERVA");
 		stage.setResizable(false);
 		stage.show();
+		stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
 	}
 
 	public void cerrar(ActionEvent event) {

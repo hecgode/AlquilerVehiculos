@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -59,6 +60,8 @@ public class ControladorListarReservaSucursales extends ControladorCasoDeUso {
 		// TODO Auto-generated method stub
 		 stage = new Stage(StageStyle.DECORATED);
 		 stage.setTitle("LISTADO DE SUCURSALES RESERVA");
+			stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
 
 	}
 

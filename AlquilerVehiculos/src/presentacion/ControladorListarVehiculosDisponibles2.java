@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -66,6 +67,8 @@ public class ControladorListarVehiculosDisponibles2 extends ControladorCasoDeUso
 	public void initialize(URL location, ResourceBundle resources) {
 		 this.stage = new Stage(StageStyle.DECORATED);
 		 this.stage.setTitle("LISTADO DE SUCURSALES");
+			stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
 		 try {
 			boot();
 		} catch (DAOExcepcion e) {

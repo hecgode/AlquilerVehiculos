@@ -12,6 +12,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import logica.AlquilerVehiculos;
@@ -42,6 +43,8 @@ public class ControladorCrearSucursal extends ControladorCasoDeUso {
 						 //Invocamos el servicio encargado de Crear un nuevo cliente
 
 							 AlquilerVehiculos.dameAlquiler().crearSucursal(nuevaSucursal);
+								AlquilerVehiculos.createAlert("Informacion", AlertType.INFORMATION, "Sucursal creada con exito");
+								stage.close();
 
 						//AlquilerVehiculos.dameAlquilerVehiculos().crearCliente(nuevoCliente);
 						 }
@@ -63,6 +66,8 @@ public class ControladorCrearSucursal extends ControladorCasoDeUso {
 
 		 stage = new Stage(StageStyle.DECORATED);
 		 stage.setTitle("CREAR SUCURSAL");
+			stage.getIcons().add(new Image(AlquilerVehiculosApp.class.getResourceAsStream( "coche.png" )));
+
 
 
 	 }
