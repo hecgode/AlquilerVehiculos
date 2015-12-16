@@ -70,7 +70,6 @@ public class EntregaCoche extends ControladorCasoDeUso {
 				AlquilerVehiculos.createAlert("INFORMACION", AlertType.INFORMATION, "Entrega Realizada con exito");
 
 		}catch(Exception err) {
-			System.out.println("1.- "+AlquilerVehiculos.dameAlquiler().getCocheId()+" 2.- "+AlquilerVehiculos.dameAlquiler().getCocheFechaE()+"3.- "+AlquilerVehiculos.dameAlquiler().getCocheMatricula());
 			AlquilerVehiculos.createAlert("ERROR", AlertType.ERROR, "Se ha producido un error");
 		}
 	}
@@ -99,7 +98,6 @@ public class EntregaCoche extends ControladorCasoDeUso {
 		try {
 			Stage stage = (Stage) close_btn.getScene().getWindow();
 			stage.close();
-			System.out.println("Back in the 90's. I was in a very famous TV show... ");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

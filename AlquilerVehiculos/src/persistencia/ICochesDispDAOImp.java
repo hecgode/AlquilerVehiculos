@@ -24,16 +24,14 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 			throw new DAOExcepcion(e);
 		}
 	}
-	
+
 	public List<CochesDispDTO> ObtenerCochesDisponibles(int sucursal) throws DAOExcepcion {
 		List <CochesDispDTO> listaCoches = new ArrayList<CochesDispDTO>();
 		  try{
 		   connManager.connect();
 		   ResultSet rs = connManager.queryDB("SELECT * FROM COCHE WHERE SUCURSAL ="+sucursal);
-		   System.out.println("HASTA AQUÃ  BIEN");
 		   if(rs.wasNull())
-		    System.out.println("Consulta vacÃ­a");
-		   connManager.close();
+			   connManager.close();
 		    try {
 
 		     while (rs.next()) {
@@ -46,11 +44,11 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 
 
 		       listaCoches.add(coche);
-		      
+
 
 		     }
 		    } catch (Exception e) { throw new DAOExcepcion(e);}
-		    
+
 
 		      return listaCoches;
 
@@ -62,15 +60,12 @@ public class ICochesDispDAOImp implements ICochesDispDAO {
 	public List<CochesDispDTO> ObtenerCochesDisponibles(int sucursal, String categoria) throws DAOExcepcion {
 		  try{
 		   int intentos = 1;
-		   System.out.print(categoria);
 		   List <CochesDispDTO> listaCoches = new ArrayList<CochesDispDTO>();
 		   while(listaCoches.isEmpty() == true && intentos <5)
 		   {
 		   connManager.connect();
 		   ResultSet rs = connManager.queryDB("SELECT * FROM COCHE C WHERE C.SUCURSAL ="+sucursal+" AND C.MATRICULA NOT IN(SELECT E.COCHEASIGNADO FROM ENTREGA E WHERE C.MATRICULA = E.COCHEASIGNADO)");
-		   System.out.println("HASTA AQUÃ  BIEN");
 		   if(rs.wasNull())
-		    System.out.println("Consulta vacÃ­a");
 		   connManager.close();
 
 		     if(intentos != 1)
